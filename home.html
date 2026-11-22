@@ -66,6 +66,8 @@ img,video{display:block;max-width:100%}
 .duo video{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:clamp(18px,2.6vw,28px);background:#1a1a1c}
 .duo figcaption{margin-top:12px;font-size:13px;color:var(--mut);text-align:left;line-height:1.4}
 .duo figcaption b{display:block;color:var(--lt);font-weight:600}
+.more{display:inline-flex;gap:8px;margin-top:clamp(40px,6vh,56px);font-size:17px;font-weight:600;color:var(--acc)}
+.more i{font-style:normal;transition:transform .3s var(--ease)}.more:hover i{transform:translateX(4px)}
 .badge{display:inline-block;margin-top:24px;font-size:12px;font-weight:600;color:#d2d2d7;border:1px solid #3a3a3e;border-radius:99px;padding:6px 12px}
 
 /* light area */
@@ -162,6 +164,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
   <div><b>1.35<small>kWh</small></b><span>직접 만든 13S6P 배터리</span></div>
   <div><b>3.1<small>배</small></b><span>시판 전동 고카트 대비 배터리 용량</span></div>
  </div>
+ <a class="more rv" href="kart.html">제작 이야기 보기 <i>→</i></a>
 </section>
 
 <section class="feat">
