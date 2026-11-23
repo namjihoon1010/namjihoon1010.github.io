@@ -31,8 +31,8 @@ document.querySelectorAll('.spin').forEach(el => {
   const pxPerFrame = () => Math.max(4, el.clientWidth / n);   // one screen width = one full turn
   let x0 = 0, p0 = 0, lastX = 0, lastT = 0, vel = 0, raf = 0;
   const begin = x => { touched = true; el.classList.add('used', 'drag'); cancelAnimationFrame(raf); x0 = lastX = x; p0 = pos; lastT = performance.now(); vel = 0; };
-  const move = x => { const t = performance.now(); vel = (x - lastX) / Math.max(1, t - lastT); lastX = x; lastT = t; show(p0 - (x - x0) / pxPerFrame()); };
-  const finish = () => { el.classList.remove('drag'); let v = -vel * 16 / pxPerFrame();  // frames per 16 ms
+  const move = x => { const t = performance.now(); vel = (x - lastX) / Math.max(1, t - lastT); lastX = x; lastT = t; show(p0 + (x - x0) / pxPerFrame()); };
+  const finish = () => { el.classList.remove('drag'); let v = vel * 16 / pxPerFrame();  // frames per 16 ms
     (function coast() { if (Math.abs(v) < 0.02) return; show(pos + v); v *= 0.93; raf = requestAnimationFrame(coast); })(); };
 
   // touch
@@ -55,5 +55,5 @@ document.querySelectorAll('.spin').forEach(el => {
 
   // keyboard
   el.tabIndex = 0;
-  el.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(pos + 1); if (e.key === 'ArrowRight') show(pos - 1); });
+  el.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(pos - 1); if (e.key === 'ArrowRight') show(pos + 1); });
 });
