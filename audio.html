@@ -19,6 +19,12 @@
 .lg span{display:inline-flex;align-items:center;gap:8px}
 .lg i{display:inline-block;width:22px;height:0;border-top:2px dashed #8e8e93}
 .lg i.now{border-top:3px solid var(--acc)}
+.subg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;gap:12px;margin-top:clamp(48px,8vh,72px);max-width:760px}
+.subg figure{margin:0;position:relative;border-radius:22px;overflow:hidden;background:#e8e8ed}
+.subg img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.subg .port{grid-row:span 2}
+.subg .port img{aspect-ratio:auto;object-position:center 35%}
+.subg figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;color:#1d1d1f;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:5px 9px;border-radius:99px}
 .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(48px,8vh,72px)}
 .duo figure{margin:0;background:none}
 .duo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;background:#e8e8ed}
@@ -91,12 +97,12 @@
   <div class="no rv">04 · 다음</div>
   <h2 class="rv">서브우퍼는<br>조립만 남았습니다</h2>
   <div class="body rv"><p>4인치가 못 내는 저음을 맡을 포트형 서브우퍼입니다. 하우징 출력과 부품 준비는 끝났고, 뚜껑과 조립만 남았습니다.</p></div>
-  <div class="duo">
-   <figure class="rv"><img src="a/sub_front.webp" alt="서브우퍼 렌더 앞면" loading="lazy" width="900" height="675"><figcaption>서브우퍼 렌더, 앞</figcaption></figure>
-   <figure class="rv"><img src="a/sub_back.webp" alt="서브우퍼 렌더 뒷면" loading="lazy" width="900" height="675"><figcaption>서브우퍼 렌더, 뒤 (포트)</figcaption></figure>
+  <div class="subg rv">
+   <figure class="port"><img src="a/spk_port.webp" alt="U자로 접어 출력한 서브우퍼 저음 포트" loading="lazy" width="700" height="1602"><figcaption>U자로 접은 저음 포트</figcaption></figure>
+   <figure><img src="a/sub_front.webp" alt="서브우퍼 렌더 앞면" loading="lazy" width="900" height="675"><figcaption>앞</figcaption></figure>
+   <figure><img src="a/sub_back.webp" alt="서브우퍼 렌더 뒷면" loading="lazy" width="900" height="675"><figcaption>뒤 · 포트 출구</figcaption></figure>
   </div>
-  <div class="shot rv narrow sm"><img src="a/spk_port.webp" alt="U자로 접어 출력한 서브우퍼 저음 포트" loading="lazy" width="700" height="1602"></div>
-  <p class="cap rv">서브우퍼 저음 포트. 긴 포트를 통 안에 넣으려고 U자로 접어 출력했습니다.</p>
+  <p class="cap rv">긴 포트를 작은 통 안에 넣으려고 U자로 접어 출력했습니다.</p>
  </section>
 </div>
 
