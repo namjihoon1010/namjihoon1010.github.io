@@ -33,16 +33,19 @@ document.querySelectorAll('.spin').forEach(el => {
 
 
   // intro: one full turn when the viewer is first really on screen (all frames decoded).
-  // Speed ramps up gently and takes longer to slow down, so it settles instead of stopping dead.
+  // Speed ramps up in ~0.5 s and takes ~1.4 s to slow down, so it settles instead of stopping dead.
   let ready = false, inView = false, introDone = false, touched = false;
   new IntersectionObserver(es => { inView = es[0].intersectionRatio >= 0.6; maybeIntro(); }, { threshold: [0, 0.6] }).observe(el);
   function maybeIntro() {
     if (!ready || !inView || introDone || touched || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     introDone = true;
-    const start = pos, t0 = performance.now(), dur = 2400;
-    const ease = k => { const u = Math.pow(k, 0.7); return (1 - Math.cos(Math.PI * u)) / 2; };  // soft start, long soft stop
-    (function f(t) { if (touched) return; const k = Math.min(1, (t - t0) / dur);
-      show(start + ease(k) * n); if (k < 1) requestAnimationFrame(f); else show(start); })(performance.now());
+    // speed profile (one full turn): cosine ramp up to VMAX, then a longer cosine ramp down to 0
+    const VMAX = 1.02 * n, TD = 1.44, TA = 2 * n / VMAX - TD;   // frames/s, decel s, accel s (~0.52 s)
+    const at = t => t < TA ? VMAX * (t / 2 - TA / (2 * Math.PI) * Math.sin(Math.PI * t / TA))
+      : t < TA + TD ? VMAX * TA / 2 + VMAX * ((t - TA) / 2 + TD / (2 * Math.PI) * Math.sin(Math.PI * (t - TA) / TD)) : n;
+    const start = pos, t0 = performance.now();
+    (function f(t) { if (touched) return; const s = (t - t0) / 1000;
+      show(start + at(s)); if (s < TA + TD) requestAnimationFrame(f); else show(start); })(performance.now());
   }
 
   // one handler for mouse, pen and touch
