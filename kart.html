@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>용접 없이 만든, 사람이 타는 카트 — 남지훈</title>
-<meta name="description" content="3년 동안 수천 시간 설계한 2000W 전기 카트. 프레임은 전부 3D 프린팅, 배터리 팩은 직접 제작.">
+<meta name="description" content="3년 동안 네 번 설계한 2000W 전기 카트. 프레임은 전부 3D 프린팅, 배터리 팩은 직접 제작.">
 <meta name="theme-color" content="#0a0a0b">
 <meta property="og:title" content="용접 없이 만든, 사람이 타는 카트">
 <meta property="og:description" content="프레임은 전부 3D 프린팅으로, 배터리 팩은 직접 만들었습니다.">
@@ -79,7 +79,7 @@ img,video{display:block;max-width:100%}
 .light{background:var(--lt);color:var(--ink);margin-top:clamp(120px,20vh,200px);padding-bottom:clamp(120px,20vh,200px)}
 .light .ch{padding-top:clamp(112px,16vh,160px)}
 .light .body p{color:#515154}
-.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(48px,8vh,72px)}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(48px,8vh,72px)}
 .rule{background:#fff;border-radius:28px;padding:30px 28px 32px}
 .rule i{font-style:normal;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--lt);font-size:14px;font-weight:700}
 .rule h3{margin:20px 0 0;font-size:clamp(21px,2.2vw,26px);font-weight:700;letter-spacing:-.03em;line-height:1.25}
@@ -111,6 +111,9 @@ img,video{display:block;max-width:100%}
 .btn:hover{transform:scale(1.04)}
 .btn.p{background:var(--lt);color:var(--bk)}
 .btn.o{border:1px solid #3a3a3e}
+.cred{max-width:560px;margin:72px auto 0;padding:0;text-align:left;font-size:14px;border-top:1px solid var(--line)}
+.cred div{display:grid;grid-template-columns:5em 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cred dt{color:var(--mut)}.cred dd{margin:0;color:#d2d2d7}
 footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12px;color:#55555a;text-align:center}
 
 /* reveal */
@@ -148,7 +151,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
  <div class="in">
   <div class="eyebrow">Electric Kart</div>
   <h1>용접 없이 만든,<br>사람이 타는 카트</h1>
-  <p>3년 동안 수천 시간 설계했습니다.<br>프레임은 전부 3D 프린팅으로,<br>배터리 팩은 직접 만들었습니다.</p>
+  <p>3년 동안 네 번 설계하고,<br>출력에만 5,000시간 이상을 썼습니다.<br>프레임은 전부 3D 프린팅으로,<br>배터리 팩은 직접 만들었습니다.</p>
  </div>
 </section>
 
@@ -156,7 +159,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
  <div><b>2000<small>W</small></b><span>모터 출력</span></div>
  <div><b>1.35<small>kWh</small></b><span>직접 만든 배터리</span></div>
  <div><b>약 94<small>개</small></b><span>출력 부품</span></div>
- <div><b>4<small>번</small></b><span>새로 그린 설계</span></div>
+ <div><b>90<small>kg</small></b><span>30kg 카트에 태워 본 몸무게</span></div>
 </div>
 
 <section class="ch">
@@ -166,7 +169,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
   <p>오래전부터 직접 만든 카트를 타 보고 싶었습니다. 걸림돌은 세 가지였습니다. 작업할 공간, 예산, 그리고 금속 용접.</p>
   <p>고등학교에서 만난 선생님과 이야기를 나누다 답을 찾았습니다.</p>
  </div>
- <p class="pull rv">용접을 할 수 없다면,<br>프레임을 출력하면 된다.</p>
+ <p class="pull rv">공간과 비용은 우리가 지원한다.<br>용접을 할 수 없다면,<br>프레임을 출력하면 된다.</p>
 </section>
 
 <section class="ch">
@@ -177,7 +180,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
   <div class="ver rv"><div class="tag"><b>V1</b><span>고1</span></div><h3>알루미늄 프로파일 프레임</h3><p>아직 카트의 형태도 갖추지 못한 설계였습니다.</p><div class="x">폐기</div></div>
   <div class="ver rv"><div class="tag"><b>V2</b><span>고1</span></div><h3>각파이프 프레임</h3><p>겉보기엔 그럴듯했지만 3D 프린팅 부품의 내구성이 불안했습니다. 무엇보다 용접이 불가능했고, 실제로 조립할 수 없는 구조였습니다.</p><div class="x">폐기</div></div>
   <div class="ver rv"><div class="tag"><b>V3</b><span>고2</span></div><h3>첫 전체 3D 프린팅 프레임</h3><p>처음으로 프레임 전체를 3D 프린팅으로 설계했습니다. 방향은 맞았지만 강성이 부족했습니다.</p><div class="x">개량</div></div>
-  <div class="ver now rv"><div class="tag"><b>V4</b><span>고2~3</span></div><h3>지금 달리는 카트</h3><p>V3를 바탕으로 구조를 다시 짰습니다. 의자 이동 기능을 덜어내고, 의자를 프레임을 지탱하는 구조물로 바꿨습니다.</p><div class="x">완성</div></div>
+  <div class="ver now rv"><div class="tag"><b>V4</b><span>고2~3</span></div><h3>지금 달리는 카트</h3><p>바깥 사각 프레임은 거의 그대로 두고, 중앙 구조를 새로 짰습니다. 의자를 프레임의 일부로 만들어 강성을 크게 높였고, 의자 이동을 위해 비워 두었던 공간은 전부 프레임으로 채웠습니다.</p><div class="x">완성</div></div>
  </div>
  <div class="shot rv zoom"><img src="a/kart_iso.jpg" alt="V4 카트 설계 렌더" loading="lazy" width="1600" height="1066"></div>
 </section>
@@ -188,9 +191,10 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
   <h2 class="rv">그림이 아니라,<br>만들 수 있는 설계.</h2>
   <div class="body rv"><p>화면 속에서만 멋진 설계는 의미가 없습니다. 실제로 출력하고 조립할 수 있어야 합니다.</p></div>
   <div class="rules">
-   <div class="rule rv"><i>1</i><h3>구할 수 있는<br>부품이 먼저</h3><p>바퀴, 축, 모터, 모터 컨트롤러는 시판 부품을 먼저 정하고, 프레임을 그 치수에 맞춰 설계했습니다.</p></div>
+   <div class="rule rv"><i>1</i><h3>구할 수 있는 부품을<br>먼저 구했습니다</h3><p>바퀴, 축, 모터, 모터 컨트롤러, 조향 부품은 시판 부품을 먼저 정하고, 프레임을 그 치수에 맞춰 설계했습니다.</p></div>
    <div class="rule rv"><i>2</i><h3>출력 방향이<br>곧 강도</h3><p>3D 프린팅 부품은 층과 층 사이가 가장 약합니다. 하중이 그 방향으로 걸리지 않도록, 부품마다 출력 방향을 먼저 정하고 형상을 그렸습니다.</p></div>
-   <div class="rule rv"><i>3</i><h3>맞을 때까지<br>출력</h3><p>맞물리는 부분은 작은 시제품을 수십 개 출력해 하나씩 맞춰 나갔습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>끼우고, 붙이고,<br>덧댈 수 있게</h3><p>부품은 갈고리처럼 서로 끼워 맞춘 뒤 본드로 고정했습니다. 공차는 수축과 크기를 고려해 0.1~0.3mm 사이에서 잡았습니다. 보강이 필요할 만한 곳에는 볼트 구멍을 미리 설계해 두어, 출력한 보강 부품을 나중에 덧댈 수 있게 했습니다.</p></div>
+   <div class="rule rv"><i>4</i><h3>맞을 때까지<br>출력</h3><p>시제품을 수십 개 출력해 하나씩 맞춰 나갔고, 불안한 곳은 보강 부품을 더해 해결했습니다. 가장 큰 부품은 한 개 출력에만 24시간 넘게 걸렸습니다.</p></div>
   </div>
   <div class="duo rv">
    <figure><img src="a/kart_side.jpg" alt="카트 측면" loading="lazy" width="1400" height="933"><figcaption>측면</figcaption></figure>
@@ -203,14 +207,14 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
 <section class="ch" style="padding-top:clamp(120px,20vh,200px)">
  <div class="no rv">04 · 배터리</div>
  <h2 class="rv">배터리도 직접.</h2>
- <div class="body rv"><p>낱개 셀을 스폿용접하고, 배선을 납땜하고, BMS를 달고, 방수 하우징까지 만들었습니다.</p></div>
+ <div class="body rv"><p>21700 셀 78개로 48V급 13S6P 팩을 만들었습니다.</p><p>셀 하나가 낼 수 있는 전류는 10A. <b>2000W를 내기 위해 6개를 병렬로 묶어 60A를 확보했고, 모터 컨트롤러의 전압에 맞춰 13개를 직렬로 연결했습니다.</b></p><p>낱개 셀을 스폿용접하고, 배선을 납땜하고, BMS를 달고, 방수 하우징까지 만들었습니다.</p></div>
  <div class="bars rv num" id="bars">
   <div class="bar me"><div class="lbl"><b>직접 만든 팩</b><span>약 1,350Wh</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
   <div class="bar"><div class="lbl"><span>시판 전동 고카트</span><span>432Wh</span></div><div class="trk"><div class="fill" style="--w:32%"></div></div></div>
  </div>
  <div class="cells rv num">
-  <div><b>48V급</b>13S6P</div>
-  <div><b>78개</b>셀</div>
+  <div><b>13S</b>컨트롤러 전압에 맞춘 48V급</div>
+  <div><b>6P</b>셀당 10A × 6 = 60A</div>
   <div><b>약 3.1배</b>시판 고카트 대비 용량</div>
  </div>
 </section>
@@ -227,7 +231,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
  <div class="no rv">06 · 타 보고 알게 된 것</div>
  <h2 class="rv">휘었지만,<br>부러지지 않았습니다.</h2>
  <div class="body rv">
-  <p>프레임은 예상보다 많이 휘었습니다. 그래도 부러지지 않았고, 지금도 잘 타고 다닙니다. 또한 2000W 모터는 생각보다 훨씬 강했습니다.</p>
+  <p>처음 올라탔을 때 프레임 중앙이 휘었습니다. 주행 전에 옆면에 보강 부품을 덧대자 휨이 거의 사라졌습니다.</p><p>30kg 카트에 90kg까지 태웠고, 실내 주행 내내 부러진 곳은 없었습니다. 또한 2000W 모터는 생각보다 훨씬 강했습니다.</p>
   <p><b>직접 타 보고 나서야 다음에 바꿀 것이 분명해졌습니다.</b></p>
  </div>
 </section>
@@ -235,7 +239,8 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
 <section class="next">
  <div class="eyebrow rv">07 · 다음 카트</div>
  <h2 class="rv">자동차와 카트 사이.</h2>
- <p class="rv">더 가볍게, 금속 프레임에 서스펜션을 달고, 출력은 10kW 이상으로. 진짜 레이싱 카트를 만드는 것이 다음 목표입니다.</p>
+ <p class="rv">더 가볍게, 금속 프레임에 서스펜션을 달고. 출력은 10kW 이상으로. 자동차와 카트 사이, 진짜 레이싱 카트를 만드는 것이 다음 목표입니다.</p>
+ <dl class="cred rv"><div><dt>설계</dt><dd>남지훈 (전체)</dd></div><div><dt>제작</dt><dd>남지훈, 기능반 동아리 선배들 (출력 일부)</dd></div><div><dt>지원</dt><dd>지도 선생님 (공간·비용·작업 시간)</dd></div><div><dt>제작비</dt><dd>약 80만 원 (필라멘트 제외)</dd></div></dl>
  <div class="links rv"><a class="btn p" href="home.html#work">다른 작업 보기</a><a class="btn o" href="index.html">포트폴리오</a></div>
 </section>
 <footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
