@@ -143,14 +143,14 @@
  <h2 class="rv">영상은 큰데,<br>메신저는 작습니다.</h2>
  <div class="body rv">
   <p>메신저로 영상을 보내면 용량 제한에 자주 걸립니다. 줄이려면 인코딩 도구를 열고 비트레이트를 계산해야 합니다.</p>
-  <p><b>원하는 용량만 적고, 영상을 끌어다 놓으면 끝나게 만들었습니다.</b> 앱이 영상 길이로 비트레이트를 거꾸로 계산합니다. 화질 기준, 비트레이트 직접 지정, 원본 분석 자동 모드도 함께 넣었습니다.</p>
+  <p><b>용량만 적고 영상을 끌어다 놓으면 끝나게 만들었습니다.</b> 비트레이트는 앱이 영상 길이로 계산합니다. 화질·비트레이트·자동 모드도 있습니다.</p>
  </div>
 </section>
 
 <section class="ch">
  <div class="no rv">02 · 쓰는 사람 기준</div>
  <h2 class="rv">친구에게<br>보낼 수 있는 앱.</h2>
- <div class="body rv"><p>친구들과 나눠 쓰려고 만든 앱입니다. 그래서 받는 사람이 아무것도 설치하지 않아도 되는 것을 가장 먼저 정했습니다.</p></div>
+ <div class="body rv"><p>친구들과 나눠 쓰는 앱이라, 받는 사람이 아무것도 설치하지 않아도 되게 하는 것이 먼저였습니다.</p></div>
  <div class="rules dk">
   <div class="rule rv"><i>1</i><h3>파일 하나,<br>10MB 이하</h3><p>메신저로 바로 보낼 수 있게 실행 파일 하나를 10MB 밑으로 맞췄습니다.</p></div>
   <div class="rule rv"><i>2</i><h3>ffmpeg는<br>알아서</h3><p>인코딩 엔진(ffmpeg)이 없으면 물어본 뒤 내려받아 설치합니다. 관리자 권한은 필요 없습니다.</p></div>
@@ -161,7 +161,7 @@
   <div class="bar me"><div class="lbl"><b>일본어·중국어 인코딩 표 제외</b><span>9.9MB</span></div><div class="trk"><div class="fill" style="--w:71.2%"></div></div></div>
  </div>
  <p class="pull rv">빠른 것보다,<br>파일 하나가 중요했습니다.</p>
- <div class="body rv gap"><p>폴더 형태로 배포하면 실행이 1.7초에서 0.76초로 빨라지는 것을 실측했습니다. 하지만 받는 사람이 압축을 풀어야 합니다. 실행 속도 대신 단순한 배포를 택했습니다.</p></div>
+ <div class="body rv gap"><p>폴더로 배포하면 실행이 1.7초에서 0.76초로 빨라졌지만, 받는 사람이 압축을 풀어야 합니다. 속도 대신 단순함을 택했습니다.</p></div>
 </section>
 
 <div class="light">
@@ -169,9 +169,9 @@
   <div class="no rv">03 · 디테일</div>
   <h2 class="rv">작은 앱이라도<br>끝까지.</h2>
   <div class="rules">
-   <div class="rule rv"><i>1</i><h3>매끈한<br>곡선</h3><p>Tkinter 기본 캔버스는 곡선을 계단처럼 그립니다. 도형을 4배 크기로 그린 뒤 줄여서 붙이는 방식으로 화면 그리기를 통째로 바꿨습니다.</p></div>
-   <div class="rule rv"><i>2</i><h3>AMD도<br>직접 확인</h3><p>NVIDIA만 지원하던 GPU 인코딩에 AMD를 추가했고, 제 RX 9060 XT로 실제 동작을 확인했습니다.</p></div>
-   <div class="rule rv"><i>3</i><h3>버그는<br>원인까지</h3><p>작업표시줄 아이콘이 바뀌지 않는 문제는, 아이콘을 엉뚱한 창에 지정하고 있던 것이 원인이었습니다. 진짜 최상위 창을 찾아 고쳤습니다.</p></div>
+   <div class="rule rv"><i>1</i><h3>매끈한<br>곡선</h3><p>Tkinter는 곡선을 계단처럼 그립니다. 4배 크기로 그린 뒤 줄여 붙이는 방식으로 바꿨습니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>AMD도<br>직접 확인</h3><p>GPU 인코딩에 AMD를 추가하고, RX 9060 XT로 확인했습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>버그는<br>원인까지</h3><p>작업표시줄 아이콘이 안 바뀌던 건 엉뚱한 창에 지정해서였습니다. 최상위 창을 찾아 고쳤습니다.</p></div>
    <div class="rule rv"><i>4</i><h3>여러 개도<br>한 번에</h3><p>여러 영상을 한 번에 놓으면 순서대로 처리합니다. 처리 중 언제든 중단할 수 있습니다.</p></div>
   </div>
  </section>
@@ -180,7 +180,7 @@
 <section class="next">
  <div class="eyebrow rv">04 · 만든 방식</div>
  <h2 class="rv">코드는 AI가,<br>결정은 제가.</h2>
- <p class="rv">Claude Code로 개발했습니다. 무엇을 넣고 무엇을 포기할지, 실제로 잘 동작하는지는 직접 정하고 확인했습니다.</p>
+ <p class="rv">Claude Code로 개발했습니다. 무엇을 넣고 뺄지, 잘 도는지는 제가 정하고 확인했습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·검증)</dd></div><div><dt>도구</dt><dd>Claude Code (Python, Tkinter), ffmpeg</dd></div><div><dt>시기</dt><dd>2026년 8~9월</dd></div></dl>
  <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
 </section>
