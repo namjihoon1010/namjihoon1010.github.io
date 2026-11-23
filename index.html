@@ -2,286 +2,255 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>남지훈 포트폴리오</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>남지훈 — Hardware Maker</title>
+<meta name="description" content="구조를 설계하고, 전기를 넣고, 실제로 달리게 만듭니다. 하드웨어 메이커 남지훈.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="남지훈 — Hardware Maker">
+<meta property="og:description" content="구조를 설계하고, 전기를 넣고, 실제로 달리게 만듭니다.">
+<meta property="og:image" content="a/kart_iso.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preload" as="image" href="a/kart_poster.jpg">
 <style>
-body{margin:0;background:#ffffff}
-a{color:inherit}a:hover{color:#e8541c}
-.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
-.wrap{max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px}
-.kicker{font-size:14px;font-weight:700;letter-spacing:.02em}
-.h2{margin:10px 0 14px;font-size:clamp(28px,4.2vw,42px);line-height:1.22;letter-spacing:-0.025em;font-weight:900}
-.lead{margin:0;color:#41464c;font-size:17px;max-width:38em}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#e3e5e8;border:1px solid #e3e5e8;border-radius:8px;overflow:hidden}
-.stat{background:#ffffff;padding:18px 18px 16px}
-.stat .v{font-size:30px;line-height:1.1;font-weight:500;overflow-wrap:anywhere}
-.stat .k{font-size:13.5px;color:#5b6168;margin-top:8px;line-height:1.45}
-.media{display:block;width:100%;height:auto;border-radius:8px;background:#eceef0}
-.cap{font-size:13px;color:#5b6168;margin-top:8px;line-height:1.5}
-.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:99px;background:#f1f2f4;color:#33383e}
-.pt{display:flex;gap:14px;padding:14px 0;border-top:1px solid #e3e5e8}
-.pt b{display:block;font-size:16px;margin-bottom:2px}
-.pt span{font-size:15px;color:#4a4f55}
-.pt .no{flex:none;width:2.2em;font-size:14px;font-weight:500;padding-top:2px}
-@media(max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat .v{font-size:22px}.stat{padding:16px 14px 14px}}
-</style>
+:root{--bk:#0a0a0b;--lt:#f5f5f7;--ink:#1d1d1f;--mut:#86868b;--acc:#ff5a1f;--line:#2a2a2d;--g:clamp(20px,6vw,72px);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Pretendard Variable",Pretendard,system-ui,-apple-system,sans-serif;background:var(--bk);color:var(--lt);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%;height:auto}
+.num{font-variant-numeric:tabular-nums}
 
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;height:calc(52px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--g) 0;font-size:13px;transition:background .4s,color .4s}
+.nav.s{background:rgba(10,10,11,.6);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.nav.s.l{background:rgba(245,245,247,.72);color:var(--ink)}
+.nav b{font-weight:800;letter-spacing:.1em}
+.nav nav{display:flex;gap:24px}
+.nav nav a{opacity:.75;transition:opacity .2s}.nav nav a:hover{opacity:1}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden}
+.hero .v{position:absolute;inset:0}
+.hero video{width:100%;height:100%;object-fit:cover}
+.hero .v::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.35) 0%,rgba(10,10,11,0) 28%,rgba(10,10,11,.15) 52%,rgba(10,10,11,.95) 100%)}
+.hero .in{position:absolute;z-index:2;left:0;right:0;bottom:calc(clamp(48px,9vh,96px) + env(safe-area-inset-bottom));padding:0 var(--g)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.hero h1{margin:12px 0 0;font-size:clamp(64px,19vw,184px);line-height:.9;font-weight:800;letter-spacing:-.05em}
+.hero p{margin:18px 0 0;font-size:clamp(17px,2vw,22px);color:#d2d2d7;line-height:1.45}
+.cue{position:absolute;z-index:2;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));width:1px;height:28px;background:linear-gradient(#fff0,#fffa);transform-origin:top;animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+/* wide screens: portrait video framed, not cropped */
+@media(min-width:900px){
+ .hero .v{left:auto;right:var(--g);top:96px;bottom:56px;aspect-ratio:9/16;border-radius:32px;overflow:hidden}
+ .hero .v::after{background:linear-gradient(180deg,rgba(10,10,11,0) 70%,rgba(10,10,11,.3))}
+ .hero .in{top:50%;bottom:auto;transform:translateY(-45%)}
+ .cue{display:none}
+}
+
+/* featured */
+.feat{padding:clamp(112px,18vh,180px) var(--g) 0;text-align:center}
+.feat+.feat{padding-top:clamp(150px,24vh,240px)}
+.feat h2{margin:14px auto 0;font-size:clamp(38px,8vw,92px);line-height:1.06;font-weight:800;letter-spacing:-.045em}
+.feat .sub{margin:22px auto 0;font-size:clamp(16px,1.9vw,21px);color:var(--mut);max-width:28em;line-height:1.55}
+.sub em{font-style:normal;color:var(--lt)}
+.shot{margin:clamp(48px,8vh,80px) auto 0;max-width:1100px;border-radius:clamp(20px,3vw,32px);overflow:hidden}
+.shot img{width:100%;height:auto}
+.specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,3vw,32px);max-width:960px;margin:clamp(44px,7vh,72px) auto 0;text-align:left}
+.specs div{border-top:1px solid var(--line);padding-top:16px}
+.specs b{display:block;font-size:clamp(25px,5vw,56px);font-weight:700;letter-spacing:-.035em;line-height:1;white-space:nowrap}
+.specs small{font-size:.45em;font-weight:600;letter-spacing:0;margin-left:2px}
+.specs span{display:block;margin-top:10px;font-size:clamp(12.5px,1.4vw,15px);color:var(--mut);line-height:1.4}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.6vw,20px);max-width:900px;margin:clamp(48px,8vh,80px) auto 0}
+.duo figure{margin:0}
+.duo video{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:clamp(18px,2.6vw,28px);background:#1a1a1c}
+.duo figcaption{margin-top:12px;font-size:13px;color:var(--mut);text-align:left;line-height:1.4}
+.duo figcaption b{display:block;color:var(--lt);font-weight:600}
+.more{display:inline-flex;gap:8px;margin-top:clamp(40px,6vh,56px);font-size:17px;font-weight:600;color:var(--acc)}
+.more i{font-style:normal;transition:transform .3s var(--ease)}.more:hover i{transform:translateX(4px)}
+.badge{display:inline-block;margin-top:24px;font-size:12px;font-weight:600;color:#d2d2d7;border:1px solid #3a3a3e;border-radius:99px;padding:6px 12px}
+
+/* light area */
+.light{background:var(--lt);color:var(--ink);margin-top:clamp(150px,24vh,240px)}
+.light .feat{padding-top:clamp(112px,16vh,160px);padding-bottom:clamp(48px,7vh,72px)}
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.tile{background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.tile .t{padding:28px 28px 0}
+.tile small{font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
+.tile h3{margin:8px 0 0;font-size:clamp(22px,2.4vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.18}
+.tile p{margin:8px 0 0;font-size:15px;color:#6e6e73;line-height:1.5}
+.tile .m{margin-top:auto;padding-top:24px}
+.tile .m img,.tile .m video{width:100%;height:auto}
+.tile .m video{aspect-ratio:4/5;object-fit:cover}
+.s4{grid-column:span 4}.s2{grid-column:span 2}.r2{grid-row:span 2}
+.r2 .m{flex:1;position:relative;min-height:240px}.r2 .m img{position:absolute;inset:24px 0 0;height:calc(100% - 24px);object-fit:cover}
+.tile.dark{background:#000;color:var(--lt)}.tile.dark p{color:#a1a1a6}
+.tile .pad{padding:24px 28px 28px}
+.tile .pad img{border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+
+/* list */
+.list{max-width:980px;margin:0 auto;padding:clamp(120px,18vh,180px) clamp(20px,5vw,40px)}
+.list h2{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;margin:0 0 14px}
+.cnt{font-size:14px;margin-bottom:32px;display:flex;gap:18px;flex-wrap:wrap}
+.li{display:grid;grid-template-columns:2.6em 1fr auto;gap:12px;align-items:center;padding:18px 0;border-top:1px solid #d2d2d7}
+.li:last-child{border-bottom:1px solid #d2d2d7}
+div.li .st::after{content:"›";margin-left:6px;font-size:18px;line-height:1;visibility:hidden}
+a.li .st::after{content:"›";margin-left:6px;font-size:18px;line-height:1;color:var(--mut);transition:transform .25s var(--ease)}
+a.li:hover .st::after{transform:translateX(3px)}
+a.li:active{background:rgba(0,0,0,.03)}
+.li .no{font-size:13px;color:var(--mut)}
+.li b{font-size:17px;font-weight:600;letter-spacing:-.015em}
+.li em{display:block;font-style:normal;font-size:13px;color:var(--mut);margin-top:3px}
+.st{font-size:13px;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.go{color:var(--acc)}.go::before{animation:p 1.8s ease-in-out infinite}
+.ok,.sale{color:var(--ink)}.sale::before{background:var(--acc)}
+.hold{color:#a1a1a6}.hold::before{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+@keyframes p{50%{opacity:.25}}
+
+/* cta */
+.cta{padding:clamp(120px,20vh,200px) var(--g) clamp(100px,16vh,160px);text-align:center}
+.cta h2{margin:0;font-size:clamp(40px,8.5vw,108px);font-weight:800;letter-spacing:-.05em;line-height:1.04}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:44px;background:var(--lt);color:var(--bk);font-weight:700;font-size:17px;padding:18px 32px;border-radius:999px;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:scale(1.04);background:#fff}
+.btn i{font-style:normal;transition:transform .3s var(--ease)}.btn:hover i{transform:translateX(4px)}
+.ct{margin-top:28px;color:var(--mut);font-size:15px}
+.ct a{color:var(--lt);border-bottom:1px solid #444}
+footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12px;color:#55555a;text-align:center}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.js .rv.on{opacity:1;transform:none}
+.js .zoom img{transform:scale(1.1);transition:transform 1.8s var(--ease)}
+.js .zoom.on img{transform:none}
+.js .hero .in>*{opacity:0;transform:translateY(24px);animation:up 1.2s var(--ease) forwards}
+.js .hero h1{animation-delay:.1s}.js .hero p{animation-delay:.25s}
+@keyframes up{to{opacity:1;transform:none}}
+
+@media(max-width:820px){
+ .bento{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .s4{grid-column:span 2}.s2{grid-column:span 1}
+ .r2{grid-row:span 2}
+ .tile{border-radius:22px}
+ .tile .t{padding:20px 18px 0}.tile .pad{padding:16px 18px 18px}
+ .tile h3{font-size:19px}.tile p{font-size:13.5px}
+ .nav nav{gap:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .js .rv,.js .zoom img,.js .hero .in>*{transition:none;animation:none;opacity:1;transform:none}
+ .cue,.go::before{animation:none}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
+<header class="nav" id="nav"><b>NJH</b><nav><a href="#work">작업</a><a href="portfolio.html">포트폴리오</a><a href="#contact">연락</a></nav></header>
 
-<div style="font-family: 'Noto Sans KR', system-ui, sans-serif; color: #111111; background: #ffffff; line-height: 1.65; font-size: 16px; word-break: keep-all">
-
-<section style="background: #111111; color: #ffffff">
-<div class="wrap" style="padding-top: 22px; padding-bottom: 72px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 20px; font-size: 14px; color: #b9bec4">
-<span style="color: #ffffff; font-weight: 700; font-size: 16px">남지훈</span>
-<span style="display: flex; flex-wrap: wrap; gap: 4px 16px"><a href="https://instagram.com/ji_h0on" style="text-decoration: none">인스타그램 @ji_h0on</a></span>
-</div>
-<div style="margin-top: 72px; font-size: 15px; font-weight: 500; color: #e8541c">하드웨어 메이커 · 기구 설계 · 회로 · 펌웨어 · 제작</div>
-<h1 style="margin: 14px 0 0; font-size: clamp(38px, 6.6vw, 76px); line-height: 1.1; letter-spacing: -0.035em; font-weight: 900">아이디어를<br>달리고, 팔리고,<br>쓰이는 물건으로.</h1>
-<p style="margin: 26px 0 0; font-size: 18px; line-height: 1.65; color: #cfd3d7; max-width: 32em">구조 설계부터 회로, 펌웨어, 배터리까지 직접 만들고, 실제로 동작하는지 확인합니다.</p>
-<img src="a/kart_iso.jpg" alt="출력 부품으로 만든 전기 카트 차체 렌더" style="display: block; width: 100%; height: auto; border-radius: 10px; margin-top: 48px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px 28px; margin-top: 40px">
-<div style="border-top: 3px solid #e8541c; padding-top: 14px">
-<div class="n" style="font-size: 42px; line-height: 1; font-weight: 500">약 94개</div>
-<div style="margin-top: 10px; font-size: 15px; color: #b9bec4">사람을 태우고 달리는 카트의 출력 부품 수. 전부 직접 설계</div>
-</div>
-<div style="border-top: 3px solid #e8541c; padding-top: 14px">
-<div class="n" style="font-size: 42px; line-height: 1; font-weight: 500">256만</div>
-<div style="margin-top: 10px; font-size: 15px; color: #b9bec4">의뢰받아 설계한 명함 오거나이저, 릴스 2편 합산 조회수. 판매 중</div>
-</div>
-<div style="border-top: 3px solid #e8541c; padding-top: 14px">
-<div class="n" style="font-size: 42px; line-height: 1; font-weight: 500">약 $1.95</div>
-<div style="margin-top: 10px; font-size: 15px; color: #b9bec4">보조배터리 기판 4,800개 양산 시 개당 견적(조립 포함)</div>
-</div>
-</div>
-</div>
+<section class="hero">
+ <div class="v"><video src="a/kart.mp4" poster="a/kart_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="직접 만든 전기 카트 주행 영상"></video></div>
+ <div class="in">
+  <div class="eyebrow">Hardware Maker</div>
+  <h1>남지훈</h1>
+  <p>구조를 설계하고, 전기를 넣고,<br>실제로 달리게 만듭니다.</p>
+ </div>
+ <div class="cue" aria-hidden="true"></div>
 </section>
 
-<nav aria-label="프로젝트 목록" style="border-bottom: 1px solid #e3e5e8">
-<div class="wrap" style="padding-top: 18px; padding-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14.5px; font-weight: 500">
-<a href="#kart" style="text-decoration: none">01 전기 카트</a>
-<a href="#stamp" style="text-decoration: none">02 명함 오거나이저</a>
-<a href="#rack" style="text-decoration: none">03 필라멘트 건조장</a>
-<a href="#pcb" style="text-decoration: none">04 1셀 보조배터리 PCB</a>
-<a href="#audio" style="text-decoration: none">05 자작 스피커</a>
-<a href="#more" style="text-decoration: none">감속기 · AV1 Drop Encoder</a>
-</div>
-</nav>
-
-<section id="kart" class="wrap" style="padding-top: 88px; padding-bottom: 40px">
-<div class="kicker" style="color: #e8541c">CASE 01 · 기구 설계 · 전장 · 배터리</div>
-<h2 class="h2">출력 부품 약 94개로,<br>사람이 타는 카트</h2>
-<p class="lead">차체를 처음부터 설계해 3D 프린팅으로 출력한 2000W 전기 카트입니다. 구조, 구동계, 배터리 팩까지 직접 만들었습니다.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 36px; align-items: flex-start">
-<figure style="margin: 0; flex: 0 1 340px; min-width: 0">
-<video src="a/kart.mp4" poster="a/kart_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="카트 주행 영상" style="display: block; width: 100%; height: auto; border-radius: 8px; background: #111111"></video>
-<figcaption class="cap">실제 주행 영상 (얼굴 모자이크)</figcaption>
-</figure>
-<div style="flex: 1 1 420px; min-width: 0">
-<div class="stats">
-<div class="stat"><div class="v n">2000W</div><div class="k">모터 출력</div></div>
-<div class="stat"><div class="v n">1.35kWh</div><div class="k">배터리 용량. 시판 전동 고카트(0.43kWh)의 약 3.1배</div></div>
-<div class="stat"><div class="v n">약 94개</div><div class="k">직접 설계한 출력 부품</div></div>
-<div class="stat"><div class="v n">5,000시간+</div><div class="k">누적 출력 시간(추정)</div></div>
-</div>
-<div style="margin-top: 22px; background: #f6f7f8; border-radius: 8px; padding: 20px">
-<div style="font-size: 17px; font-weight: 700">배터리 팩도 직접</div>
-<div class="n" style="font-size: 15px; color: #e8541c; margin-top: 4px">13S6P · 셀 78개 · 48V급 · 최대 60A</div>
-<p style="margin: 8px 0 0; font-size: 15px; color: #41464c">셀을 낱개로 구매해 스폿용접, 배선 납땜, BMS 구성, 방수 하우징까지 만들었습니다.</p>
-</div>
-<div style="margin-top: 22px">
-<div style="font-size: 17px; font-weight: 700; margin-bottom: 4px">설계에서 풀어야 했던 것</div>
-<div class="pt"><div class="no n" style="color: #e8541c">01</div><div><b>간섭</b><span>부품끼리 맞물리는 곳의 조립 간섭을 하나씩 해결</span></div></div>
-<div class="pt"><div class="no n" style="color: #e8541c">02</div><div><b>강도</b><span>사람 무게를 출력 부품이 버티도록 강도 계산</span></div></div>
-<div class="pt"><div class="no n" style="color: #e8541c">03</div><div><b>백지 설계</b><span>기성 설계를 참고하지 않고 프레임부터 새로 설계</span></div></div>
-</div>
-</div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 32px">
-<figure style="margin: 0"><img class="media" src="a/kart_side.jpg" alt="카트 측면 렌더" loading="lazy"><figcaption class="cap">측면</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/kart_top.jpg" alt="카트 평면 렌더" loading="lazy"><figcaption class="cap">평면</figcaption></figure>
-</div>
+<section class="feat">
+ <div class="eyebrow rv">01 · Electric Kart</div>
+ <h2 class="rv">사람이 타는 카트,<br>처음부터 직접.</h2>
+ <p class="sub rv">기성 설계 없이 프레임부터 설계했습니다. 출력 부품 약 94개. 배터리 팩은 스폿용접부터 BMS까지 손으로.</p>
+ <div class="shot rv zoom"><img src="a/kart_iso.jpg" alt="전기 카트 설계 렌더" loading="lazy" width="1600" height="1066"></div>
+ <div class="specs rv num">
+  <div><b>2000<small>W</small></b><span>모터 출력</span></div>
+  <div><b>1.35<small>kWh</small></b><span>직접 만든 배터리 팩</span></div>
+  <div><b>3.1<small>배</small></b><span>시판 전동 고카트 대비 배터리 용량</span></div>
+ </div>
+ <a class="more rv" href="kart.html">자세히 보기 <i>→</i></a>
 </section>
 
-<section id="stamp" style="background: #f6f7f8; margin-top: 64px">
-<div class="wrap" style="padding-top: 88px; padding-bottom: 88px">
-<div class="kicker" style="color: #e8541c">CASE 02 · 제품 설계 · 외주</div>
-<h2 class="h2">의뢰받아 설계한 제품이<br>256만 조회, 판매로</h2>
-<p class="lead">술두루미의 의뢰를 받아 제품 "명함 오거나이저 2도"와 "3도"를 모델링하고 양산 준비까지 맡았습니다. 생산은 3D 프린팅 외주로 진행됐고, 지금 판매 중입니다.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px">
-<figure style="margin: 0"><img class="media" src="a/stamp_r2.jpg" alt="명함 오거나이저 2도 렌더" loading="lazy"><figcaption class="cap"><span class="tag">설계</span> 명함 오거나이저 2도</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/stamp_r1.jpg" alt="명함 오거나이저 3도 렌더" loading="lazy"><figcaption class="cap"><span class="tag">설계</span> 명함 오거나이저 3도</figcaption></figure>
-<figure style="margin: 0"><video src="a/reel_pov.mp4" poster="a/reel_pov.jpg" autoplay muted loop playsinline preload="auto" aria-label="명함 오거나이저 2도 릴스 영상" style="display: block; width: 100%; height: auto; border-radius: 8px; background: #111111"></video><figcaption class="cap"><span class="tag" style="background: #111111; color: #ffffff">제품</span> 명함 오거나이저 2도 · 168.1만 조회</figcaption></figure>
-<figure style="margin: 0"><video src="a/reel_org.mp4" poster="a/reel_org.jpg" autoplay muted loop playsinline preload="auto" aria-label="명함 오거나이저 3도 릴스 영상" style="display: block; width: 100%; height: auto; border-radius: 8px; background: #111111"></video><figcaption class="cap"><span class="tag" style="background: #111111; color: #ffffff">제품</span> 명함 오거나이저 3도 · 88.3만 조회</figcaption></figure>
-</div>
-<div class="stats" style="margin-top: 28px">
-<div class="stat"><div class="v n">256.4만</div><div class="k">릴스 2편 합산 조회</div></div>
-<div class="stat"><div class="v n">약 5.8만</div><div class="k">좋아요 합산</div></div>
-<div class="stat"><div class="v n">16,164</div><div class="k">저장 합산</div></div>
-<div class="stat"><div class="v">판매 중</div><div class="k">현재 상태</div></div>
-</div>
-</div>
+<section class="feat">
+ <div class="eyebrow rv">02 · Business Card Organizer</div>
+ <h2 class="rv">릴스 두 편,<br><span class="num">256만</span> 회 조회.</h2>
+ <p class="sub rv">술두루미의 의뢰로 기구 모델링과 양산 준비를 맡았습니다. <em>지금 판매 중입니다.</em></p>
+ <div class="duo rv">
+  <figure><video data-src="a/reel_pov.mp4" poster="a/reel_pov.jpg" muted loop playsinline preload="none" aria-label="명함 오거나이저 2도 릴스"></video><figcaption><b>명함 오거나이저 2도</b><span class="num">168.1만</span> 회 조회</figcaption></figure>
+  <figure><video data-src="a/reel_org.mp4" poster="a/reel_org.jpg" muted loop playsinline preload="none" aria-label="명함 오거나이저 3도 릴스"></video><figcaption><b>명함 오거나이저 3도</b><span class="num">88.3만</span> 회 조회</figcaption></figure>
+ </div>
+ <div class="specs rv num">
+  <div><b>256.4<small>만</small></b><span>합산 조회</span></div>
+  <div><b>5.8<small>만</small></b><span>좋아요</span></div>
+  <div><b>16,164</b><span>저장</span></div>
+ </div>
 </section>
 
-<section id="rack" class="wrap" style="padding-top: 88px; padding-bottom: 40px">
-<div class="kicker" style="color: #e8541c">CASE 03 · 장비 개발 · 업무</div>
-<h2 class="h2">필라멘트 약 250개를<br>보관하는 건조장</h2>
-<p class="lead">기성 랙 캐비닛을 개조해 만들었습니다. 제어보드를 직접 설계했고, 사업장에 설치해 실사용했습니다. 다른 사람도 운영할 수 있도록 인수인계 문서를 남겼습니다.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 36px; align-items: flex-start">
-<figure style="margin: 0; flex: 0 1 360px; min-width: 0"><img class="media" src="a/rack.jpg" alt="필라멘트가 가득 찬 랙 캐비닛 건조장" loading="lazy"><figcaption class="cap">사업장 설치 모습</figcaption></figure>
-<div style="flex: 1 1 420px; min-width: 0">
-<div class="stats">
-<div class="stat"><div class="v n">약 250개</div><div class="k">수납 스풀</div></div>
-<div class="stat"><div class="v n">5개</div><div class="k">PTC 히터, 릴레이로 제어</div></div>
-<div class="stat"><div class="v n">3개</div><div class="k">DHT22 온습도 센서</div></div>
-<div class="stat"><div class="v">직접 설계</div><div class="k">제어보드(아두이노 나노, LCD, 버튼 4개)</div></div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px">
-<figure style="margin: 0"><img class="media" src="a/drypcb_photo.jpg" alt="제작된 검은색 제어보드 실물" loading="lazy"><figcaption class="cap">제작된 기판</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/drypcb_layout.jpg" alt="KiCad 제어보드 배선 화면" loading="lazy"><figcaption class="cap">KiCad 배선</figcaption></figure>
-</div>
-<p style="margin: 16px 0 0; font-size: 15px; color: #41464c">온습도에 따라 히터와 팬을 제어하는 펌웨어를 여러 번 고쳐 안정화했습니다.</p>
-</div>
-</div>
+<section class="feat">
+ <div class="eyebrow rv">03 · Power Bank PCB</div>
+ <h2 class="rv">설계 시작<br>3일 만에 주문.</h2>
+ <p class="sub rv">21700 1셀, USB-C PD 20W 보조배터리 기판. 폭 13mm 2층 기판으로 줄였습니다.</p>
+ <span class="badge rv">Claude Code 활용</span>
+ <div class="shot rv zoom" style="background:#c8c8d6"><img src="a/pcb_iso.jpg" alt="보조배터리 PCB 렌더" loading="lazy" width="1600" height="700"></div>
+ <div class="specs rv num">
+  <div><b>58.4×13</b><span>mm · 2층 기판</span></div>
+  <div><b>40→4.9</b><span>mm · GND 귀환 경로</span></div>
+  <div><b>약 $1.95</b><span>4,800개 양산 시 개당</span></div>
+ </div>
+ <a class="more rv" href="pcb.html">자세히 보기 <i>→</i></a>
 </section>
 
-<section id="pcb" style="background: #f6f7f8; margin-top: 64px">
-<div class="wrap" style="padding-top: 88px; padding-bottom: 88px">
-<div class="kicker" style="color: #e8541c">CASE 04 · 회로 설계 · Claude Code 활용</div>
-<h2 class="h2">설계 시작 3일 만에<br>시제품 주문</h2>
-<p class="lead">21700 1셀용 USB-C PD 보조배터리 기판입니다. Claude Code로 KiCad 설계 자동화 환경을 만들었고, 회로 검토와 배치 기준은 직접 정했습니다.</p>
-<img class="media" src="a/pcb_iso.jpg" alt="보조배터리 기판 3D 렌더" loading="lazy" style="margin-top: 36px">
-<div class="stats" style="margin-top: 20px">
-<div class="stat"><div class="v n">58.4×13</div><div class="k">mm, 2층 기판</div></div>
-<div class="stat"><div class="v n">20W</div><div class="k">USB-C PD 입출력</div></div>
-<div class="stat"><div class="v n">40→4.9</div><div class="k">mm, GND 귀환 경로 (짧을수록 노이즈에 유리)</div></div>
-<div class="stat"><div class="v n">약 $1.95</div><div class="k">4,800개 패널 양산 시 개당. 100개 $3.52, 500개 $2.84 (조립 포함, 배송 별도)</div></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; align-items: flex-start">
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<figure style="margin: 0"><img class="media" src="a/pcb_top.jpg" alt="기판 윗면 렌더" loading="lazy"><figcaption class="cap">윗면: 충전 IC, 인덕터, 보호 IC</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/pcb_bot.jpg" alt="기판 아랫면 렌더" loading="lazy"><figcaption class="cap">아랫면: 셀 연결 패드</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/pcb_side.jpg" alt="기판 측면 렌더" loading="lazy"><figcaption class="cap">측면</figcaption></figure>
-</div>
-<div style="flex: 1 1 320px; min-width: 0">
-<div style="font-size: 17px; font-weight: 700; margin-bottom: 4px">3일의 과정</div>
-<div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">1일차</div><div><b>설계 자동화 환경</b><span>회로도부터 제작 파일까지 스크립트로 묶고 첫 기판(4층) 완성, DRC 오류 0</span></div></div>
-<div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">2일차</div><div><b>소형화</b><span>부품을 재배치해 58.4×13mm로 축소</span></div></div>
-<div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">3일차</div><div><b>원가형 2층으로 재설계</b><span>배치·배선을 처음부터 다시 하고, 회로 전체 검토 후 JLCPCB에 시제품 주문</span></div></div>
-<div class="pt"><div class="no n" style="color: #8a9097; width: 3.2em">이후</div><div><b>생산 완료</b><span>실물 시험 예정</span></div></div>
-</div>
-</div>
-</div>
-</section>
+<div class="light" id="more">
+ <section class="feat"><div class="eyebrow rv">More</div><h2 class="rv">그리고 더.</h2></section>
+ <div class="bento">
+  <div class="tile s4 rv"><div class="t"><small>Audio</small><h3>드라이버 한 쌍 3만 원.<br>룸 EQ 후 <span class="num">±4dB</span>.</h3><p>인클로저 설계부터 측정·보정까지. 7개 버전.</p></div><div class="m"><img src="a/desk.jpg" alt="자작 스피커" loading="lazy" width="1400" height="616"></div></div>
+  <div class="tile s2 r2 rv"><div class="t"><small>Equipment</small><h3>필라멘트<br>250개 건조장.</h3><p>제어보드 직접 설계. 사업장 실사용.</p></div><div class="m"><img src="a/rack.jpg" alt="필라멘트 건조장" loading="lazy"></div></div>
+  <div class="tile dark s2 rv"><div class="t"><small>Mechanism</small><h3>사이클로이드<br>감속기 10:1</h3></div><div class="m"><video data-src="a/reducer.mp4" poster="a/reducer_poster.jpg" muted loop playsinline preload="none" aria-label="사이클로이드 감속기 구동"></video></div></div>
+  <a class="tile s2 rv" href="av1.html"><div class="t"><small>Software</small><h3>AV1 Drop Encoder ›</h3><p>원하는 용량으로 압축. Claude Code로 개발.</p></div><div class="m pad"><img src="a/av1.png" alt="AV1 인코더 화면" loading="lazy" width="636" height="899"></div></a>
+ </div>
 
-<section id="audio" class="wrap" style="padding-top: 88px; padding-bottom: 40px">
-<div class="kicker" style="color: #e8541c">CASE 05 · 음향 설계 · 측정</div>
-<h2 class="h2">드라이버 한 쌍 3만 원,<br>룸 EQ 후 ±4dB</h2>
-<p class="lead">국산 4인치 우퍼와 7,000원 트위터를 쓴 2-way 스피커입니다. 인클로저를 직접 설계하고, 측정 마이크로 응답을 재서 보정했습니다. 지금까지 7개 버전을 만들었습니다.</p>
-<img class="media" src="a/desk.jpg" alt="책상 위 스탠드에 올린 자작 스피커 한 쌍" loading="lazy" style="margin-top: 36px">
-<div class="stats" style="margin-top: 20px">
-<div class="stat"><div class="v n">약 3만 원</div><div class="k">드라이버 한 쌍. 삼미 CW-100B25 + 트위터</div></div>
-<div class="stat"><div class="v n">78→60Hz</div><div class="k">저역 한계. 계산값 → 실측</div></div>
-<div class="stat"><div class="v n">±7→±4dB</div><div class="k">룸 EQ 전 → 후 (실측)</div></div>
-<div class="stat"><div class="v n">7개</div><div class="k">제작한 스피커 버전</div></div>
+ <section class="list" id="work">
+  <h2 class="rv">모든 작업</h2>
+  <div class="cnt rv num"><span class="st go">진행 3</span><span class="st ok">완료 8</span><span class="st hold">보류 2</span></div>
+  <div class="rv">
+   <div class="li"><span class="no num">01</span><span><b>3S 45W 보조배터리</b><em>회로 · 케이스 설계 중</em></span><span class="st go">진행</span></div>
+   <a class="li" href="pcb.html"><span class="no num">02</span><span><b>1셀 보조배터리 PCB</b><em>회로 · 시제품 시험 예정</em></span><span class="st go">진행</span></a>
+   <a class="li" href="portfolio.html#audio"><span class="no num">03</span><span><b>서브우퍼</b><em>음향 · 포트형 설계 중</em></span><span class="st go">진행</span></a>
+   <a class="li" href="kart.html"><span class="no num">04</span><span><b>전기 카트</b><em>기구 · 전장 · 배터리</em></span><span class="st ok">완료</span></a>
+   <a class="li" href="portfolio.html#organizer"><span class="no num">05</span><span><b>명함 오거나이저</b><em>제품 설계 · 외주</em></span><span class="st sale">판매 중</span></a>
+   <a class="li" href="portfolio.html#dryer"><span class="no num">06</span><span><b>필라멘트 건조장</b><em>장비 · 업무</em></span><span class="st ok">완료</span></a>
+   <a class="li" href="portfolio.html#audio"><span class="no num">07</span><span><b>자작 스피커</b><em>음향 · 7개 버전</em></span><span class="st ok">완료</span></a>
+   <a class="li" href="portfolio.html#audio"><span class="no num">08</span><span><b>룸 EQ</b><em>음향 · 측정·보정</em></span><span class="st ok">완료</span></a>
+   <a class="li" href="av1.html"><span class="no num">09</span><span><b>AV1 Drop Encoder</b><em>소프트웨어</em></span><span class="st ok">완료</span></a>
+   <div class="li"><span class="no num">10</span><span><b>무인 게임 서버</b><em>자동화</em></span><span class="st ok">완료</span></div>
+   <div class="li"><span class="no num">11</span><span><b>3D 프린팅 생산 SOP</b><em>생산 관리 · 업무</em></span><span class="st ok">완료</span></div>
+   <a class="li" href="portfolio.html#reducer"><span class="no num">12</span><span><b>사이클로이드 감속기</b><em>기구 · 로봇팔 연동은 제대 후</em></span><span class="st hold">보류</span></a>
+   <div class="li"><span class="no num">13</span><span><b>RP2040 버티컬 마우스 보드</b><em>회로 · 제작 대기</em></span><span class="st hold">보류</span></div>
+  </div>
+ </section>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; align-items: flex-start">
-<figure style="margin: 0; flex: 1.4 1 440px; min-width: 0"><img class="media" src="a/graph.jpg" alt="룸 EQ 전 스피커 주파수 응답 그래프" loading="lazy" style="background: #ffffff; border: 1px solid #e3e5e8"><figcaption class="cap">룸 EQ 전 측정. 7개 지점 파워 평균, 1/6 옥타브 스무딩, REW. 보정 후 약 ±4dB</figcaption></figure>
-<div style="flex: 1 1 280px; min-width: 0">
-<div style="font-size: 17px; font-weight: 700">다음 작업: 서브우퍼</div>
-<p style="margin: 4px 0 12px; font-size: 15px; color: #41464c">포트형 서브우퍼를 설계 중입니다.</p>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<img class="media" src="a/sub_front.jpg" alt="서브우퍼 앞면 렌더" loading="lazy">
-<img class="media" src="a/sub_back.jpg" alt="서브우퍼 뒷면 렌더, 포트와 단자" loading="lazy">
-</div>
-</div>
-</div>
-</section>
 
-<section id="more" class="wrap" style="padding-top: 72px; padding-bottom: 88px">
-<h2 style="margin: 0 0 24px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em">그 밖에 만든 것</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
-<article style="border: 1px solid #e3e5e8; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: start">
-<video src="a/reducer.mp4" poster="a/reducer_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="사이클로이드 원판 구동 영상" style="display: block; width: 100%; height: auto; border-radius: 8px; background: #111111"></video>
-<img class="media" src="a/red_open.jpg" alt="사이클로이드 감속기 렌더" loading="lazy">
-</div>
-<div>
-<div style="font-size: 13px; color: #5b6168">기구 설계 · 구동 검증</div>
-<div style="font-size: 20px; font-weight: 700; margin: 2px 0 6px">사이클로이드 감속기 <span class="n" style="color: #e8541c">10:1</span></div>
-<p style="margin: 0; font-size: 15px; color: #41464c">FDM 시제품으로 설계를 검증했고, MKS SERVO42C 폐루프 스텝모터로 구동했습니다.</p>
-</div>
-</article>
-<article style="border: 1px solid #e3e5e8; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
-<img src="a/av1.png" alt="AV1 Drop Encoder 앱 화면" loading="lazy" style="display: block; width: 100%; max-width: 300px; height: auto; border-radius: 8px; margin: 0 auto">
-<div>
-<div style="font-size: 13px; color: #5b6168">소프트웨어 · Claude Code로 개발</div>
-<div style="font-size: 20px; font-weight: 700; margin: 2px 0 6px">AV1 Drop Encoder</div>
-<p style="margin: 0; font-size: 15px; color: #41464c">메신저 용량 제한에 맞춰 영상을 원하는 크기로 압축하는 Windows 앱입니다. CPU·NVIDIA·AMD 인코딩을 지원하고, 실행 파일 하나가 10MB 이하입니다.</p>
-</div>
-</article>
-</div>
+<section class="cta" id="contact">
+ <h2 class="rv">모든 작업을<br>한 페이지로.</h2>
+ <a class="btn rv" href="portfolio.html">포트폴리오 보기 <i>→</i></a>
+ <div class="ct rv">인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></div>
 </section>
-
-<section style="background: #f6f7f8">
-<div class="wrap" style="padding-top: 80px; padding-bottom: 80px">
-<h2 style="margin: 0 0 24px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em">할 수 있는 것과 그 증거</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 40px">
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">기구 설계</div><span>전기 카트, 명함 오거나이저, 감속기</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">회로·PCB</div><span>보조배터리 기판, 건조장 제어보드</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">펌웨어·제어</div><span>건조장 히터·팬 제어, 감속기 구동</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">배터리·전장</div><span>카트 13S6P 팩 직접 제작, 2000W 구동계</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">측정·튜닝</div><span>스피커 REW 측정과 룸 EQ</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">양산·원가</div><span>보조배터리 100·500·4,800개 견적과 패널화, 명함 오거나이저 양산 준비</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">소프트웨어</div><span>AV1 Drop Encoder</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">3D 프린팅</div><span>카트 부품 약 94개 출력, 고교 때 출력 대행 운영</span></div>
-</div>
-</div>
-</section>
-
-<section class="wrap" style="padding-top: 72px; padding-bottom: 80px">
-<div style="display: flex; flex-wrap: wrap; gap: 40px">
-<div style="flex: 1.2 1 400px; min-width: 0">
-<h2 style="margin: 0 0 18px; font-size: 22px; font-weight: 900">도구와 제작처</h2>
-<div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">기구 설계</div><span>Fusion 360</span></div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">회로 설계</div><span>KiCad</span></div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">펌웨어</div><span>Arduino (C++)</span></div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">음향 측정·설계</div><span>REW, WinISD</span></div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">개발 보조</div><span>Claude Code</span></div>
-<div class="pt" style="padding: 10px 0"><div style="flex: none; width: 8em; font-weight: 700; font-size: 15px">PCB 제작 의뢰</div><span>JLCPCB (제작·조립·양산 견적)</span></div>
-</div>
-</div>
-<div style="flex: 1 1 340px; min-width: 0">
-<h2 style="margin: 0 0 18px; font-size: 22px; font-weight: 900">이력</h2>
-<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #33383e">
-<div>특성화고 폴리메카닉스과 졸업 · 3D프린터운용기능사</div>
-<div>고교 2학년부터 3D 프린팅 출력 대행 운영 (월평균 순수익 약 60만 원)</div>
-<div>2026.09 – 공군 복무 중 (항공기 기체정비)</div>
-</div>
-</div>
-</div>
-</section>
-
-<section style="background: #111111; color: #ffffff">
-<div class="wrap" style="padding-top: 80px; padding-bottom: 80px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
-<h2 style="margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.2; letter-spacing: -0.025em; font-weight: 900">함께 만들 물건이 있다면.</h2>
-<div style="display: flex; flex-direction: column; gap: 4px; font-size: 18px; color: #e3e5e8">
-
-<a href="https://instagram.com/ji_h0on" style="text-decoration: none">인스타그램 @ji_h0on</a>
-</div>
-</div>
-<div class="wrap" style="padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 12px"><a href="home.html#work" style="display:inline-flex;align-items:center;font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;background:#ffffff;color:#111111">다른 작업 보기</a><a href="home.html" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}" style="display:inline-flex;align-items:center;font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;text-decoration:none;border:1px solid #3a3d42;color:#ffffff">← 돌아가기</a></div>
-</section>
-</div>
+<footer>© 2026 남지훈</footer>
 
 <script>
-document.querySelectorAll('video').forEach(function(v){v.muted=true;v.playsInline=true;try{var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(e){}});
+// reveal once
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rv.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el=>rv.observe(el));
+// videos: load late, play only while visible (phone battery/data)
+const vo=new IntersectionObserver(es=>es.forEach(({target:v,isIntersecting:on})=>{
+ if(on){if(v.dataset.src){v.src=v.dataset.src;delete v.dataset.src}v.play().catch(()=>{})}else v.pause()
+}),{rootMargin:'200px 0px'});
+document.querySelectorAll('video').forEach(v=>{v.muted=true;vo.observe(v)});
+// nav: glass after hero, light over light area
+const nav=document.getElementById('nav'),hero=document.querySelector('.hero'),light=document.getElementById('more');
+const navUpd=()=>{const y=52,h=hero.getBoundingClientRect(),l=light.getBoundingClientRect();
+ nav.classList.toggle('s',h.bottom<y);nav.classList.toggle('l',l.top<y&&l.bottom>y)};
+addEventListener('scroll',navUpd,{passive:true});navUpd();
 </script>
 </body>
 </html>
