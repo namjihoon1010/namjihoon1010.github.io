@@ -59,6 +59,33 @@
 .out video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;background:#000}
 .out figcaption{margin-top:6px;font-size:11.5px;color:#aeaeb2;line-height:1.4}
 .out figcaption b{color:#fff;font-weight:600}
+
+/* window controls */
+.win{transition:transform .32s cubic-bezier(.2,.7,.2,1),opacity .25s}
+.win .ctl{display:flex;gap:2px;margin:-6px -8px -6px 0}
+.win .ctl button{appearance:none;border:0;background:none;color:#aeaeb2;font:inherit;font-size:13px;width:32px;height:28px;border-radius:6px;cursor:pointer}
+.win .ctl button:hover{background:#3a3a3c;color:#fff}
+.win .ctl button[data-w=close]:hover{background:#e81123;color:#fff}
+.win .ctl button:active{transform:scale(.9)}
+.win.gone{opacity:0;transform:scale(.92);pointer-events:none}
+.win.mini{opacity:0;transform:translateY(55%) scale(.12);pointer-events:none}
+.win.full{position:fixed;inset:0;z-index:50;border-radius:0;border:0;overflow:auto;display:flex;flex-direction:column}
+.win:fullscreen{border-radius:0;border:0;overflow:auto;display:flex;flex-direction:column}
+.win.full .bd,.win:fullscreen .bd{width:100%;max-width:560px;margin:0 auto;font-size:14px}
+.demo{position:relative}
+.dock{position:absolute;left:0;right:0;bottom:44px;display:none;justify-content:center}
+.dock.show{display:flex}
+.dock button{appearance:none;border:0;font:inherit;cursor:pointer;color:#e5e5ea;display:grid;justify-items:center;gap:6px;background:none;padding:8px 10px;border-radius:12px;transition:transform .15s,background .15s}
+.dock button:active{transform:scale(.92)}
+.dock img{width:56px;height:56px}
+.dock span{font-size:12px;color:#d1d1d6;white-space:pre-line;text-align:center;line-height:1.4}
+.dock.icon{top:0;align-items:center}
+.dock.task button{grid-auto-flow:column;align-items:center;gap:10px;background:#1c1c1e;border:1px solid #2c2c2e;padding:8px 14px 10px;position:relative}
+.dock.task img{width:28px;height:28px}
+.dock.task button::after{content:"";position:absolute;left:50%;bottom:3px;width:18px;height:3px;margin-left:-9px;border-radius:2px;background:#8e8e93}
+.dock .tp{position:absolute;left:10px;right:10px;bottom:3px;height:3px;border-radius:2px;background:#30d158;transform-origin:left;transform:scaleX(0);display:none}
+.dock.task.busy button::after{display:none}
+.dock.task.busy .tp{display:block}
 .demo .note{margin-top:12px;font-size:12.5px;color:var(--mut);text-align:center}
 @media(max-width:820px){.app{grid-template-columns:1fr}.demo{margin-top:48px}}
 </style>
@@ -77,8 +104,8 @@
   <span class="badge rv">Claude Code로 개발</span>
  </section>
  <div class="demo rv">
- <div class="win" role="application" aria-label="AV1 Drop Encoder 체험 화면">
-  <div class="bar"><span>AV1 Drop Encoder</span><i>— ▢ ✕</i></div>
+ <div class="win" id="win" role="application" aria-label="AV1 Drop Encoder 체험 화면">
+  <div class="bar"><span>AV1 Drop Encoder</span><div class="ctl"><button type="button" data-w="min" aria-label="최소화">—</button><button type="button" data-w="max" aria-label="최대화">▢</button><button type="button" data-w="close" aria-label="닫기">✕</button></div></div>
   <div class="bd">
    <div class="drop" id="drop"><b>영상을 여기로 드래그 &amp; 드롭</b><button class="pbtn" id="pick" type="button">📄 예시 영상으로 해 보기</button><span class="fn" id="fn">또는 이 칸을 눌러 내 영상 고르기 (업로드 안 됨)</span><input type="file" id="file" accept="video/*" hidden></div>
    <div class="lbl">인코딩 설정</div>
@@ -98,6 +125,7 @@
    </div>
   </div>
  </div>
+ <div class="dock" id="dock"><button type="button" id="dockBtn"><img src="a/av1_icon.png" alt="" width="56" height="56"><span id="dockLbl">AV1 Drop Encoder</span><i class="tp" id="tp"></i></button></div>
  <p class="note">직접 눌러 보세요. 실제 인코딩은 하지 않는 체험용 화면입니다.</p>
 </div>
 </div>
@@ -190,6 +218,25 @@ const d=$('drop');
 ['dragenter','dragover'].forEach(t=>d.addEventListener(t,e=>{e.preventDefault();d.classList.add('hot')}));
 ['dragleave','drop'].forEach(t=>d.addEventListener(t,e=>{e.preventDefault();d.classList.remove('hot')}));
 d.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(f)setFile(f)});
+
+// window controls
+const win=$('win'),dock=$('dock'),demo=win.parentElement;let wstate='open';
+const fsOK=!!(win.requestFullscreen||win.webkitRequestFullscreen);
+function hide(kind){demo.style.minHeight=demo.offsetHeight+'px';win.classList.add(kind==='min'?'mini':'gone');
+ dock.className='dock show '+(kind==='min'?'task':'icon');$('dockLbl').textContent=kind==='min'?'AV1 Drop Encoder':'AV1 Drop Encoder\n(다시 열기)';wstate=kind;syncDock()}
+function restore(){win.classList.remove('mini','gone');dock.className='dock';wstate='open';setTimeout(()=>{demo.style.minHeight=''},350)}
+function syncDock(){dock.classList.toggle('busy',wstate==='min'&&!!timer);$('tp').style.transform='scaleX('+(pct/100)+')'}
+setInterval(()=>{if(wstate==='min')syncDock()},150);
+function exitFull(){if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document);win.classList.remove('full');document.body.style.overflow=''}
+win.querySelector('.ctl').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;e.stopPropagation();
+ const w=b.dataset.w;
+ if(w==='max'){if(document.fullscreenElement||document.webkitFullscreenElement||win.classList.contains('full'))exitFull();
+  else{const fake=()=>{win.classList.add('full');document.body.style.overflow='hidden'};if(fsOK){const p=(win.requestFullscreen||win.webkitRequestFullscreen).call(win);if(p&&p.catch)p.catch(fake)}else fake()}}
+ if(w==='min'){exitFull();hide('min')}
+ if(w==='close'){exitFull();if(timer){clearInterval(timer);timer=null;lock(false)}
+  pct=0;$('fill').style.width='0';$('out').classList.remove('show');$('stat').className='stat';$('stat').textContent='준비됨 — 파일을 드롭하세요';$('fn').textContent='또는 이 칸을 눌러 내 영상 고르기 (업로드 안 됨)';hide('close')}
+});
+$('dockBtn').onclick=restore;
 })();
 </script>
 <script src="case.js"></script>
