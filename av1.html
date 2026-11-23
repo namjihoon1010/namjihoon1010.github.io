@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>원하는 용량으로, AV1 Drop Encoder — 남지훈</title>
+<meta name="description" content="메신저 용량 제한에 맞춰 영상을 원하는 크기로 압축하는 Windows 앱. Claude Code로 개발.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="원하는 용량으로, AV1 Drop Encoder">
+<meta property="og:description" content="끌어다 놓으면 끝나는 영상 압축 앱. exe 하나, 10MB 이하.">
+<meta property="og:image" content="a/av1.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="case.css">
+<style>
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto}
+.app img{width:100%;max-width:420px;margin:0 auto;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.app .intro{padding-left:0;padding-right:0}
+.steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px;font-size:14px;color:#d2d2d7}
+.steps span{border:1px solid #3a3a3e;border-radius:99px;padding:8px 14px}
+.steps i{font-style:normal;color:var(--mut)}
+@media(max-width:820px){.app{grid-template-columns:1fr}.app img{max-width:300px;margin-top:48px}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="nav" id="nav"><a href="home.html"><b>NJH</b></a><nav><a href="home.html#work">작업</a><a href="index.html">포트폴리오</a><a href="home.html#contact">연락</a></nav></header>
+
+<div class="app" style="padding:0 var(--g)">
+ <section class="intro">
+  <div class="eyebrow rv">AV1 Drop Encoder</div>
+  <h1 class="rv">보내기 전에,<br>원하는 용량으로.</h1>
+  <p class="rv">메신저 용량 제한에 맞춰 영상을 원하는 크기로 압축하는 Windows 앱입니다. 창에 끌어다 놓으면 끝납니다.</p>
+  <div class="steps rv"><span>용량 입력</span><i>→</i><span>영상 드롭</span><i>→</i><span>완성</span></div>
+  <span class="badge rv">Claude Code로 개발</span>
+ </section>
+ <img class="rv" src="a/av1.png" alt="AV1 Drop Encoder 앱 화면" width="636" height="899">
+</div>
+
+<div class="keys rv num">
+ <div><b>10<small>MB 이하</small></b><span>실행 파일 하나</span></div>
+ <div><b>3<small>종</small></b><span>CPU · NVIDIA · AMD 인코딩</span></div>
+ <div><b>4<small>가지</small></b><span>용량 · 화질 · 비트레이트 · 자동</span></div>
+ <div><b>자동</b><span>ffmpeg 설치, 관리자 권한 불필요</span></div>
+</div>
+
+<section class="ch">
+ <div class="no rv">01 · 문제</div>
+ <h2 class="rv">영상은 큰데,<br>메신저는 작습니다.</h2>
+ <div class="body rv">
+  <p>메신저로 영상을 보내면 용량 제한에 자주 걸립니다. 줄이려면 인코딩 도구를 열고 비트레이트를 계산해야 합니다.</p>
+  <p><b>원하는 용량만 적고, 영상을 끌어다 놓으면 끝나게 만들었습니다.</b> 앱이 영상 길이로 비트레이트를 거꾸로 계산합니다. 화질 기준, 비트레이트 직접 지정, 원본 분석 자동 모드도 함께 넣었습니다.</p>
+ </div>
+</section>
+
+<section class="ch">
+ <div class="no rv">02 · 쓰는 사람 기준</div>
+ <h2 class="rv">친구에게<br>보낼 수 있는 앱.</h2>
+ <div class="body rv"><p>친구들과 나눠 쓰려고 만든 앱입니다. 그래서 받는 사람이 아무것도 설치하지 않아도 되는 것을 가장 먼저 정했습니다.</p></div>
+ <div class="rules">
+  <div class="rule rv" style="background:#161618"><i style="background:var(--lt);color:var(--bk)">1</i><h3>파일 하나,<br>10MB 이하</h3><p style="color:#a1a1a6">메신저로 바로 보낼 수 있게 실행 파일 하나를 10MB 밑으로 맞췄습니다.</p></div>
+  <div class="rule rv" style="background:#161618"><i style="background:var(--lt);color:var(--bk)">2</i><h3>ffmpeg는<br>알아서</h3><p style="color:#a1a1a6">인코딩 엔진(ffmpeg)이 없으면 물어본 뒤 내려받아 설치합니다. 관리자 권한은 필요 없습니다.</p></div>
+ </div>
+ <div class="bars rv num">
+  <div class="bar"><div class="lbl"><span>UI 개선 후 (Pillow 추가)</span><span>13.9MB</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
+  <div class="bar"><div class="lbl"><span>안 쓰는 이미지 모듈 제외</span><span>10.61MB</span></div><div class="trk"><div class="fill" style="--w:76.3%"></div></div></div>
+  <div class="bar me"><div class="lbl"><b>일본어·중국어 인코딩 표 제외</b><span>9.9MB</span></div><div class="trk"><div class="fill" style="--w:71.2%"></div></div></div>
+ </div>
+ <p class="pull rv">빠른 것보다,<br>파일 하나가 중요했습니다.</p>
+ <div class="body rv" style="margin-top:24px"><p>폴더 형태로 배포하면 실행이 1.7초에서 0.76초로 빨라지는 것을 실측했습니다. 하지만 받는 사람이 압축을 풀어야 합니다. 실행 속도 대신 단순한 배포를 택했습니다.</p></div>
+</section>
+
+<div class="light">
+ <section class="ch">
+  <div class="no rv">03 · 디테일</div>
+  <h2 class="rv">작은 앱이라도<br>끝까지.</h2>
+  <div class="rules">
+   <div class="rule rv"><i>1</i><h3>매끈한<br>곡선</h3><p>Tkinter 기본 캔버스는 곡선을 계단처럼 그립니다. 도형을 4배 크기로 그린 뒤 줄여서 붙이는 방식으로 화면 그리기를 통째로 바꿨습니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>AMD도<br>직접 확인</h3><p>NVIDIA만 지원하던 GPU 인코딩에 AMD를 추가했고, 제 RX 9060 XT로 실제 동작을 확인했습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>버그는<br>원인까지</h3><p>작업표시줄 아이콘이 바뀌지 않는 문제는, 아이콘을 엉뚱한 창에 지정하고 있던 것이 원인이었습니다. 진짜 최상위 창을 찾아 고쳤습니다.</p></div>
+   <div class="rule rv"><i>4</i><h3>여러 개도<br>한 번에</h3><p>여러 영상을 한 번에 놓으면 순서대로 처리합니다. 처리 중 언제든 중단할 수 있습니다.</p></div>
+  </div>
+ </section>
+</div>
+
+<section class="next">
+ <div class="eyebrow rv">04 · 만든 방식</div>
+ <h2 class="rv">코드는 AI가,<br>결정은 제가.</h2>
+ <p class="rv">Claude Code로 개발했습니다. 무엇을 넣고 무엇을 포기할지, 실제로 잘 동작하는지는 직접 정하고 확인했습니다.</p>
+ <dl class="cred rv"><div><dt>기획·검증</dt><dd>남지훈</dd></div><div><dt>개발</dt><dd>Claude Code (Python, Tkinter)</dd></div><div><dt>엔진</dt><dd>ffmpeg (SVT-AV1, NVENC, AMF)</dd></div><div><dt>시기</dt><dd>2026년 8~9월</dd></div></dl>
+ <div class="links rv"><a class="btn p" href="home.html#work">다른 작업 보기</a><a class="btn o" href="home.html" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
+</section>
+<footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
+
+<script src="case.js"></script>
+</body>
+</html>
