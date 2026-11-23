@@ -44,7 +44,6 @@ img,video{display:block;max-width:100%;height:auto}
 .body p{margin:0 0 1.1em;font-size:clamp(17px,1.9vw,21px);line-height:1.7;color:#a1a1a6}
 .body p b{color:var(--lt);font-weight:600}
 .pull{margin:clamp(40px,7vh,64px) 0 0;font-size:clamp(26px,4.4vw,48px);line-height:1.25;font-weight:700;letter-spacing:-.035em;color:var(--lt);max-width:16em}
-.pull::before{content:"";display:block;width:32px;height:3px;background:var(--acc);margin-bottom:20px}
 .shot{margin-top:clamp(48px,8vh,80px);border-radius:clamp(20px,3vw,32px);overflow:hidden}
 .shot img{width:100%;height:auto}
 

@@ -17,7 +17,7 @@
 .node{border:1px solid var(--line);border-radius:20px;padding:20px 22px}
 .node b{display:block;font-size:17px;font-weight:700;letter-spacing:-.015em}
 .node span{display:block;margin-top:6px;font-size:14px;color:var(--mut);line-height:1.5}
-.arrow{justify-self:center;width:1px;height:28px;background:linear-gradient(var(--line),var(--acc))}
+.arrow{justify-self:center;font-size:18px;line-height:1;color:var(--mut)}
 .host{border:1px solid #3a3a3e;border-radius:24px;padding:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .host>small{grid-column:1/-1;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--mut);padding:2px 4px 0}
 .host .node{background:#141416}
@@ -74,9 +74,9 @@
  <div class="body rv"><p>PC 전원을 원격으로 켜고 끄는 건 실패하면 되돌릴 방법이 없습니다. 그래서 PC는 항상 켜 두고, <b>디스코드 봇이 게임 서버만 필요할 때 켜고 끕니다.</b> 서버가 꺼져 있는 동안 PC는 평소처럼 쓸 수 있습니다.</p><p>친구들은 중계 터널로 접속해서 집 IP가 드러나지 않습니다. 게임 데이터와 백업은 서로 다른 디스크에 둬서, 하나가 망가져도 다른 하나는 남습니다.</p></div>
  <div class="sys rv">
   <div class="node"><b>친구들</b><span>PC(자바)와 모바일(베드락) 모두 접속</span></div>
-  <div class="arrow"></div>
+  <div class="arrow" aria-hidden="true">↓</div>
   <div class="node"><b>중계 터널</b><span>집 IP 숨김, 포트포워딩 불필요</span></div>
-  <div class="arrow"></div>
+  <div class="arrow" aria-hidden="true">↓</div>
   <div class="host">
    <small>집 데스크톱 · 항상 켜짐</small>
    <div class="node"><b>게임 서버</b><span>Paper, SSD</span></div>

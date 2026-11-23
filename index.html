@@ -38,14 +38,11 @@ img,video{display:block;max-width:100%;height:auto}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
 .hero h1{margin:12px 0 0;font-size:clamp(64px,19vw,184px);line-height:.9;font-weight:800;letter-spacing:-.05em}
 .hero p{margin:18px 0 0;font-size:clamp(17px,2vw,22px);color:#d2d2d7;line-height:1.45}
-.cue{position:absolute;z-index:2;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));width:1px;height:28px;background:linear-gradient(#fff0,#fffa);transform-origin:top;animation:cue 2.4s var(--ease) infinite}
-@keyframes cue{0%{transform:scaleY(0);opacity:1}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
 /* wide screens: portrait video framed, not cropped */
 @media(min-width:900px){
  .hero .v{left:auto;right:var(--g);top:96px;bottom:56px;aspect-ratio:9/16;border-radius:32px;overflow:hidden}
  .hero .v::after{background:linear-gradient(180deg,rgba(10,10,11,0) 70%,rgba(10,10,11,.3))}
  .hero .in{top:50%;bottom:auto;transform:translateY(-45%)}
- .cue{display:none}
 }
 
 /* featured */
@@ -139,7 +136,7 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
  .js .rv,.js .zoom img,.js .hero .in>*{transition:none;animation:none;opacity:1;transform:none}
- .cue,.go::before{animation:none}
+ .go::before{animation:none}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -155,7 +152,6 @@ footer{padding:0 var(--g) calc(28px + env(safe-area-inset-bottom));font-size:12p
   <h1>남지훈</h1>
   <p>구조를 설계하고, 전기를 넣고,<br>실제로 달리게 만듭니다.</p>
  </div>
- <div class="cue" aria-hidden="true"></div>
 </section>
 
 <section class="feat">
