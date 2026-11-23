@@ -24,8 +24,11 @@ document.querySelectorAll('.xpl').forEach(el => {
   let cur = -1;
   const draw = i => { const f = fr[i] || fr.find(Boolean); if (!f || i === cur && fr[i]) return; cur = fr[i] ? i : -1;
     cv.width = f.naturalWidth; cv.height = f.naturalHeight; ctx.drawImage(f, 0, 0); };
-  const frame = () => { if (still) return n - 1; const r = el.getBoundingClientRect(), span = r.height - innerHeight;
-    return Math.round(Math.min(1, Math.max(0, -r.top / Math.max(1, span))) * (n - 1)); };
+  // starts a little before the picture sticks and ends when it lets go, so there is no idle stretch
+  const xin = el.querySelector('.xin');
+  const frame = () => { if (still) return n - 1; const r = el.getBoundingClientRect(), st = parseFloat(getComputedStyle(xin).top) || 0;
+    const lead = innerHeight * 0.2, span = r.height - xin.offsetHeight + lead;
+    return Math.round(Math.min(1, Math.max(0, (st + lead - r.top) / Math.max(1, span))) * (n - 1)); };
   const upd = () => draw(frame());
   new IntersectionObserver((es, io) => { if (!es[0].isIntersecting) return; io.disconnect();
     for (let i = 0; i < n; i++) { const im = new Image(); im.src = url(i); im.decode().then(() => { fr[i] = im; upd(); }).catch(() => {}); }
