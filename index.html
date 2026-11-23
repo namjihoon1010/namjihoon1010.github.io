@@ -44,7 +44,7 @@ a{color:inherit}a:hover{color:#e8541c}
 <div style="margin-top: 72px; font-size: 15px; font-weight: 500; color: #e8541c">하드웨어 메이커 · 기구 설계 · 회로 · 펌웨어 · 제작</div>
 <h1 style="margin: 14px 0 0; font-size: clamp(38px, 6.6vw, 76px); line-height: 1.1; letter-spacing: -0.035em; font-weight: 900">아이디어를<br>달리고, 팔리고,<br>쓰이는 물건으로.</h1>
 <p style="margin: 26px 0 0; font-size: 18px; line-height: 1.65; color: #cfd3d7; max-width: 32em">구조 설계부터 회로, 펌웨어, 배터리까지 직접 만들고, 실제로 동작하는지 확인합니다.</p>
-<img src="a/kart_iso.jpg" alt="3D 프린팅 부품으로 만든 전기 카트 차체 렌더" style="display: block; width: 100%; height: auto; border-radius: 10px; margin-top: 48px">
+<img src="a/kart_iso.jpg" alt="출력 부품으로 만든 전기 카트 차체 렌더" style="display: block; width: 100%; height: auto; border-radius: 10px; margin-top: 48px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px 28px; margin-top: 40px">
 <div style="border-top: 3px solid #e8541c; padding-top: 14px">
 <div class="n" style="font-size: 42px; line-height: 1; font-weight: 500">약 94개</div>
@@ -56,7 +56,7 @@ a{color:inherit}a:hover{color:#e8541c}
 </div>
 <div style="border-top: 3px solid #e8541c; padding-top: 14px">
 <div class="n" style="font-size: 42px; line-height: 1; font-weight: 500">약 $1.95</div>
-<div style="margin-top: 10px; font-size: 15px; color: #b9bec4">보조배터리 보드 4,800개 양산 시 개당 견적(조립 포함)</div>
+<div style="margin-top: 10px; font-size: 15px; color: #b9bec4">보조배터리 기판 4,800개 양산 시 개당 견적(조립 포함)</div>
 </div>
 </div>
 </div>
@@ -67,9 +67,9 @@ a{color:inherit}a:hover{color:#e8541c}
 <a href="#kart" style="text-decoration: none">01 전기 카트</a>
 <a href="#stamp" style="text-decoration: none">02 명함 오거나이저</a>
 <a href="#rack" style="text-decoration: none">03 필라멘트 건조장</a>
-<a href="#pcb" style="text-decoration: none">04 보조배터리 PCB</a>
+<a href="#pcb" style="text-decoration: none">04 1셀 보조배터리 PCB</a>
 <a href="#audio" style="text-decoration: none">05 자작 스피커</a>
-<a href="#more" style="text-decoration: none">감속기 · AV1 인코더</a>
+<a href="#more" style="text-decoration: none">감속기 · AV1 Drop Encoder</a>
 </div>
 </nav>
 
@@ -85,7 +85,7 @@ a{color:inherit}a:hover{color:#e8541c}
 <div style="flex: 1 1 420px; min-width: 0">
 <div class="stats">
 <div class="stat"><div class="v n">2000W</div><div class="k">모터 출력</div></div>
-<div class="stat"><div class="v n">1.35kWh</div><div class="k">배터리 용량. 시판 전동 고카트(432Wh)의 약 3.1배</div></div>
+<div class="stat"><div class="v n">1.35kWh</div><div class="k">배터리 용량. 시판 전동 고카트(0.43kWh)의 약 3.1배</div></div>
 <div class="stat"><div class="v n">약 94개</div><div class="k">직접 설계한 출력 부품</div></div>
 <div class="stat"><div class="v n">5,000시간+</div><div class="k">누적 출력 시간(추정)</div></div>
 </div>
@@ -142,7 +142,7 @@ a{color:inherit}a:hover{color:#e8541c}
 <div class="stat"><div class="v">직접 설계</div><div class="k">제어보드(아두이노 나노, LCD, 버튼 4개)</div></div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px">
-<figure style="margin: 0"><img class="media" src="a/drypcb_photo.jpg" alt="제작된 검은색 제어보드 실물" loading="lazy"><figcaption class="cap">제작된 보드</figcaption></figure>
+<figure style="margin: 0"><img class="media" src="a/drypcb_photo.jpg" alt="제작된 검은색 제어보드 실물" loading="lazy"><figcaption class="cap">제작된 기판</figcaption></figure>
 <figure style="margin: 0"><img class="media" src="a/drypcb_layout.jpg" alt="KiCad 제어보드 배선 화면" loading="lazy"><figcaption class="cap">KiCad 배선</figcaption></figure>
 </div>
 <p style="margin: 16px 0 0; font-size: 15px; color: #41464c">온습도에 따라 히터와 팬을 제어하는 펌웨어를 여러 번 고쳐 안정화했습니다.</p>
@@ -154,8 +154,8 @@ a{color:inherit}a:hover{color:#e8541c}
 <div class="wrap" style="padding-top: 88px; padding-bottom: 88px">
 <div class="kicker" style="color: #e8541c">CASE 04 · 회로 설계 · Claude Code 활용</div>
 <h2 class="h2">설계 시작 3일 만에<br>시제품 주문</h2>
-<p class="lead">21700 1셀용 USB-C PD 보조배터리 보드입니다. Claude Code로 KiCad 설계 자동화 환경을 만들었고, 회로 검토와 배치 기준은 직접 정했습니다.</p>
-<img class="media" src="a/pcb_iso.jpg" alt="보조배터리 보드 3D 렌더" loading="lazy" style="margin-top: 36px">
+<p class="lead">21700 1셀용 USB-C PD 보조배터리 기판입니다. Claude Code로 KiCad 설계 자동화 환경을 만들었고, 회로 검토와 배치 기준은 직접 정했습니다.</p>
+<img class="media" src="a/pcb_iso.jpg" alt="보조배터리 기판 3D 렌더" loading="lazy" style="margin-top: 36px">
 <div class="stats" style="margin-top: 20px">
 <div class="stat"><div class="v n">58.4×13</div><div class="k">mm, 2층 기판</div></div>
 <div class="stat"><div class="v n">20W</div><div class="k">USB-C PD 입출력</div></div>
@@ -164,13 +164,13 @@ a{color:inherit}a:hover{color:#e8541c}
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; align-items: flex-start">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-<figure style="margin: 0"><img class="media" src="a/pcb_top.jpg" alt="보드 윗면 렌더" loading="lazy"><figcaption class="cap">윗면: 충전 IC, 인덕터, 보호 IC</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/pcb_bot.jpg" alt="보드 아랫면 렌더" loading="lazy"><figcaption class="cap">아랫면: 셀 연결 패드</figcaption></figure>
-<figure style="margin: 0"><img class="media" src="a/pcb_side.jpg" alt="보드 측면 렌더" loading="lazy"><figcaption class="cap">측면</figcaption></figure>
+<figure style="margin: 0"><img class="media" src="a/pcb_top.jpg" alt="기판 윗면 렌더" loading="lazy"><figcaption class="cap">윗면: 충전 IC, 인덕터, 보호 IC</figcaption></figure>
+<figure style="margin: 0"><img class="media" src="a/pcb_bot.jpg" alt="기판 아랫면 렌더" loading="lazy"><figcaption class="cap">아랫면: 셀 연결 패드</figcaption></figure>
+<figure style="margin: 0"><img class="media" src="a/pcb_side.jpg" alt="기판 측면 렌더" loading="lazy"><figcaption class="cap">측면</figcaption></figure>
 </div>
 <div style="flex: 1 1 320px; min-width: 0">
 <div style="font-size: 17px; font-weight: 700; margin-bottom: 4px">3일의 과정</div>
-<div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">1일차</div><div><b>설계 자동화 환경</b><span>회로도부터 제작 파일까지 스크립트로 묶고 첫 보드(4층) 완성, DRC 오류 0</span></div></div>
+<div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">1일차</div><div><b>설계 자동화 환경</b><span>회로도부터 제작 파일까지 스크립트로 묶고 첫 기판(4층) 완성, DRC 오류 0</span></div></div>
 <div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">2일차</div><div><b>소형화</b><span>부품을 재배치해 58.4×13mm로 축소</span></div></div>
 <div class="pt"><div class="no n" style="color: #e8541c; width: 3.2em">3일차</div><div><b>원가형 2층으로 재설계</b><span>배치·배선을 처음부터 다시 하고, 회로 전체 검토 후 JLCPCB에 시제품 주문</span></div></div>
 <div class="pt"><div class="no n" style="color: #8a9097; width: 3.2em">이후</div><div><b>생산 완료</b><span>실물 시험 예정</span></div></div>
@@ -233,12 +233,12 @@ a{color:inherit}a:hover{color:#e8541c}
 <h2 style="margin: 0 0 24px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em">할 수 있는 것과 그 증거</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 40px">
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">기구 설계</div><span>전기 카트, 명함 오거나이저, 감속기</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">회로·PCB</div><span>보조배터리 보드, 건조장 제어보드</span></div>
+<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">회로·PCB</div><span>보조배터리 기판, 건조장 제어보드</span></div>
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">펌웨어·제어</div><span>건조장 히터·팬 제어, 감속기 구동</span></div>
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">배터리·전장</div><span>카트 13S6P 팩 직접 제작, 2000W 구동계</span></div>
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">측정·튜닝</div><span>스피커 REW 측정과 룸 EQ</span></div>
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">양산·원가</div><span>보조배터리 100·500·4,800개 견적과 패널화, 명함 오거나이저 양산 준비</span></div>
-<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">소프트웨어</div><span>AV1 인코더 앱</span></div>
+<div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">소프트웨어</div><span>AV1 Drop Encoder</span></div>
 <div class="pt"><div style="flex: none; width: 7.5em; font-weight: 700">3D 프린팅</div><span>카트 부품 약 94개 출력, 고교 때 출력 대행 운영</span></div>
 </div>
 </div>

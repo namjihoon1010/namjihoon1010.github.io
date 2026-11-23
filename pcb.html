@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>3일 만에 주문까지, 보조배터리 PCB — 남지훈</title>
-<meta name="description" content="21700 1셀 USB-C PD 20W 보조배터리 보드. Claude Code로 설계 자동화 환경을 만들고, 검증은 직접 했습니다.">
+<title>3일 만에 주문까지, 1셀 보조배터리 PCB — 남지훈</title>
+<meta name="description" content="21700 1셀 USB-C PD 20W 보조배터리 기판. Claude Code로 설계 자동화 환경을 만들고, 검증은 직접 했습니다.">
 <meta name="theme-color" content="#0a0a0b">
-<meta property="og:title" content="3일 만에 주문까지, 보조배터리 PCB">
+<meta property="og:title" content="3일 만에 주문까지, 1셀 보조배터리 PCB">
 <meta property="og:description" content="AI가 틀리기 쉬운 곳은 피하고, 결과는 직접 검증했습니다.">
 <meta property="og:image" content="a/pcb_iso.jpg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -21,7 +21,7 @@
 <section class="intro">
  <div class="eyebrow rv">Power Bank PCB</div>
  <h1 class="rv">설계 시작 3일 만에<br>시제품 주문.</h1>
- <p class="rv">21700 1셀, USB-C PD 20W 보조배터리 보드입니다. Claude Code로 설계 자동화 환경을 만들었고, 부품 선정과 배치 기준, 검증은 직접 했습니다.</p>
+ <p class="rv">21700 1셀, USB-C PD 20W 보조배터리 기판입니다. Claude Code로 설계 자동화 환경을 만들었고, 부품 선정과 배치 기준, 검증은 직접 했습니다.</p>
  <span class="badge rv">Claude Code 활용</span>
  <div class="shot dk rv zoom"><img src="a/pcb_layers.jpg" alt="2층 최종 기판 배선. 빨강: 윗면, 파랑: 아랫면" width="1800" height="727"></div>
  <p class="cap rv">2층 최종 기판 배선. 빨강: 윗면, 파랑: 아랫면</p>
@@ -31,7 +31,7 @@
  <div><b>3<small>일</small></b><span>설계 시작부터 시제품 주문</span></div>
  <div><b>58.4×13</b><span>mm · 2층 기판</span></div>
  <div><b>40→4.9</b><span>mm · GND 귀환 경로</span></div>
- <div><b>$1.95</b><span>4,800개 양산 시 개당 (추정)</span></div>
+ <div><b>약 $1.95</b><span>4,800개 양산 시 개당</span></div>
 </div>
 
 <section class="ch">
@@ -48,13 +48,13 @@
  <div class="no rv">02 · 3일</div>
  <h2 class="rv">하루에 한 단계씩.</h2>
  <div class="tl">
-  <div class="ver rv"><div class="tag"><b>1일차</b></div><h3>설계 자동화 환경</h3><p>회로도 생성, 넷리스트 검증, PCB 생성, DRC, 제작 파일까지 스크립트로 묶었습니다. 첫 보드(4층)를 DRC 오류 0으로 완성했습니다.</p></div>
+  <div class="ver rv"><div class="tag"><b>1일차</b></div><h3>설계 자동화 환경</h3><p>회로도 생성, 넷리스트 검증, PCB 생성, DRC, 제작 파일까지 스크립트로 묶었습니다. 첫 기판(4층)을 DRC 오류 0으로 완성했습니다.</p></div>
   <div class="ver rv"><div class="tag"><b>2일차</b></div><h3>소형화</h3><p>부품을 다시 배치해 58.4×13mm로 줄였습니다. 폭 13mm는 USB-C 커넥터 다리 간격이 정하는 하한입니다.</p></div>
   <div class="ver rv"><div class="tag"><b>3일차</b></div><h3>원가형 2층 재설계</h3><p>단가를 낮추려고 2층으로 바꿨습니다. 배치와 배선을 처음부터 다시 하고, 회로 전체를 검토한 뒤 JLCPCB에 시제품을 주문했습니다.</p></div>
   <div class="ver now rv"><div class="tag"><b>이후</b></div><h3>생산 완료</h3><p>시제품 생산이 끝났고, 실물 시험을 앞두고 있습니다.</p><div class="x">시험 예정</div></div>
  </div>
- <div class="shot lav rv zoom"><img src="a/pcb_4l.jpg" alt="1~2일차 4층 보드 렌더" loading="lazy" width="1600" height="996"></div>
- <p class="cap rv">1~2일차 4층 보드</p>
+ <div class="shot lav rv zoom"><img src="a/pcb_4l.jpg" alt="1~2일차 4층 기판 렌더" loading="lazy" width="1600" height="996"></div>
+ <p class="cap rv">1~2일차 4층 기판</p>
 </section>
 
 <div class="light">
@@ -76,7 +76,7 @@
    <div class="rule rv"><i>1</i><h3>연결은<br>핀 단위로 대조</h3><p>의도한 연결을 먼저 글로 적고, 만들어진 회로와 핀 하나하나를 비교했습니다. 26개 넷, 불일치 0.</p></div>
    <div class="rule rv"><i>2</i><h3>데이터시트와<br>한 줄씩 대조</h3><p>IP5365의 48핀 전부를 데이터시트 핀 표와 맞춰 봤습니다. 이 과정에서 충전 IC의 만충 전압과 보호 IC의 차단 전압 범위가 겹치는 것을 찾아, 차단 전압이 더 높은 보호 IC로 바꿨습니다.</p></div>
    <div class="rule rv"><i>3</i><h3>기구 위치를<br>먼저 고정</h3><p>USB-C, 측면 버튼, 셀 연결 패드의 위치를 먼저 고정하고, 남은 공간 안에서 부품을 배치했습니다.</p></div>
-   <div class="rule rv"><i>4</i><h3>자동 배선은<br>쓰지 않았습니다</h3><p>자동 배선(Freerouting)은 좁은 2층 기판에서 GND 면을 끊고 USB 신호를 잇지 못했습니다. 이 보드는 전부 손으로 배선했습니다.</p></div>
+   <div class="rule rv"><i>4</i><h3>자동 배선은<br>쓰지 않았습니다</h3><p>자동 배선(Freerouting)은 좁은 2층 기판에서 GND 면을 끊고 USB 신호를 잇지 못했습니다. 이 기판은 전부 손으로 배선했습니다.</p></div>
   </div>
  </section>
 </div>
@@ -101,8 +101,8 @@
 <section class="next">
  <div class="eyebrow rv">05 · 다음</div>
  <h2 class="rv">이제 실물로.</h2>
- <p class="rv">충전과 방전, 발열, 만충까지 가는지 시제품으로 확인합니다. 다음 보드는 3S 45W 보조배터리입니다.</p>
- <dl class="cred rv"><div><dt>설계·검증</dt><dd>남지훈</dd></div><div><dt>도구</dt><dd>Claude Code (설계 자동화), KiCad 10</dd></div><div><dt>제작</dt><dd>JLCPCB (PCB·조립·양산 견적)</dd></div><div><dt>시기</dt><dd>2026년 11월</dd></div></dl>
+ <p class="rv">충전과 방전, 발열, 만충까지 가는지 시제품으로 확인합니다. 다음 기판은 3S 45W 보조배터리입니다.</p>
+ <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (설계·검증)</dd></div><div><dt>도구</dt><dd>Claude Code (설계 자동화), KiCad 10</dd></div><div><dt>제작</dt><dd>JLCPCB (PCB·조립·양산 견적)</dd></div><div><dt>시기</dt><dd>2026년 11월</dd></div></dl>
  <div class="links rv"><a class="btn p" href="home.html#work">다른 작업 보기</a><a class="btn o" href="home.html" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
 </section>
 <footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>

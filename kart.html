@@ -30,7 +30,7 @@
 
 <div class="keys rv num">
  <div><b>2000<small>W</small></b><span>모터 출력</span></div>
- <div><b>1.35<small>kWh</small></b><span>직접 만든 배터리</span></div>
+ <div><b>1.35<small>kWh</small></b><span>직접 만든 배터리 팩</span></div>
  <div><b>약 94<small>개</small></b><span>출력 부품</span></div>
  <div><b>90<small>kg</small></b><span>30kg 카트에 태워 본 몸무게</span></div>
 </div>
@@ -51,7 +51,7 @@
  <div class="body rv"><p>한계가 보이면 고쳐 쓰기보다 처음부터 다시 그렸습니다.</p></div>
  <div class="tl">
   <div class="ver rv"><div class="tag"><b>V1</b><span>고1</span></div><h3>알루미늄 프로파일 프레임</h3><p>아직 카트의 형태도 갖추지 못한 설계였습니다.</p><div class="x">폐기</div></div>
-  <div class="ver rv"><div class="tag"><b>V2</b><span>고1</span></div><h3>각파이프 프레임</h3><p>겉보기엔 그럴듯했지만 3D 프린팅 부품의 내구성이 불안했습니다. 무엇보다 용접이 불가능했고, 실제로 조립할 수 없는 구조였습니다.</p><div class="x">폐기</div></div>
+  <div class="ver rv"><div class="tag"><b>V2</b><span>고1</span></div><h3>각파이프 프레임</h3><p>겉보기엔 그럴듯했지만 출력 부품의 내구성이 불안했습니다. 무엇보다 용접이 불가능했고, 실제로 조립할 수 없는 구조였습니다.</p><div class="x">폐기</div></div>
   <div class="ver rv"><div class="tag"><b>V3</b><span>고2</span></div><h3>첫 전체 3D 프린팅 프레임</h3><p>처음으로 프레임 전체를 3D 프린팅으로 설계했습니다. 방향은 맞았지만 강성이 부족했습니다.</p><div class="x">개량</div></div>
   <div class="ver now rv"><div class="tag"><b>V4</b><span>고2~3</span></div><h3>지금 달리는 카트</h3><p>바깥 사각 프레임은 거의 그대로 두고, 중앙 구조를 새로 짰습니다. 의자를 프레임의 일부로 만들어 강성을 크게 높였고, 의자 이동을 위해 비워 두었던 공간은 전부 프레임으로 채웠습니다.</p><div class="x">완성</div></div>
  </div>
@@ -65,7 +65,7 @@
   <div class="body rv"><p>화면 속에서만 멋진 설계는 의미가 없습니다. 실제로 출력하고 조립할 수 있어야 합니다.</p></div>
   <div class="rules">
    <div class="rule rv"><i>1</i><h3>구할 수 있는 부품을<br>먼저 구했습니다</h3><p>바퀴, 축, 모터, 모터 컨트롤러, 조향 부품은 시판 부품을 먼저 정하고, 프레임을 그 치수에 맞춰 설계했습니다.</p></div>
-   <div class="rule rv"><i>2</i><h3>출력 방향이<br>곧 강도</h3><p>3D 프린팅 부품은 층과 층 사이가 가장 약합니다. 하중이 그 방향으로 걸리지 않도록, 부품마다 출력 방향을 먼저 정하고 형상을 그렸습니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>출력 방향이<br>곧 강도</h3><p>출력 부품은 층과 층 사이가 가장 약합니다. 하중이 그 방향으로 걸리지 않도록, 부품마다 출력 방향을 먼저 정하고 형상을 그렸습니다.</p></div>
    <div class="rule rv"><i>3</i><h3>끼우고, 붙이고,<br>덧댈 수 있게</h3><p>부품은 갈고리처럼 서로 끼워 맞춘 뒤 본드로 고정했습니다. 공차는 수축과 크기를 고려해 0.1~0.3mm 사이에서 잡았습니다. 보강이 필요할 만한 곳에는 볼트 구멍을 미리 설계해 두어, 출력한 보강 부품을 나중에 덧댈 수 있게 했습니다.</p></div>
    <div class="rule rv"><i>4</i><h3>맞을 때까지<br>출력</h3><p>시제품을 수십 개 출력해 하나씩 맞춰 나갔고, 불안한 곳은 보강 부품을 더해 해결했습니다. 가장 큰 부품은 한 개 출력에만 24시간 넘게 걸렸습니다.</p></div>
   </div>
@@ -82,13 +82,13 @@
  <h2 class="rv">배터리도 직접.</h2>
  <div class="body rv"><p>21700 셀 78개로 48V급 13S6P 팩을 만들었습니다.</p><p>셀 하나가 낼 수 있는 전류는 10A. <b>2000W를 내기 위해 6개를 병렬로 묶어 60A를 확보했고, 모터 컨트롤러의 전압에 맞춰 13개를 직렬로 연결했습니다.</b></p><p>낱개 셀을 스폿용접하고, 배선을 납땜하고, BMS를 달고, 방수 하우징까지 만들었습니다.</p></div>
  <div class="bars rv num" id="bars">
-  <div class="bar me"><div class="lbl"><b>직접 만든 팩</b><span>약 1,350Wh</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
-  <div class="bar"><div class="lbl"><span>시판 전동 고카트</span><span>432Wh</span></div><div class="trk"><div class="fill" style="--w:32%"></div></div></div>
+  <div class="bar me"><div class="lbl"><b>직접 만든 배터리 팩</b><span>약 1.35kWh</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
+  <div class="bar"><div class="lbl"><span>시판 전동 고카트</span><span>0.43kWh</span></div><div class="trk"><div class="fill" style="--w:32%"></div></div></div>
  </div>
  <div class="cells rv num">
-  <div><b>13S</b>컨트롤러 전압에 맞춘 48V급</div>
+  <div><b>13S</b>모터 컨트롤러 전압에 맞춘 48V급</div>
   <div><b>6P</b>셀당 10A × 6 = 60A</div>
-  <div><b>약 3.1배</b>시판 고카트 대비 용량</div>
+  <div><b>약 3.1배</b>시판 전동 고카트 대비 용량</div>
  </div>
 </section>
 
@@ -113,7 +113,7 @@
  <div class="eyebrow rv">07 · 다음 카트</div>
  <h2 class="rv">자동차와 카트 사이.</h2>
  <p class="rv">더 가볍게, 금속 프레임에 서스펜션을 달고. 출력은 10kW 이상으로. 자동차와 카트 사이, 진짜 레이싱 카트를 만드는 것이 다음 목표입니다.</p>
- <dl class="cred rv"><div><dt>설계</dt><dd>남지훈 (전체)</dd></div><div><dt>제작</dt><dd>남지훈, 기능반 동아리 선배들 (출력 일부)</dd></div><div><dt>지원</dt><dd>지도 선생님 (공간·비용·작업 시간)</dd></div><div><dt>제작비</dt><dd>약 80만 원 (필라멘트 제외)</dd></div></dl>
+ <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (설계 전체, 제작)</dd></div><div><dt>도움</dt><dd>지도 선생님 (공간·비용·작업 시간), 기능반 동아리 선배들 (출력 일부)</dd></div><div><dt>도구</dt><dd>뱀부랩 X1CC (출력)</dd></div><div><dt>제작비</dt><dd>약 80만 원 (필라멘트 제외)</dd></div></dl>
  <div class="links rv"><a class="btn p" href="home.html#work">다른 작업 보기</a><a class="btn o" href="home.html" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
 </section>
 <footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
