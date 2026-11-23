@@ -33,6 +33,7 @@
 .drop .fn{font-size:12px;color:#8e8e93}
 .pbtn,.pill{appearance:none;border:1px solid #3a3a3c;background:#2c2c2e;color:#e5e5ea;border-radius:999px;padding:7px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:transform .12s,background .15s,color .15s,border-color .15s}
 .pbtn:active,.pill:active{transform:scale(.94)}
+.pbtn:disabled{opacity:.3;cursor:default;transform:none}
 .pill.on{background:#f2f2f7;color:#111;border-color:#f2f2f7;font-weight:600}
 .lbl{font-size:11.5px;color:#8e8e93;margin:2px 2px -4px}
 .card{border:1px solid #2c2c2e;border-radius:14px;padding:12px;display:grid;gap:10px;background:#202022}
@@ -88,7 +89,7 @@
     <div class="row"><span>컨테이너</span><div class="grp" data-g="ct"><button class="pill on" data-v="mp4">mp4</button><button class="pill" data-v="mkv">mkv</button><button class="pill" data-v="webm">webm</button></div></div>
    </div>
    <div class="lbl">진행 상황</div>
-   <div class="prog"><div class="track"><div class="fill2" id="fill"></div></div><button class="pbtn" id="stop" type="button">■ 중단</button></div>
+   <div class="prog"><div class="track"><div class="fill2" id="fill"></div></div><button class="pbtn" id="stop" type="button" disabled>■ 중단</button></div>
    <div class="stat" id="stat">준비됨 — 파일을 드롭하세요</div>
    <div class="out" id="out">
     <figure><video src="a/kart.mp4" muted loop playsinline preload="none"></video><figcaption><b>입력</b><br><span id="inInfo"></span></figcaption></figure>
@@ -170,16 +171,16 @@ const mb=n=>(n/1048576).toFixed(1)+'MB';
 function setFile(f){file=f||{name:'kart.mp4',size:48.2*1048576};$('fn').textContent=file.name+' · '+mb(file.size);$('inInfo').textContent=file.name+' · '+mb(file.size);start()}
 function outSize(){const s=file.size;if(st.mode==='size')return Math.min(s*.95,(+$('val').value||10)*1048576*.97);return s*(st.mode==='crf'?.22:st.mode==='br'?.3:.25)}
 function encName(){return st.enc==='gpu'?(st.gpu==='nv'?'NVIDIA':'AMD'):'CPU'}
-function start(){clearInterval(timer);pct=0;$('out').classList.remove('show');$('stat').className='stat busy';
+function start(){clearInterval(timer);pct=0;$('stop').disabled=false;$('out').classList.remove('show');$('stat').className='stat busy';
  const speed=st.enc==='gpu'?3.2:1.4;
  timer=setInterval(()=>{pct=Math.min(100,pct+speed*(0.6+Math.random()));$('fill').style.width=pct+'%';
   $('stat').textContent='인코딩 중 ('+encName()+') — '+Math.floor(pct)+'% · 남은 시간 약 '+Math.max(1,Math.ceil((100-pct)/speed/8))+'초';
   if(pct>=100)done()},120)}
-function done(){clearInterval(timer);timer=null;const o=outSize(),base=file.name.replace(/\.[^.]+$/,'');
+function done(){clearInterval(timer);timer=null;$('stop').disabled=true;const o=outSize(),base=file.name.replace(/\.[^.]+$/,'');
  $('stat').className='stat done';$('stat').textContent='완료 — '+base+'_av1.'+st.ct+' 저장됨';
  $('outInfo').textContent=base+'_av1.'+st.ct+' · '+mb(o)+' ('+Math.round((1-o/file.size)*100)+'% 감소)';
  $('out').classList.add('show');$('out').querySelectorAll('video').forEach(v=>v.play().catch(()=>{}))}
-$('stop').onclick=()=>{if(!timer)return;clearInterval(timer);timer=null;$('stat').className='stat';$('stat').textContent='중단됨 — '+Math.floor(pct)+'%에서 멈춤'};
+$('stop').onclick=()=>{if(!timer)return;clearInterval(timer);timer=null;$('stop').disabled=true;$('stat').className='stat';$('stat').textContent='중단됨 — '+Math.floor(pct)+'%에서 멈춤'};
 $('pick').onclick=e=>{e.stopPropagation();setFile()};
 $('drop').onclick=()=>$('file').click();
 $('file').onchange=e=>{if(e.target.files[0])setFile(e.target.files[0])};
