@@ -34,6 +34,7 @@
 .pbtn,.pill{appearance:none;border:1px solid #3a3a3c;background:#2c2c2e;color:#e5e5ea;border-radius:999px;padding:7px 13px;font:inherit;font-size:12.5px;cursor:pointer;transition:transform .12s,background .15s,color .15s,border-color .15s}
 .pbtn:active,.pill:active{transform:scale(.94)}
 .pbtn:disabled{opacity:.3;cursor:default;transform:none}
+.card.lock{opacity:.45;pointer-events:none;transition:opacity .2s}
 .pill.on{background:#f2f2f7;color:#111;border-color:#f2f2f7;font-weight:600}
 .lbl{font-size:11.5px;color:#8e8e93;margin:2px 2px -4px}
 .card{border:1px solid #2c2c2e;border-radius:14px;padding:12px;display:grid;gap:10px;background:#202022}
@@ -81,7 +82,7 @@
   <div class="bd">
    <div class="drop" id="drop"><b>영상을 여기로 드래그 &amp; 드롭</b><button class="pbtn" id="pick" type="button">📄 예시 영상으로 해 보기</button><span class="fn" id="fn">또는 이 칸을 눌러 내 영상 고르기 (업로드 안 됨)</span><input type="file" id="file" accept="video/*" hidden></div>
    <div class="lbl">인코딩 설정</div>
-   <div class="card">
+   <div class="card" id="cfg">
     <div class="row"><span>모드</span><div class="grp" data-g="mode"><button class="pill on" data-v="auto">Auto</button><button class="pill" data-v="size">용량(MB)</button><button class="pill" data-v="br">비트레이트</button><button class="pill" data-v="crf">품질(CRF)</button></div></div>
     <div class="row"><span>값</span><div class="grp"><input class="val" id="val" disabled inputmode="decimal" aria-label="값"><span class="hint" id="hint">(불필요 — 자동 산정)</span></div></div>
     <div class="row"><span>인코더</span><div class="grp"><div class="grp" data-g="enc"><button class="pill on" data-v="cpu">CPU</button><button class="pill" data-v="gpu">GPU</button></div><div class="sub" id="gsub" data-g="gpu"><button class="pill on" data-v="nv">NVIDIA</button><button class="pill" data-v="amd">AMD</button></div></div></div>
@@ -160,7 +161,8 @@
 (()=>{
 const $=id=>document.getElementById(id);
 const hints={auto:['','(불필요 — 자동 산정)',true],size:['10','MB · 이 용량에 맞춥니다',false],br:['2500','kbps',false],crf:['32','낮을수록 고화질',false]};
-const st={mode:'auto',enc:'cpu',gpu:'nv',aud:'opus',ct:'mp4'};let file=null,timer=null,pct=0;
+const st={mode:'auto',enc:'cpu',gpu:'nv',aud:'opus',ct:'mp4'};let file=null,timer=null,pct=0,job=null;
+function lock(on){$('cfg').classList.toggle('lock',on);$('val').disabled=on||st.mode==='auto';$('stop').disabled=!on}
 document.querySelectorAll('.win [data-g]').forEach(g=>g.addEventListener('click',e=>{
  const b=e.target.closest('.pill');if(!b||!g.contains(b))return;e.stopPropagation();
  g.querySelectorAll(':scope > .pill').forEach(x=>x.classList.toggle('on',x===b));st[g.dataset.g]=b.dataset.v;
@@ -169,18 +171,18 @@ document.querySelectorAll('.win [data-g]').forEach(g=>g.addEventListener('click'
 }));
 const mb=n=>(n/1048576).toFixed(1)+'MB';
 function setFile(f){file=f||{name:'kart.mp4',size:48.2*1048576};$('fn').textContent=file.name+' · '+mb(file.size);$('inInfo').textContent=file.name+' · '+mb(file.size);start()}
-function outSize(){const s=file.size;if(st.mode==='size')return Math.min(s*.95,(+$('val').value||10)*1048576*.97);return s*(st.mode==='crf'?.22:st.mode==='br'?.3:.25)}
-function encName(){return st.enc==='gpu'?(st.gpu==='nv'?'NVIDIA':'AMD'):'CPU'}
-function start(){clearInterval(timer);pct=0;$('stop').disabled=false;$('out').classList.remove('show');$('stat').className='stat busy';
- const speed=st.enc==='gpu'?3.2:1.4;
+function outSize(){const s=file.size;if(job.mode==='size')return Math.min(s*.95,(+job.val||10)*1048576*.97);return s*(job.mode==='crf'?.22:job.mode==='br'?.3:.25)}
+function encName(){return job.enc==='gpu'?(job.gpu==='nv'?'NVIDIA':'AMD'):'CPU'}
+function start(){clearInterval(timer);pct=0;job={...st,val:$('val').value};lock(true);$('out').classList.remove('show');$('stat').className='stat busy';
+ const speed=job.enc==='gpu'?3.2:1.4;
  timer=setInterval(()=>{pct=Math.min(100,pct+speed*(0.6+Math.random()));$('fill').style.width=pct+'%';
   $('stat').textContent='인코딩 중 ('+encName()+') — '+Math.floor(pct)+'% · 남은 시간 약 '+Math.max(1,Math.ceil((100-pct)/speed/8))+'초';
   if(pct>=100)done()},120)}
-function done(){clearInterval(timer);timer=null;$('stop').disabled=true;const o=outSize(),base=file.name.replace(/\.[^.]+$/,'');
- $('stat').className='stat done';$('stat').textContent='완료 — '+base+'_av1.'+st.ct+' 저장됨';
- $('outInfo').textContent=base+'_av1.'+st.ct+' · '+mb(o)+' ('+Math.round((1-o/file.size)*100)+'% 감소)';
+function done(){clearInterval(timer);timer=null;lock(false);const o=outSize(),base=file.name.replace(/\.[^.]+$/,'');
+ $('stat').className='stat done';$('stat').textContent='완료 — '+base+'_av1.'+job.ct+' 저장됨';
+ $('outInfo').textContent=base+'_av1.'+job.ct+' · '+mb(o)+' ('+Math.round((1-o/file.size)*100)+'% 감소)';
  $('out').classList.add('show');$('out').querySelectorAll('video').forEach(v=>v.play().catch(()=>{}))}
-$('stop').onclick=()=>{if(!timer)return;clearInterval(timer);timer=null;$('stop').disabled=true;$('stat').className='stat';$('stat').textContent='중단됨 — '+Math.floor(pct)+'%에서 멈춤'};
+$('stop').onclick=()=>{if(!timer)return;clearInterval(timer);timer=null;lock(false);$('stat').className='stat';$('stat').textContent='중단됨 — '+Math.floor(pct)+'%에서 멈춤'};
 $('pick').onclick=e=>{e.stopPropagation();setFile()};
 $('drop').onclick=()=>$('file').click();
 $('file').onchange=e=>{if(e.target.files[0])setFile(e.target.files[0])};
