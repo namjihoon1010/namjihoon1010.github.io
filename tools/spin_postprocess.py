@@ -2,13 +2,13 @@
 #   python tools/spin_postprocess.py C:/temp/spin a/spin kart
 # - one crop box for all frames (union of every frame's object box + 6% margin, 3:2), so the object never jumps
 # - background (215,216,220) = sampled from the site's kart render (a/kart_iso.jpg), so it matches the page
-# - 1200x800 WebP, quality 80
-# Viewer: spin.js, e.g. <div class="shot spin" data-src="a/spin/kart_{i}.webp" data-n="36" data-start="9">
+# - 1000x667 WebP, quality 78 (72 frames ≈ 2.5 MB; phones show it ~1000 px wide)
+# Viewer: spin.js, e.g. <div class="shot spin" data-src="a/spin/kart-72x20/kart_{i}.webp" data-n="72" data-start="18">
 import sys, glob, os
 from PIL import Image
 
 src, out, name = sys.argv[1], sys.argv[2], sys.argv[3]
-BG, PAD, SIZE = (215, 216, 220), 0.06, (1200, 800)
+BG, PAD, SIZE, Q = (215, 216, 220), 0.06, (1000, 667), 78
 
 files = sorted(glob.glob(f'{src}/{name}_*.png'))
 ims = [Image.open(f).convert('RGBA') for f in files]
@@ -25,5 +25,5 @@ os.makedirs(out, exist_ok=True)
 for i, im in enumerate(ims):
     bg = Image.new('RGBA', im.size, BG + (255,))
     bg.alpha_composite(im)
-    bg.convert('RGB').crop(box).resize(SIZE, Image.LANCZOS).save(f'{out}/{name}_{i:02d}.webp', 'WEBP', quality=80, method=6)
+    bg.convert('RGB').crop(box).resize(SIZE, Image.LANCZOS).save(f"{out}/{name}_{i:02d}.webp", "WEBP", quality=Q, method=6)
 print(len(ims), 'frames, crop box', box)

@@ -3,14 +3,14 @@
 #   document  : 3D GOKART / "카트 프로토타입2222222222" v184 (Y-up model)
 #   center    : bounding-box center of the root component, in cm
 #   camera    : orthographic, 20° above horizon, 600 cm away (distance only matters for ortho clipping)
-#   frames    : 36, every 10°, starting at 35°
+#   frames    : 72, every 5°, starting at 35°
 #   zoom      : viewExtents 200 (same for every frame so the size never jumps)
 #   output    : 2400x1600 PNG, transparent background, anti-aliased
 # Then run spin_postprocess.py to crop all frames the same way and make the WebP files.
 import adsk.core, adsk.fusion, math, os
 
 OUT = r'C:/temp/spin'       # change
-N, START_DEG = 36, 35
+N, START_DEG = 72, 35
 ELEV_DEG, DIST, EXTENTS = 20, 600.0, 200
 W, H = 2400, 1600
 

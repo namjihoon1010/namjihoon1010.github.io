@@ -1,4 +1,4 @@
-// 360° viewer: <div class="spin" data-src="a/spin/kart-36x20/kart_{i}.webp" data-n="36" data-start="9"></div>
+// 360° viewer: <div class="spin" data-src="a/spin/kart-72x20/kart_{i}.webp" data-n="72" data-start="18"></div>
 // Frame folders are versioned (new name per capture) because GitHub Pages caches files for 10 min.
 // Direction: frame index +1 moves the near (lower) side of the model to the right, so drag right = +.
 // - All touches on the viewer are handled here (CSS touch-action:none), so the browser never
@@ -28,7 +28,8 @@ document.querySelectorAll('.spin').forEach(el => {
   load(((pos % n) + n) % n);                          // first frame right away
   new IntersectionObserver((es, io) => {
     if (!es[0].isIntersecting) return; io.disconnect();
-    Promise.all([...Array(n).keys()].map(load)).then(() => { ready = true; maybeIntro(); });
+    const order = [...Array(n).keys()].sort((a, b) => (a % 2) - (b % 2));   // every other frame first, then the gaps
+    Promise.all(order.map(load)).then(() => { ready = true; maybeIntro(); });
   }, { rootMargin: '300px' }).observe(el);
 
 
