@@ -28,8 +28,22 @@ document.querySelectorAll('.spin').forEach(el => {
   load(((pos % n) + n) % n);                          // first frame right away
   new IntersectionObserver((es, io) => {
     if (!es[0].isIntersecting) return; io.disconnect();
-    Promise.all([...Array(n).keys()].map(load));
+    Promise.all([...Array(n).keys()].map(load)).then(() => { ready = true; maybeIntro(); });
   }, { rootMargin: '300px' }).observe(el);
+
+
+  // intro: one full turn when the viewer is first really on screen (all frames decoded).
+  // Speed ramps up gently and takes longer to slow down, so it settles instead of stopping dead.
+  let ready = false, inView = false, introDone = false, touched = false;
+  new IntersectionObserver(es => { inView = es[0].intersectionRatio >= 0.6; maybeIntro(); }, { threshold: [0, 0.6] }).observe(el);
+  function maybeIntro() {
+    if (!ready || !inView || introDone || touched || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    introDone = true;
+    const start = pos, t0 = performance.now(), dur = 2400;
+    const ease = k => { const u = Math.pow(k, 0.7); return (1 - Math.cos(Math.PI * u)) / 2; };  // soft start, long soft stop
+    (function f(t) { if (touched) return; const k = Math.min(1, (t - t0) / dur);
+      show(start + ease(k) * n); if (k < 1) requestAnimationFrame(f); else show(start); })(performance.now());
+  }
 
   // one handler for mouse, pen and touch
   const pxPerFrame = () => Math.max(4, el.clientWidth / n);   // one viewer width = one full turn
@@ -39,7 +53,7 @@ document.querySelectorAll('.spin').forEach(el => {
     id = e.pointerId; try { el.setPointerCapture(id); } catch (_) {} cancelAnimationFrame(raf);
     sx = lx = e.clientX; sy = ly = e.clientY; lt = performance.now(); vel = 0; p0 = pos;
     axis = e.pointerType === 'touch' ? null : 'x';            // mouse always rotates
-    el.classList.add('used');
+    touched = true; el.classList.add('used');
   });
   el.addEventListener('pointermove', e => {
     if (e.pointerId !== id) return;
