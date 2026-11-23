@@ -1,24 +1,33 @@
 // 360° viewer: <div class="spin" data-src="a/spin/kart_{i}.webp" data-n="36" data-start="9"></div>
-// Drag (mouse) or swipe (touch) sideways to rotate, with a little momentum after release.
-// Touch: the first few pixels decide the gesture. Mostly sideways -> we rotate and block page scroll;
-// mostly up/down -> we let the page scroll. (Pointer events alone get cancelled by the browser's
-// scroll detection on phones, which is why only one frame moved per swipe.)
+// - All touches on the viewer are handled here (CSS touch-action:none), so the browser never
+//   steals a diagonal swipe for scrolling. Sideways = rotate, up/down = we scroll the page ourselves.
+// - Every frame is decoded up front and drawn to a canvas, so the picture always follows the finger.
 document.querySelectorAll('.spin').forEach(el => {
   const n = +el.dataset.n, tpl = el.dataset.src;
+  const W = +el.dataset.w || 1200, H = +el.dataset.h || 800;
   const url = i => tpl.replace('{i}', String(i).padStart(2, '0'));
-  const img = new Image(); img.alt = el.dataset.alt || ''; img.draggable = false;
-  img.width = +el.dataset.w || 1200; img.height = +el.dataset.h || 800;
-  el.prepend(img);
-  let cur = +el.dataset.start || 0, pos = cur;           // pos = fractional frame position
-  const show = p => { pos = p; const i = ((Math.round(p) % n) + n) % n; if (i !== cur || !img.src) { cur = i; img.src = url(i); } };
-  img.src = url(cur);
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', el.dataset.alt || '');
+  el.prepend(cv);
+  const ctx = cv.getContext('2d');
+  const frames = new Array(n);                       // decoded images (or undefined)
+  let pos = +el.dataset.start || 0, shown = -1;
 
-  // preload once near the screen, then one hint turn
+  const draw = () => {
+    const i = ((Math.round(pos) % n) + n) % n;
+    let f = frames[i];
+    if (!f) { for (let d = 1; d < n && !f; d++) f = frames[(i + d) % n] || frames[(i - d + n) % n]; }  // nearest ready frame
+    if (f && f !== shown) { ctx.drawImage(f, 0, 0, W, H); shown = f; }
+  };
+  const show = p => { pos = p; draw(); };
+  const load = i => { const im = new Image(); im.src = url(i);
+    return im.decode().then(() => { frames[i] = im; draw(); }).catch(() => {}); };
+
+  load(((pos % n) + n) % n);                          // first frame right away
   let touched = false;
   new IntersectionObserver((es, io) => {
     if (!es[0].isIntersecting) return; io.disconnect();
-    let done = 0;
-    for (let i = 0; i < n; i++) { const p = new Image(); p.onload = p.onerror = () => { if (++done === n) hint(); }; p.src = url(i); }
+    Promise.all([...Array(n).keys()].map(load)).then(hint);
   }, { rootMargin: '300px' }).observe(el);
   function hint() {
     if (touched || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -27,33 +36,36 @@ document.querySelectorAll('.spin').forEach(el => {
       show(start + e * n); if (k < 1) requestAnimationFrame(f); })(t0);
   }
 
-  // shared drag logic: x in px -> frames; momentum on release
-  const pxPerFrame = () => Math.max(4, el.clientWidth / n);   // one screen width = one full turn
-  let x0 = 0, p0 = 0, lastX = 0, lastT = 0, vel = 0, raf = 0;
-  const begin = x => { touched = true; el.classList.add('used', 'drag'); cancelAnimationFrame(raf); x0 = lastX = x; p0 = pos; lastT = performance.now(); vel = 0; };
-  const move = x => { const t = performance.now(); vel = (x - lastX) / Math.max(1, t - lastT); lastX = x; lastT = t; show(p0 + (x - x0) / pxPerFrame()); };
-  const finish = () => { el.classList.remove('drag'); let v = vel * 16 / pxPerFrame();  // frames per 16 ms
-    (function coast() { if (Math.abs(v) < 0.02) return; show(pos + v); v *= 0.93; raf = requestAnimationFrame(coast); })(); };
+  // one handler for mouse, pen and touch
+  const pxPerFrame = () => Math.max(4, el.clientWidth / n);   // one viewer width = one full turn
+  let id = null, axis = null, sx = 0, sy = 0, lx = 0, ly = 0, p0 = 0, vel = 0, lt = 0, raf = 0;
+  el.addEventListener('pointerdown', e => {
+    if (id !== null) return;
+    id = e.pointerId; try { el.setPointerCapture(id); } catch (_) {} cancelAnimationFrame(raf);
+    sx = lx = e.clientX; sy = ly = e.clientY; lt = performance.now(); vel = 0; p0 = pos;
+    axis = e.pointerType === 'touch' ? null : 'x';            // mouse always rotates
+    touched = true; el.classList.add('used');
+  });
+  el.addEventListener('pointermove', e => {
+    if (e.pointerId !== id) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (!axis) { if (Math.hypot(dx, dy) < 8) return; axis = Math.abs(dx) >= Math.abs(dy) ? 'x' : 'y'; }
+    const t = performance.now();
+    if (axis === 'x') { el.classList.add('drag'); vel = (e.clientX - lx) / Math.max(1, t - lt); show(p0 + dx / pxPerFrame()); }
+    else { vel = (e.clientY - ly) / Math.max(1, t - lt); window.scrollBy(0, ly - e.clientY); }
+    lx = e.clientX; ly = e.clientY; lt = t;
+  });
+  const end = e => {
+    if (e.pointerId !== id) return; id = null; el.classList.remove('drag');
+    if (performance.now() - lt > 80) vel = 0;                 // finger stopped before lifting
+    if (axis === 'x') { let v = vel * 16 / pxPerFrame();      // frames per frame-time
+      (function coast() { if (Math.abs(v) < 0.02) return; show(pos + v); v *= 0.93; raf = requestAnimationFrame(coast); })(); }
+    else if (axis === 'y') { let v = -vel * 16;               // page scroll momentum
+      (function coast() { if (Math.abs(v) < 0.5) return; window.scrollBy(0, v); v *= 0.95; raf = requestAnimationFrame(coast); })(); }
+    axis = null;
+  };
+  el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
 
-  // touch
-  let axis = null, tx = 0, ty = 0;
-  el.addEventListener('touchstart', e => { const t = e.touches[0]; tx = t.clientX; ty = t.clientY; axis = null; }, { passive: true });
-  el.addEventListener('touchmove', e => {
-    const t = e.touches[0], dx = t.clientX - tx, dy = t.clientY - ty;
-    if (!axis) { if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return; axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'; if (axis === 'x') begin(t.clientX); }
-    if (axis === 'x') { e.preventDefault(); move(t.clientX); }
-  }, { passive: false });
-  el.addEventListener('touchend', () => { if (axis === 'x') finish(); axis = null; });
-  el.addEventListener('touchcancel', () => { if (axis === 'x') finish(); axis = null; });
-
-  // mouse / pen
-  let down = false;
-  el.addEventListener('pointerdown', e => { if (e.pointerType === 'touch') return; down = true; el.setPointerCapture(e.pointerId); begin(e.clientX); });
-  el.addEventListener('pointermove', e => { if (down) move(e.clientX); });
-  const up = () => { if (down) { down = false; finish(); } };
-  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
-
-  // keyboard
   el.tabIndex = 0;
   el.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(pos - 1); if (e.key === 'ArrowRight') show(pos + 1); });
 });
