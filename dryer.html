@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="case.css?v=0fc5e78e">
+<link rel="stylesheet" href="case.css?v=956e404a">
 <style>
 .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto;padding:0 var(--g)}
 .app .intro{padding-left:0;padding-right:0}
@@ -70,7 +70,7 @@
   <p>서랍은 5T·3T 폴리카보네이트(PC) 판으로 만들고, 3D 프린팅 구조물로 보강했습니다. 깊은 장 안쪽의 필라멘트도 서랍째 꺼낼 수 있습니다.</p>
   <p>히터와 팬은 전부 뒤쪽에 두고 <b>아래를 바라보게 배치했습니다.</b> 더운 공기는 위로 올라가니, 처음부터 아래로 불어 내려 위쪽에만 열이 몰리지 않게 했습니다.</p>
  </div>
- <div class="shot rv" style="max-width:520px"><img src="a/dry_heater.webp" alt="40mm 팬과 출력한 덕트로 만든 히터 모듈" loading="lazy" width="1000" height="1000"></div>
+ <div class="shot rv narrow"><img src="a/dry_heater.webp" alt="40mm 팬과 출력한 덕트로 만든 히터 모듈" loading="lazy" width="1000" height="1000"></div>
  <p class="cap rv">히터 모듈. 40mm 팬과 3D 프린팅 덕트</p>
 </section>
 
@@ -83,13 +83,9 @@
   <div class="rule rv"><i>2</i><h3>습기는<br>비교해서 뺍니다</h3><p>내부와 외부의 절대습도를 비교해, 내부가 더 습할 때만 환기합니다. 필요 없을 때 문을 열어 열을 버리지 않습니다.</p></div>
   <div class="rule rv"><i>3</i><h3>위아래를<br>맞춥니다</h3><p>더운 공기는 위로 몰립니다. 위아래 온도 차이가 생기면 내부 팬을 돌려, 아래 칸도 같은 온도로 맞춥니다.</p></div>
  </div>
- <div class="body rv" style="margin-top:56px"><p>같은 공기를 25℃에서 53℃로 데우면 담을 수 있는 수분의 양이 약 4.5배로 늘어납니다. 그래서 <b>내부 상대습도는 바깥의 약 22%까지 내려갑니다.</b></p></div>
+ <div class="body rv gap"><p>같은 공기를 25℃에서 53℃로 데우면 담을 수 있는 수분의 양이 약 4.5배로 늘어납니다. 그래서 <b>내부 상대습도는 바깥의 약 22%까지 내려갑니다.</b></p></div>
  <table class="tbl num rv">
-  <tr><th>실내 (25℃)</th><th></th><th>건조장 내부 (53℃)</th></tr>
-  <tr><td>상대습도 40%</td><td>→</td><td><b>약 9%</b></td></tr>
-  <tr><td>상대습도 60%</td><td>→</td><td><b>약 13%</b></td></tr>
-  <tr><td>상대습도 80%</td><td>→</td><td><b>약 18%</b></td></tr>
- </table>
+  <thead><tr><th scope="col">실내 (25℃)</th><th scope="col"></th><th scope="col">건조장 내부 (53℃)</th></tr></thead><tbody><tr><td>상대습도 40%</td><td>→</td><td><b>약 9%</b></td></tr><tr><td>상대습도 60%</td><td>→</td><td><b>약 13%</b></td></tr><tr><td>상대습도 80%</td><td>→</td><td><b>약 18%</b></td></tr></tbody></table>
  <p class="cap rv">밀폐 상태를 가정한 계산값입니다(Magnus 식). 실측값이 아니며, 목표 온도 53℃도 기억에 의존한 값이라 정확하지 않을 수 있습니다.</p>
 </section>
 
@@ -123,10 +119,10 @@
  <h2 class="rv">사업장에서<br>실사용.</h2>
  <p class="rv">사업장에 설치해 실제로 쓰고 있습니다. 입대 전, 제가 없어도 운영할 수 있게 인수인계 문서를 남겼고, 이후 따로 문의는 없었습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·설계·제작·펌웨어)</dd></div><div><dt>도구</dt><dd>KiCad, Arduino (C++)</dd></div><div><dt>제작비</dt><dd>약 100만 원</dd></div></dl>
- <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
+ <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
 </section>
 <footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
 
-<script src="case.js?v=1effdd86"></script>
+<script src="case.js?v=ac6a9feb"></script>
 </body>
 </html>

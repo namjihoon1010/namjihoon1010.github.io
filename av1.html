@@ -12,11 +12,12 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="case.css?v=0fc5e78e">
+<link rel="stylesheet" href="case.css?v=956e404a">
 <style>
 .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto}
 .app img{width:100%;max-width:420px;margin:0 auto;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .app .intro{padding-left:0;padding-right:0}
+.app{padding:0 var(--g)}
 .steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px;font-size:14px;color:#d2d2d7}
 .steps span{border:1px solid #3a3a3e;border-radius:99px;padding:8px 14px}
 .steps i{font-style:normal;color:var(--mut)}
@@ -95,7 +96,7 @@
 
 <header class="nav" id="nav"><a href="./"><b>NJH</b></a><nav><a href="./#work">작업</a><a href="portfolio.html">포트폴리오</a><a href="./#contact">연락</a></nav></header>
 
-<div class="app" style="padding:0 var(--g)">
+<div class="app">
  <section class="intro">
   <div class="eyebrow rv">AV1 Drop Encoder</div>
   <h1 class="rv">보내기 전에,<br>원하는 용량으로.</h1>
@@ -110,11 +111,11 @@
    <div class="drop" id="drop"><b>영상을 여기로 드래그 &amp; 드롭</b><button class="pbtn" id="pick" type="button">📄 예시 영상으로 해 보기</button><span class="fn" id="fn">또는 이 칸을 눌러 내 영상 고르기 (업로드 안 됨)</span><input type="file" id="file" accept="video/*" hidden></div>
    <div class="lbl">인코딩 설정</div>
    <div class="card" id="cfg">
-    <div class="row"><span>모드</span><div class="grp" data-g="mode"><button class="pill on" data-v="auto">Auto</button><button class="pill" data-v="size">용량(MB)</button><button class="pill" data-v="br">비트레이트</button><button class="pill" data-v="crf">품질(CRF)</button></div></div>
-    <div class="row"><span>값</span><div class="grp"><input class="val" id="val" disabled inputmode="decimal" aria-label="값"><span class="hint" id="hint">(불필요 — 자동 산정)</span></div></div>
-    <div class="row"><span>인코더</span><div class="grp"><div class="grp" data-g="enc"><button class="pill on" data-v="cpu">CPU</button><button class="pill" data-v="gpu">GPU</button></div><div class="sub" id="gsub" data-g="gpu"><button class="pill on" data-v="nv">NVIDIA</button><button class="pill" data-v="amd">AMD</button></div></div></div>
-    <div class="row"><span>오디오</span><div class="grp" data-g="aud"><button class="pill" data-v="copy">원본 복사</button><button class="pill on" data-v="opus">Opus 128k</button></div></div>
-    <div class="row"><span>컨테이너</span><div class="grp" data-g="ct"><button class="pill on" data-v="mp4">mp4</button><button class="pill" data-v="mkv">mkv</button><button class="pill" data-v="webm">webm</button></div></div>
+    <div class="row"><span>모드</span><div class="grp" data-g="mode"><button type="button" class="pill on" data-v="auto">Auto</button><button type="button" class="pill" data-v="size">용량(MB)</button><button type="button" class="pill" data-v="br">비트레이트</button><button type="button" class="pill" data-v="crf">품질(CRF)</button></div></div>
+    <div class="row"><span>값</span><div class="grp"><input type="text" class="val" id="val" disabled inputmode="decimal" aria-label="값"><span class="hint" id="hint">(불필요 — 자동 산정)</span></div></div>
+    <div class="row"><span>인코더</span><div class="grp"><div class="grp" data-g="enc"><button type="button" class="pill on" data-v="cpu">CPU</button><button type="button" class="pill" data-v="gpu">GPU</button></div><div class="sub" id="gsub" data-g="gpu"><button type="button" class="pill on" data-v="nv">NVIDIA</button><button type="button" class="pill" data-v="amd">AMD</button></div></div></div>
+    <div class="row"><span>오디오</span><div class="grp" data-g="aud"><button type="button" class="pill" data-v="copy">원본 복사</button><button type="button" class="pill on" data-v="opus">Opus 128k</button></div></div>
+    <div class="row"><span>컨테이너</span><div class="grp" data-g="ct"><button type="button" class="pill on" data-v="mp4">mp4</button><button type="button" class="pill" data-v="mkv">mkv</button><button type="button" class="pill" data-v="webm">webm</button></div></div>
    </div>
    <div class="lbl">진행 상황</div>
    <div class="prog"><div class="track"><div class="fill2" id="fill"></div></div><button class="pbtn" id="stop" type="button" disabled>■ 중단</button></div>
@@ -150,9 +151,9 @@
  <div class="no rv">02 · 쓰는 사람 기준</div>
  <h2 class="rv">친구에게<br>보낼 수 있는 앱.</h2>
  <div class="body rv"><p>친구들과 나눠 쓰려고 만든 앱입니다. 그래서 받는 사람이 아무것도 설치하지 않아도 되는 것을 가장 먼저 정했습니다.</p></div>
- <div class="rules">
-  <div class="rule rv" style="background:#161618"><i style="background:var(--lt);color:var(--bk)">1</i><h3>파일 하나,<br>10MB 이하</h3><p style="color:#a1a1a6">메신저로 바로 보낼 수 있게 실행 파일 하나를 10MB 밑으로 맞췄습니다.</p></div>
-  <div class="rule rv" style="background:#161618"><i style="background:var(--lt);color:var(--bk)">2</i><h3>ffmpeg는<br>알아서</h3><p style="color:#a1a1a6">인코딩 엔진(ffmpeg)이 없으면 물어본 뒤 내려받아 설치합니다. 관리자 권한은 필요 없습니다.</p></div>
+ <div class="rules dk">
+  <div class="rule rv"><i>1</i><h3>파일 하나,<br>10MB 이하</h3><p>메신저로 바로 보낼 수 있게 실행 파일 하나를 10MB 밑으로 맞췄습니다.</p></div>
+  <div class="rule rv"><i>2</i><h3>ffmpeg는<br>알아서</h3><p>인코딩 엔진(ffmpeg)이 없으면 물어본 뒤 내려받아 설치합니다. 관리자 권한은 필요 없습니다.</p></div>
  </div>
  <div class="bars rv num">
   <div class="bar"><div class="lbl"><span>UI 개선 후 (Pillow 추가)</span><span>13.9MB</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
@@ -160,7 +161,7 @@
   <div class="bar me"><div class="lbl"><b>일본어·중국어 인코딩 표 제외</b><span>9.9MB</span></div><div class="trk"><div class="fill" style="--w:71.2%"></div></div></div>
  </div>
  <p class="pull rv">빠른 것보다,<br>파일 하나가 중요했습니다.</p>
- <div class="body rv" style="margin-top:24px"><p>폴더 형태로 배포하면 실행이 1.7초에서 0.76초로 빨라지는 것을 실측했습니다. 하지만 받는 사람이 압축을 풀어야 합니다. 실행 속도 대신 단순한 배포를 택했습니다.</p></div>
+ <div class="body rv gap"><p>폴더 형태로 배포하면 실행이 1.7초에서 0.76초로 빨라지는 것을 실측했습니다. 하지만 받는 사람이 압축을 풀어야 합니다. 실행 속도 대신 단순한 배포를 택했습니다.</p></div>
 </section>
 
 <div class="light">
@@ -181,7 +182,7 @@
  <h2 class="rv">코드는 AI가,<br>결정은 제가.</h2>
  <p class="rv">Claude Code로 개발했습니다. 무엇을 넣고 무엇을 포기할지, 실제로 잘 동작하는지는 직접 정하고 확인했습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·검증)</dd></div><div><dt>도구</dt><dd>Claude Code (Python, Tkinter), ffmpeg</dd></div><div><dt>시기</dt><dd>2026년 8~9월</dd></div></dl>
- <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
+ <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
 </section>
 <footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
 
@@ -239,6 +240,6 @@ win.querySelector('.ctl').addEventListener('click',e=>{const b=e.target.closest(
 $('dockBtn').onclick=restore;
 })();
 </script>
-<script src="case.js?v=1effdd86"></script>
+<script src="case.js?v=ac6a9feb"></script>
 </body>
 </html>
