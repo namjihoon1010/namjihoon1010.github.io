@@ -10,7 +10,8 @@
 <meta property="og:description" content="랙 캐비닛을 개조하고, 제어보드와 펌웨어를 직접 만들었습니다.">
 <meta property="og:image" content="a/rack.jpg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="case.css">
 <style>
 .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto;padding:0 var(--g)}
@@ -34,7 +35,7 @@
   <h1 class="rv">250개를 넣는<br>필라멘트 건조장.</h1>
   <p class="rv">3D 프린팅 사업장에서 쓰는 필라멘트 약 250개를 건조하고 보관하는 장비입니다. 랙 캐비닛을 개조하고, 제어보드와 펌웨어를 직접 만들었습니다.</p>
  </section>
- <img class="rv" src="a/rack.jpg" alt="사업장에 설치한 필라멘트 건조장" width="1000" height="1306">
+ <img class="rv" src="a/rack.webp" alt="사업장에 설치한 필라멘트 건조장" width="1000" height="1306">
 </div>
 
 <div class="keys rv num">
@@ -69,7 +70,7 @@
   <p>서랍은 5T·3T 폴리카보네이트(PC) 판으로 만들고, 3D 프린팅 구조물로 보강했습니다. 깊은 장 안쪽의 필라멘트도 서랍째 꺼낼 수 있습니다.</p>
   <p>히터와 팬은 전부 뒤쪽에 두고 <b>아래를 바라보게 배치했습니다.</b> 더운 공기는 위로 올라가니, 처음부터 아래로 불어 내려 위쪽에만 열이 몰리지 않게 했습니다.</p>
  </div>
- <div class="shot rv" style="max-width:520px"><img src="a/dry_heater.jpg" alt="40mm 팬과 출력한 덕트로 만든 히터 모듈" loading="lazy" width="1000" height="1000"></div>
+ <div class="shot rv" style="max-width:520px"><img src="a/dry_heater.webp" alt="40mm 팬과 출력한 덕트로 만든 히터 모듈" loading="lazy" width="1000" height="1000"></div>
  <p class="cap rv">히터 모듈. 40mm 팬과 3D 프린팅 덕트</p>
 </section>
 
@@ -100,8 +101,8 @@
   <p>처음에는 LCD와 버튼 4개로 조작부를 넣었지만, 하드웨어 문제를 겪으며 조작부를 줄이고 자동 제어에 집중했습니다.</p>
  </div>
  <div class="duo">
-  <figure class="rv"><img src="a/drypcb_photo.jpg" alt="제작된 제어보드" loading="lazy" width="740" height="680"><figcaption>제작된 제어보드</figcaption></figure>
-  <figure class="rv"><img src="a/drypcb_layout.jpg" alt="KiCad 제어보드 배치 (일부 가림)" loading="lazy" width="1100" height="973"><figcaption>KiCad 배치 화면 (배선 일부 가림)</figcaption></figure>
+  <figure class="rv"><img src="a/drypcb_photo.webp" alt="제작된 제어보드" loading="lazy" width="740" height="680"><figcaption>제작된 제어보드</figcaption></figure>
+  <figure class="rv"><img src="a/drypcb_layout.webp" srcset="a/drypcb_layout-800.webp 800w, a/drypcb_layout.webp 1100w" sizes="(max-width: 820px) 100vw, 1100px" alt="KiCad 제어보드 배치 (일부 가림)" loading="lazy" width="1100" height="973"><figcaption>KiCad 배치 화면 (배선 일부 가림)</figcaption></figure>
  </div>
 </section>
 
