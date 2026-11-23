@@ -3,7 +3,7 @@
 # - one crop box for all frames (union of every frame's object box + 6% margin, 3:2), so the object never jumps
 # - background (215,216,220) = sampled from the site's kart render (a/kart_iso.jpg), so it matches the page
 # - 1200x800 WebP, quality 80
-# Viewer: spin.js, e.g. <div class="shot spin" data-src="a/spin/kart_{i}.webp" data-n="24" data-start="6">
+# Viewer: spin.js, e.g. <div class="shot spin" data-src="a/spin/kart_{i}.webp" data-n="36" data-start="9">
 import sys, glob, os
 from PIL import Image
 
