@@ -25,17 +25,15 @@ document.querySelectorAll('.spin').forEach(el => {
   const load = i => { const im = new Image(); im.src = url(i);
     return im.decode().then(() => { frames[i] = im; draw(); }).catch(() => {}); };
 
-  // loading: first frame now; when near the screen, every 4th frame (enough for the intro turn);
-  // the rest only when someone actually touches it.
+  // loading: first frame now; all frames once the viewer is near the screen (every other one first).
   const s0 = ((pos % n) + n) % n;
   load(s0);
   new IntersectionObserver((es, io) => {
     if (!es[0].isIntersecting) return; io.disconnect();
-    const coarse = [...Array(n).keys()].filter(i => (i - s0 + n) % 4 === 0);
-    Promise.all(coarse.map(load)).then(() => { ready = true; maybeIntro(); });
+    const order = [...Array(n).keys()].sort((a, b) => (a % 2) - (b % 2));
+    Promise.all(order.map(load)).then(() => { ready = true; maybeIntro(); });
   }, { rootMargin: '300px' }).observe(el);
-  let all = false;
-  const loadAll = () => { if (all) return; all = true; for (let i = 0; i < n; i++) if (!frames[i] && (i - s0 + n) % 4) load(i); };
+  const loadAll = () => {};                               // everything is already requested above
 
 
   // intro: one full turn when the viewer is first really on screen (all frames decoded).
