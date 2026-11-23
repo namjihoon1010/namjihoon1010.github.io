@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>250개를 넣는 필라멘트 건조장 — 남지훈</title>
+<meta name="description" content="3D 프린팅 사업장의 필라멘트 약 250개를 건조하고 보관하는 장비. 랙 캐비닛 개조, 제어보드와 펌웨어 직접 제작.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="250개를 넣는 필라멘트 건조장">
+<meta property="og:description" content="랙 캐비닛을 개조하고, 제어보드와 펌웨어를 직접 만들었습니다.">
+<meta property="og:image" content="a/rack.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="case.css">
+<style>
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto;padding:0 var(--g)}
+.app .intro{padding-left:0;padding-right:0}
+.app>img{width:100%;max-width:440px;margin:calc(100px + env(safe-area-inset-top)) auto 0;border-radius:24px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(48px,8vh,72px)}
+.duo figure{margin:0}
+.duo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;background:#111}
+.duo figcaption{margin-top:10px;font-size:13px;color:var(--mut)}
+@media(max-width:820px){.app{grid-template-columns:1fr}.app>img{max-width:320px;margin-top:48px}.duo{gap:10px}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="nav" id="nav"><a href="./"><b>NJH</b></a><nav><a href="./#work">작업</a><a href="portfolio.html">포트폴리오</a><a href="./#contact">연락</a></nav></header>
+
+<div class="app">
+ <section class="intro">
+  <div class="eyebrow rv">Filament Dryer Cabinet</div>
+  <h1 class="rv">250개를 넣는<br>필라멘트 건조장.</h1>
+  <p class="rv">3D 프린팅 사업장에서 쓰는 필라멘트 약 250개를 건조하고 보관하는 장비입니다. 랙 캐비닛을 개조하고, 제어보드와 펌웨어를 직접 만들었습니다.</p>
+ </section>
+ <img class="rv" src="a/rack.jpg" alt="사업장에 설치한 필라멘트 건조장" width="1000" height="1306">
+</div>
+
+<div class="keys rv num">
+ <div><b>약 250<small>개</small></b><span>수납 스풀</span></div>
+ <div><b>5<small>개</small></b><span>PTC 히터, 릴레이 제어</span></div>
+ <div><b>3<small>개</small></b><span>온습도 센서 (위·아래·외부)</span></div>
+ <div><b>약 6<small>개월</small></b><span>기획부터 설치까지</span></div>
+</div>
+
+<section class="ch">
+ <div class="no rv">01 · 문제</div>
+ <h2 class="rv">건조는 되는데,<br>보관이 안 됐습니다.</h2>
+ <div class="body rv">
+  <p>필라멘트는 습기를 먹으면 출력 품질이 떨어집니다. 사업장에서는 AMS 2로 건조하고 있었지만, 한 번에 건조할 수 있는 양이 적고 보관용도 아니었습니다.</p>
+  <p>회사 대표님과 이야기를 나누다 해결책이 나왔습니다. <b>필라멘트 전부를 건조하면서 그대로 보관하는 장을 만들자.</b></p>
+ </div>
+</section>
+
+<section class="ch">
+ <div class="no rv">02 · 왜 직접</div>
+ <h2 class="rv">맞는 제품이<br>없었습니다.</h2>
+ <div class="body rv">
+  <p>기성 건조기는 비싸고, 사업장 환경에 맞지 않았습니다. 무엇보다 깊은 장의 뒤쪽까지 채워야 했는데, 서랍형으로 꺼낼 수 있는 제품을 찾지 못했습니다.</p>
+  <p>그래서 <b>기성 랙 캐비닛을 개조해 서랍형 건조장을 만들었습니다.</b></p>
+ </div>
+</section>
+
+<section class="ch">
+ <div class="no rv">03 · 제어</div>
+ <h2 class="rv">덥히고, 비교하고,<br>섞습니다.</h2>
+ <div class="body rv"><p>제어 원리는 세 가지입니다. 센서 3개를 내부 위·아래와 외부에 두고, 히터와 팬을 펌웨어로 제어합니다.</p></div>
+ <div class="rules three dk">
+  <div class="rule rv"><i>1</i><h3>온도를<br>일정하게</h3><p>내부를 약 53℃로 유지합니다. 공기 속 수분의 양은 그대로인데 온도가 오르니, 상대습도가 내려가 필라멘트가 마릅니다.</p></div>
+  <div class="rule rv"><i>2</i><h3>습기는<br>비교해서 뺍니다</h3><p>내부와 외부의 절대습도를 비교해, 내부가 더 습할 때만 환기합니다. 필요 없을 때 문을 열어 열을 버리지 않습니다.</p></div>
+  <div class="rule rv"><i>3</i><h3>위아래를<br>맞춥니다</h3><p>더운 공기는 위로 몰립니다. 위아래 온도 차이가 생기면 내부 팬을 돌려, 아래 칸도 같은 온도로 맞춥니다.</p></div>
+ </div>
+ <p class="cap rv">목표 온도는 기억에 의존한 값이라 정확하지 않을 수 있습니다.</p>
+</section>
+
+<section class="ch">
+ <div class="no rv">04 · 제어보드</div>
+ <h2 class="rv">보드도<br>직접 그렸습니다.</h2>
+ <div class="body rv">
+  <p>아두이노 나노를 올리는 제어보드를 KiCad로 직접 설계했습니다. 히터 5개를 릴레이로 켜고 끄고, 센서 3개와 팬을 연결합니다.</p>
+  <p>처음에는 LCD와 버튼 4개로 조작부를 넣었지만, 하드웨어 문제를 겪으며 조작부를 줄이고 자동 제어에 집중했습니다.</p>
+ </div>
+ <div class="duo">
+  <figure class="rv"><img src="a/drypcb_photo.jpg" alt="제작된 제어보드" loading="lazy" width="740" height="680"><figcaption>제작된 제어보드</figcaption></figure>
+  <figure class="rv"><img src="a/drypcb_layout.jpg" alt="KiCad 제어보드 배치 (일부 가림)" loading="lazy" width="1100" height="973"><figcaption>KiCad 배치 화면 (배선 일부 가림)</figcaption></figure>
+ </div>
+</section>
+
+<div class="light">
+ <section class="ch">
+  <div class="no rv">05 · 배운 것</div>
+  <h2 class="rv">계획대로 되지<br>않았던 것들.</h2>
+  <div class="rules three">
+   <div class="rule rv"><i>1</i><h3>원인을<br>잘못 짚었습니다</h3><p>펌웨어 버그가 많았고, 하드웨어 문제까지 펌웨어 탓으로 잘못 판단해 시간을 썼습니다. 증상만 보고 원인을 단정하지 않게 됐습니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>과열은<br>시험으로 확인했습니다</h3><p>별도 보호 회로 대신 펌웨어로 온도를 제어했고, 실제 시험으로 히터가 과열될 가능성이 없다는 것을 확인했습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>직접 만드는 게<br>늘 싸지는 않았습니다</h3><p>기성품보다 싸게 만들려고 시작했지만, 시행착오가 쌓이면서 제작비가 약 100만 원까지 늘었습니다.</p></div>
+  </div>
+ </section>
+</div>
+
+<section class="next">
+ <div class="eyebrow rv">06 · 결과</div>
+ <h2 class="rv">사업장에서<br>실사용.</h2>
+ <p class="rv">사업장에 설치해 실제로 쓰고 있습니다. 입대 전, 제가 없어도 운영할 수 있게 인수인계 문서를 남겼고, 이후 따로 문의는 없었습니다.</p>
+ <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·설계·제작·펌웨어)</dd></div><div><dt>도구</dt><dd>KiCad, Arduino (C++)</dd></div><div><dt>제작비</dt><dd>약 100만 원</dd></div></dl>
+ <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" onclick="if(document.referrer.indexOf(location.host)>-1&&history.length>1){history.back();return false}">← 돌아가기</a></div>
+</section>
+<footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
+
+<script src="case.js"></script>
+</body>
+</html>
