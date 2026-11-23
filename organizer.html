@@ -32,6 +32,11 @@
 .proc figure{margin:0}
 .proc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;background:#e8e8ed}
 .proc figcaption{margin-top:8px;font-size:12.5px;color:var(--mut)}
+.cmts{display:grid;gap:12px;margin-top:clamp(36px,5vh,48px);max-width:760px}
+.cmts blockquote{margin:0;padding:20px 22px;border-radius:20px;background:#161618;position:relative}
+.cmts p{margin:0;font-size:16px;line-height:1.5;color:var(--lt);font-weight:500;padding-right:64px}
+.cmts span{display:block;margin-top:6px;font-size:14px;color:var(--mut);line-height:1.5}
+.cmts em{position:absolute;top:20px;right:22px;font-style:normal;font-size:13px;color:var(--acc);font-weight:600}
 @media(max-width:820px){.proc{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.duo{gap:10px}.vs{grid-template-columns:1fr;gap:12px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -111,7 +116,16 @@
  <h2 class="rv">많이 본 것과,<br>간직한 것.</h2>
  <div class="body rv">
   <p>조회는 2도가 두 배 가까이 많았습니다. 그런데 <b>저장은 3도가 더 많았습니다.</b></p>
-  <p>2도에는 "이럴 거면 도장을 인쇄하는 게 낫지 않냐"는 댓글이 많았습니다. 직접 꾸밀 여지가 없었기 때문으로 봅니다. 사람들이 오래 간직하고 싶어 한 것은, 자기 방식대로 쓸 수 있는 제품이었습니다.</p>
+  <p>2도 영상의 문구는 "평범한 명함을 건네기 싫을 때"였습니다. 그런데 좋아요를 가장 많이 받은 댓글들은 반대로, 결과물이 평범하다고 말했습니다.</p>
+ </div>
+ <div class="cmts rv">
+  <blockquote><p>I'm actually impressed with how extremely ordinary these cards are.</p><span>이 명함이 이렇게까지 평범하다는 게 오히려 대단하네.</span><em>♥ 8,567</em></blockquote>
+  <blockquote><p>And this can't be printed because?</p><span>그래서 이걸 인쇄하면 안 되는 이유가?</span><em>♥ 855</em></blockquote>
+  <blockquote><p>Takes 10x more time to make than normal cards. Looks exactly like a normal card.</p><span>일반 명함보다 10배 오래 걸리는데, 결과는 일반 명함이랑 똑같다.</span><em>♥ 660</em></blockquote>
+ </div>
+ <p class="cap rv">2도 릴스 실제 댓글 (작성자 생략)</p>
+ <div class="body rv" style="margin-top:40px">
+  <p>도장 두 개를 찍기만 하면 되는 구조라, 직접 만드는 재미가 없었던 것으로 봅니다. <b>사람들이 오래 간직하고 싶어 한 것은, 자기 방식대로 꾸밀 수 있는 3도였습니다.</b></p>
  </div>
  <div class="vs num">
   <div class="hi rv"><h3>3도 · 첫 작품<span>도장 1 + 원형 도장 2, 꾸미기 가능</span></h3><dl><div><dt>조회</dt><dd>88.3만</dd></div><div><dt>좋아요</dt><dd>2.7만</dd></div><div><dt>저장</dt><dd class="up">8,906</dd></div><div><dt>조회 대비 저장</dt><dd class="up">약 1.0%</dd></div></dl></div>
