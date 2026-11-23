@@ -63,7 +63,16 @@
 </section>
 
 <section class="ch">
- <div class="no rv">03 · 제어</div>
+ <div class="no rv">03 · 구조</div>
+ <h2 class="rv">열이 위에<br>쌓이지 않게.</h2>
+ <div class="body rv">
+  <p>서랍은 5T·3T 폴리카보네이트(PC) 판으로 만들고, 3D 프린팅 구조물로 보강했습니다. 깊은 장 안쪽의 필라멘트도 서랍째 꺼낼 수 있습니다.</p>
+  <p>히터와 팬은 전부 뒤쪽에 두고 <b>아래를 바라보게 배치했습니다.</b> 더운 공기는 위로 올라가니, 처음부터 아래로 불어 내려 위쪽에만 열이 몰리지 않게 했습니다.</p>
+ </div>
+</section>
+
+<section class="ch">
+ <div class="no rv">04 · 제어</div>
  <h2 class="rv">덥히고, 비교하고,<br>섞습니다.</h2>
  <div class="body rv"><p>제어 원리는 세 가지입니다. 센서 3개를 내부 위·아래와 외부에 두고, 히터와 팬을 펌웨어로 제어합니다.</p></div>
  <div class="rules three dk">
@@ -71,11 +80,18 @@
   <div class="rule rv"><i>2</i><h3>습기는<br>비교해서 뺍니다</h3><p>내부와 외부의 절대습도를 비교해, 내부가 더 습할 때만 환기합니다. 필요 없을 때 문을 열어 열을 버리지 않습니다.</p></div>
   <div class="rule rv"><i>3</i><h3>위아래를<br>맞춥니다</h3><p>더운 공기는 위로 몰립니다. 위아래 온도 차이가 생기면 내부 팬을 돌려, 아래 칸도 같은 온도로 맞춥니다.</p></div>
  </div>
- <p class="cap rv">목표 온도는 기억에 의존한 값이라 정확하지 않을 수 있습니다.</p>
+ <div class="body rv" style="margin-top:56px"><p>같은 공기를 25℃에서 53℃로 데우면 담을 수 있는 수분의 양이 약 4.5배로 늘어납니다. 그래서 <b>내부 상대습도는 바깥의 약 22%까지 내려갑니다.</b></p></div>
+ <table class="tbl num rv">
+  <tr><th>실내 (25℃)</th><th></th><th>건조장 내부 (53℃)</th></tr>
+  <tr><td>상대습도 40%</td><td>→</td><td><b>약 9%</b></td></tr>
+  <tr><td>상대습도 60%</td><td>→</td><td><b>약 13%</b></td></tr>
+  <tr><td>상대습도 80%</td><td>→</td><td><b>약 18%</b></td></tr>
+ </table>
+ <p class="cap rv">밀폐 상태를 가정한 계산값입니다(Magnus 식). 실측값이 아니며, 목표 온도 53℃도 기억에 의존한 값이라 정확하지 않을 수 있습니다.</p>
 </section>
 
 <section class="ch">
- <div class="no rv">04 · 제어보드</div>
+ <div class="no rv">05 · 제어보드</div>
  <h2 class="rv">보드도<br>직접 그렸습니다.</h2>
  <div class="body rv">
   <p>아두이노 나노를 올리는 제어보드를 KiCad로 직접 설계했습니다. 히터 5개를 릴레이로 켜고 끄고, 센서 3개와 팬을 연결합니다.</p>
@@ -89,18 +105,18 @@
 
 <div class="light">
  <section class="ch">
-  <div class="no rv">05 · 배운 것</div>
+  <div class="no rv">06 · 배운 것</div>
   <h2 class="rv">계획대로 되지<br>않았던 것들.</h2>
   <div class="rules three">
-   <div class="rule rv"><i>1</i><h3>원인을<br>잘못 짚었습니다</h3><p>펌웨어 버그가 많았고, 하드웨어 문제까지 펌웨어 탓으로 잘못 판단해 시간을 썼습니다. 증상만 보고 원인을 단정하지 않게 됐습니다.</p></div>
+   <div class="rule rv"><i>1</i><h3>원인을<br>잘못 짚었습니다</h3><p>펌웨어 버그가 많았고, 하드웨어 문제까지 펌웨어 탓으로 잘못 판단해 시간을 썼습니다. 주된 원인은 노이즈와, 전원을 넣는 순간 튀는 전압으로 보고 있습니다. 증상만 보고 원인을 단정하지 않게 됐습니다.</p></div>
    <div class="rule rv"><i>2</i><h3>과열은<br>시험으로 확인했습니다</h3><p>별도 보호 회로 대신 펌웨어로 온도를 제어했고, 실제 시험으로 히터가 과열될 가능성이 없다는 것을 확인했습니다.</p></div>
-   <div class="rule rv"><i>3</i><h3>직접 만드는 게<br>늘 싸지는 않았습니다</h3><p>기성품보다 싸게 만들려고 시작했지만, 시행착오가 쌓이면서 제작비가 약 100만 원까지 늘었습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>직접 만드는 게<br>늘 싸지는 않았습니다</h3><p>기성품보다 싸게 만들려고 시작했지만, 부품 발주 실수와 시제품 단계에서 반복된 실패로 제작비가 약 100만 원까지 늘었습니다.</p></div>
   </div>
  </section>
 </div>
 
 <section class="next">
- <div class="eyebrow rv">06 · 결과</div>
+ <div class="eyebrow rv">07 · 결과</div>
  <h2 class="rv">사업장에서<br>실사용.</h2>
  <p class="rv">사업장에 설치해 실제로 쓰고 있습니다. 입대 전, 제가 없어도 운영할 수 있게 인수인계 문서를 남겼고, 이후 따로 문의는 없었습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·설계·제작·펌웨어)</dd></div><div><dt>도구</dt><dd>KiCad, Arduino (C++)</dd></div><div><dt>제작비</dt><dd>약 100만 원</dd></div></dl>
