@@ -90,8 +90,8 @@
   <article class="pj rv" id="pcb">
    <div class="img contain bg-lav"><img src="a/pcb_iso.webp" srcset="a/pcb_iso-800.webp 800w, a/pcb_iso.webp 1600w" sizes="(max-width: 820px) 100vw, 1100px" alt="1셀 보조배터리 PCB 렌더" loading="lazy"></div>
    <div><div class="cat">회로 설계 · Claude Code 활용</div><h3>1셀 보조배터리 PCB</h3>
-    <p>21700 배터리 한 개로 USB-C 20W 고속 충전(PD)을 하는 보조배터리 기판입니다. Claude Code로 설계 자동화 환경을 만들어 설계 시작 3일 만에 시제품을 주문했고, 검증은 직접 했습니다.</p>
-    <div class="mini num"><div><b>58.4×13</b><span>mm, 2층 기판</span></div><div><b>40→4.9</b><span>mm, 접지 전류 경로</span></div><div><b>약 $1.95</b><span>4,800개 양산 시 개당</span></div><div><b>시험 예정</b><span>시제품 생산 완료</span></div></div>
+    <p>21700 1셀, USB-C PD 20W 보조배터리 기판입니다. Claude Code로 설계 자동화 환경을 만들어 설계 시작 3일 만에 시제품을 주문했고, 검증은 직접 했습니다.</p>
+    <div class="mini num"><div><b>58.4×13</b><span>mm, 2층 기판</span></div><div><b>40→4.9</b><span>mm, GND 귀환 경로</span></div><div><b>약 $1.95</b><span>4,800개 양산 시 개당</span></div><div><b>시험 예정</b><span>시제품 생산 완료</span></div></div>
     <a class="go" href="pcb.html">자세히 보기 <i>→</i></a></div>
   </article>
 
@@ -99,23 +99,23 @@
    <div class="img"><img src="a/rack.webp" alt="필라멘트 건조장" loading="lazy"></div>
    <div><div class="cat">장비 개발 · 업무</div><h3>필라멘트 건조장</h3>
     <p>기성 랙 캐비닛을 개조해 필라멘트 약 250개를 건조하며 보관하는 서랍형 건조장을 만들었습니다. 제어보드와 펌웨어를 직접 만들었고, 사업장에 설치해 실사용 중입니다.</p>
-    <div class="mini num"><div><b>약 250개</b><span>수납 스풀</span></div><div><b>5개</b><span>히터, 자동으로 켜고 끔</span></div><div><b>3개</b><span>온습도 센서 (위·아래·외부)</span></div><div><b>직접 설계</b><span>아두이노 나노 제어보드</span></div></div>
+    <div class="mini num"><div><b>약 250개</b><span>수납 스풀</span></div><div><b>5개</b><span>PTC 히터, 릴레이 제어</span></div><div><b>3개</b><span>온습도 센서 (위·아래·외부)</span></div><div><b>직접 설계</b><span>아두이노 나노 제어보드</span></div></div>
     <a class="go" href="dryer.html">자세히 보기 <i>→</i></a></div>
   </article>
 
   <article class="pj rv" id="audio">
    <div class="img"><img src="a/spk8_hero-m.webp" sizes="(max-width: 820px) 100vw, 1100px" alt="자작 스피커 8번째 버전 분해도" loading="lazy"></div>
    <div><div class="cat">음향 설계 · 측정</div><h3>자작 스피커</h3>
-    <p>개당 약 1.5만 원 드라이버로 만든 2-way(저음·고음 분리) 스피커입니다. 3D 프린팅한 본체(인클로저)가 떨리고 휘는 문제를 잡고, 저음용 구멍(포트)을 계산해 저음을 맞췄습니다. 마지막으로 측정 마이크로 소리를 재서 방에 맞게 보정(룸 EQ)했습니다. 지금까지 8개 버전을 만들었고, 포트형 서브우퍼는 조립만 남았습니다.</p>
-    <div class="mini num"><div><b>약 1.5만 원</b><span>드라이버, 스피커 1개당</span></div><div><b>78→65Hz</b><span>내는 가장 낮은 음, 계산→실측</span></div><div><b>±7→±4dB</b><span>음량 편차, 보정 전→후</span></div><div><b>8개</b><span>제작한 버전</span></div></div>
+    <p>개당 약 1.5만 원 드라이버로 만든 2-way 스피커입니다. 출력한 인클로저의 공진과 휨을 잡고, 포트를 계산해 저음을 맞췄습니다. 마지막으로 측정 마이크로 응답을 재서 룸 EQ로 다듬었습니다. 지금까지 8개 버전을 만들었고, 포트형 서브우퍼는 조립만 남았습니다.</p>
+    <div class="mini num"><div><b>약 1.5만 원</b><span>드라이버, 스피커 1개당</span></div><div><b>78→65Hz</b><span>저역 한계, 계산→실측</span></div><div><b>±7→±4dB</b><span>룸 EQ 전→후, 실측</span></div><div><b>8개</b><span>제작한 버전</span></div></div>
     <a class="go" href="audio.html">자세히 보기 <i>→</i></a></div>
   </article>
 
   <article class="pj rv" id="reducer">
    <div class="img bg-black"><img src="a/reducer_poster.webp" alt="사이클로이드 감속기" loading="lazy"></div>
    <div><div class="cat">기구 설계 · 구동 검증</div><h3>사이클로이드 감속기</h3>
-    <p>감속비 10:1 사이클로이드 감속기입니다. 3D 프린팅 시제품으로 설계를 검증했고, 스텝모터(NEMA17)에 위치를 확인하며 도는 폐루프 드라이버(MKS SERVO42C)를 달아 돌려 봤습니다. 로봇팔 연동은 제대 후 이어갑니다.</p>
-    <div class="mini num"><div><b>10:1</b><span>감속비</span></div><div><b>출력</b><span>시제품으로 구동 검증</span></div><div><b>폐루프</b><span>스텝모터 드라이버</span></div><div><b>보류</b><span>로봇팔 연동 예정</span></div></div></div>
+    <p>감속비 10:1 사이클로이드 감속기입니다. FDM 시제품으로 설계를 검증했고, NEMA17 스텝모터에 폐루프 드라이버(MKS SERVO42C)를 달아 구동했습니다. 로봇팔 연동은 제대 후 이어갑니다.</p>
+    <div class="mini num"><div><b>10:1</b><span>감속비</span></div><div><b>FDM</b><span>시제품 구동 검증</span></div><div><b>폐루프</b><span>스텝모터 드라이버</span></div><div><b>보류</b><span>로봇팔 연동 예정</span></div></div></div>
   </article>
 
   <article class="pj rv" id="bc250">
@@ -129,7 +129,7 @@
    <div class="img contain bg-ink"><img src="a/av1.webp" alt="AV1 Drop Encoder 화면" loading="lazy"></div>
    <div><div class="cat">소프트웨어 · Claude Code로 개발</div><h3>AV1 Drop Encoder</h3>
     <p>메신저 용량 제한에 맞춰 영상을 원하는 크기로 압축하는 Windows 앱입니다. 창에 끌어다 놓으면 끝나고, 실행 파일 하나가 10MB 이하입니다.</p>
-    <div class="mini num"><div><b>10MB 이하</b><span>실행 파일 하나</span></div><div><b>3종</b><span>CPU·NVIDIA·AMD</span></div><div><b>4가지</b><span>인코딩 모드</span></div><div><b>자동</b><span>인코딩 엔진(ffmpeg) 설치</span></div></div>
+    <div class="mini num"><div><b>10MB 이하</b><span>실행 파일 하나</span></div><div><b>3종</b><span>CPU·NVIDIA·AMD</span></div><div><b>4가지</b><span>인코딩 모드</span></div><div><b>자동</b><span>ffmpeg 설치</span></div></div>
     <a class="go" href="av1.html">자세히 보기 <i>→</i></a></div>
   </article>
 
@@ -137,7 +137,7 @@
    <div class="img bg-card cmdart"><div>/서버켜<br>/상태<br>/백업<br><span class="acc">/복구</span></div></div>
    <div><div class="cat">자동화 · Claude로 개발</div><h3>무인 게임 서버</h3>
     <p>입대를 앞두고 친구들이 쓰는 마인크래프트 서버를 혼자 돌아가게 만들었습니다. 디스코드 봇 하나로 켜고, 끄고, 백업하고, 복구합니다.</p>
-    <div class="mini num"><div><b>14개</b><span>디스코드 봇 명령</span></div><div><b>10분</b><span>바뀐 부분만 자동 백업</span></div><div><b>자동</b><span>꺼지면 재시작·재부팅 후 복귀</span></div><div><b>92번</b><span>버전 기록</span></div></div>
+    <div class="mini num"><div><b>14개</b><span>디스코드 봇 명령</span></div><div><b>10분</b><span>자동 증분 백업</span></div><div><b>자동</b><span>크래시 복구·부팅 복귀</span></div><div><b>92번</b><span>버전 기록</span></div></div>
     <a class="go" href="server.html">자세히 보기 <i>→</i></a></div>
   </article>
  </section>
@@ -151,10 +151,10 @@
   <div><dt>펌웨어·제어</dt><dd>건조장 히터·팬 제어, 감속기 구동</dd></div>
   <div><dt>배터리·전장</dt><dd>카트 13S6P 배터리 팩 직접 제작, 2000W 구동계</dd></div>
   <div><dt>측정·튜닝</dt><dd>스피커 REW 측정과 룸 EQ</dd></div>
-  <div><dt>양산·원가</dt><dd>보조배터리 기판 100·500·4,800개 견적과 여러 장을 한 판에 묶는 패널 설계, 명함 오거나이저 양산을 고려한 설계</dd></div>
+  <div><dt>양산·원가</dt><dd>보조배터리 기판 100·500·4,800개 견적과 패널화, 명함 오거나이저 양산을 고려한 설계</dd></div>
   <div><dt>소프트웨어</dt><dd>AV1 Drop Encoder, 무인 게임 서버</dd></div>
   <div><dt>3D 프린팅</dt><dd>카트 출력 부품 약 94개, 고교 때 출력 대행 운영</dd></div>
-  <div><dt>그 밖의 작업</dt><dd>4S 보조배터리 45W·100W 2종 (하우징 설계)<br>3D 프린팅 생산 매뉴얼(SOP)<br>3S 45W 보조배터리 (진행 중)<br>RP2040 버티컬 마우스 보드 (보류)</dd></div>
+  <div><dt>그 밖의 작업</dt><dd>4S 보조배터리 45W·100W 2종 (하우징 설계)<br>3D 프린팅 생산 SOP<br>3S 45W 보조배터리 (진행 중)<br>RP2040 버티컬 마우스 보드 (보류)</dd></div>
  </dl>
 </section>
 
