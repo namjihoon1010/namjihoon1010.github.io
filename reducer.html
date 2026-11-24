@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>사이클로이드 감속기 — 남지훈</title>
+<meta name="description" content="감속비 10:1 사이클로이드 감속기. 3D 프린팅 시제품을 NEMA17 스텝모터와 폐루프 드라이버로 구동해 검증했습니다.">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="사이클로이드 감속기 — 남지훈">
+<meta property="og:description" content="모터 회전을 10분의 1로 줄이는 감속기를 출력해서 돌려 봤습니다.">
+<meta property="og:image" content="a/red_out.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="stylesheet" href="case.css?v=cb45bf15">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="nav" id="nav"><a href="./"><b>NJH</b></a><nav><a href="./#work">작업</a><a href="portfolio.html">포트폴리오</a><a href="./#contact">연락</a></nav></header>
+
+<section class="intro">
+ <div class="eyebrow rv">Cycloidal Reducer</div>
+ <h1 class="rv">10:1 감속기를<br>출력해서 돌려 봤습니다</h1>
+ <p class="rv">스텝모터의 회전을 10분의 1로 줄이는 사이클로이드 감속기입니다. 3D 프린팅 시제품을 만들어 실제로 구동되는지 확인했습니다.</p>
+ <div class="shot rv zoom" style="background:#c9c9c9"><img src="a/red_out.webp" srcset="a/red_out-800.webp 800w, a/red_out.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="사이클로이드 감속기 V2 렌더" width="1400" height="1238"></div>
+ <p class="cap rv">사이클로이드 감속기 V2 렌더</p>
+</section>
+
+<div class="keys rv num">
+ <div><b>10:1</b><span>감속비</span></div>
+ <div><b>FDM</b><span>시제품 구동 검증</span></div>
+ <div><b>NEMA17</b><span>스텝모터</span></div>
+ <div><b>폐루프</b><span>드라이버 MKS SERVO42C</span></div>
+</div>
+
+<section class="ch">
+ <div class="no rv">01 · 원리</div>
+ <h2 class="rv">입력이 한 바퀴 돌면<br>돌기 하나만큼 움직입니다</h2>
+ <div class="body rv">
+  <p>모터축에 달린 편심 캠이 돌면, 물결 모양 디스크가 바깥 핀을 따라 구릅니다. 디스크의 돌기는 10개, 바깥 핀은 하나 많은 11개입니다.</p>
+  <p>그래서 <b>입력이 한 바퀴 돌 때 디스크는 돌기 하나만큼만 반대로 돕니다.</b> 모터가 10바퀴 돌아야 출력이 한 바퀴 돌고, 그만큼 힘은 커집니다.</p>
+ </div>
+ <div class="shot rv zoom" style="background:#c9c9c9"><img src="a/red_in.webp" srcset="a/red_in-800.webp 800w, a/red_in.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="덮개를 뺀 감속기 내부: 물결 모양 디스크와 바깥 핀 자리" loading="lazy" width="1400" height="1238"></div>
+ <p class="cap rv">덮개를 뺀 내부. 물결 모양 디스크와 바깥 핀 자리</p>
+</section>
+
+<section class="ch">
+ <div class="no rv">02 · 구동</div>
+ <h2 class="rv">출력한 시제품으로<br>구동을 확인했습니다</h2>
+ <div class="body rv">
+  <p>설계를 FDM 3D 프린터로 출력해 조립하고, 스텝모터에 물려 돌렸습니다.</p>
+ </div>
+ <div class="shot dk rv"><video src="a/reducer.mp4" poster="a/reducer_poster.webp" muted loop playsinline preload="none" style="width:100%;display:block"></video></div>
+ <p class="cap rv">FDM 시제품 구동</p>
+</section>
+
+<div class="light">
+ <section class="ch">
+  <div class="no rv">03 · 구동부</div>
+  <h2 class="rv">모터 위치를 읽으며<br>돌리는 폐루프 구동</h2>
+  <div class="rules">
+   <div class="rule rv"><i>1</i><h3>NEMA17 스텝모터</h3><p>감속기는 NEMA17 스텝모터 위에 바로 결합하는 구조입니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>폐루프 드라이버</h3><p>모터 뒤에 붙는 MKS SERVO42C는 엔코더로 모터 위치를 읽으며 구동합니다. 스텝을 놓쳐도 위치를 바로잡을 수 있습니다.</p></div>
+  </div>
+  <div class="duo">
+   <figure class="rv"><img src="a/red_servo.webp" alt="모터 뒤에 붙인 MKS SERVO42C 드라이버" loading="lazy" width="900" height="1200"><figcaption>MKS SERVO42C 폐루프 드라이버</figcaption></figure>
+   <figure class="rv"><img src="a/reducer_poster.webp" alt="출력한 감속기 시제품" loading="lazy" width="540" height="960"><figcaption>출력한 시제품</figcaption></figure>
+  </div>
+ </section>
+</div>
+
+<section class="next">
+ <div class="eyebrow rv">04 · 다음</div>
+ <h2 class="rv">로봇팔 연동은<br>제대 후에 이어갑니다</h2>
+ <p class="rv">감속기 구동까지 확인했고, 로봇팔과 연동하는 작업은 제대 후 이어갈 예정입니다.</p>
+ <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (설계·제작)</dd></div><div><dt>도구</dt><dd>Fusion 360</dd></div><div><dt>구동</dt><dd>NEMA17 스텝모터, MKS SERVO42C</dd></div><div><dt>상태</dt><dd>보류</dd></div></dl>
+ <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
+</section>
+<footer>© 2026 남지훈 · 인스타그램 <a href="https://instagram.com/ji_h0on">@ji_h0on</a></footer>
+
+<script src="case.js?v=41c2115e"></script>
+</body>
+</html>
