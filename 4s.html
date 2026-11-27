@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="stylesheet" href="case.css?v=5c57ba12">
-<style>.step{margin-top:clamp(20px,3vh,28px)}.step b{display:block;font-size:13px;letter-spacing:.06em;color:var(--mut);margin-bottom:6px}</style>
+<style>.step{margin-top:clamp(20px,3vh,28px)}.body .step b{display:block;font-size:13px;letter-spacing:.06em;color:var(--mut);margin-bottom:6px}.duo img.ct{aspect-ratio:3/4;object-fit:contain;background:#dfe1e3}</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -23,7 +23,7 @@
 <section class="intro">
  <div class="eyebrow rv">Power Bank</div>
  <h1 class="rv">4S 1P<br>POWER BANK</h1>
- <p class="rv">보조배터리 안에는 리튬 셀, 셀을 관리하는 보호 회로(BMS), 충전과 방전을 맡는 PCB가 들어갑니다.<span class="gap"></span>이 세 종류의 부품을 작은 공간에 넣고 발열, 내구성, 배선 등 많은 요소를 고려하였습니다.<span class="gap"></span>셀 4개를 직렬로 묶은 4S 1P 구성으로 시제품을 6개 이상 만들었고, 가장 안정적인 설계로 완성된 45W 버전은 약 <span class="mo">9</span>개월 동안 실제로 사용했습니다.</p>
+ <p class="rv">보조배터리 안에는 리튬 셀, 셀을 관리하는 보호 회로(BMS), 충전과 방전을 맡는 PCB가 들어갑니다.<span class="gap"></span>이 세 종류의 부품을 작은 공간에 넣고 발열, 내구성, 배선 등 많은 요소를 고려하였습니다.<span class="gap"></span>셀 4개를 직렬로 묶은 4S 1P 구성으로 시제품을 6개 이상 만들었고, 가장 안정적인 설계로 완성된 45W 버전은 약 <data class="mo">9</data>개월 동안 실제로 사용했습니다.</p>
  <div class="shot rv zoom" style="background:#e6e6e9"><img src="a/pb_45w.webp" srcset="a/pb_45w-800.webp 800w, a/pb_45w.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="45W 보조배터리 렌더" width="1400" height="1050"></div>
  <p class="cap rv">45W Power Bank</p>
 </section>
@@ -32,7 +32,7 @@
  <div><b>4S 1P</b><span>셀 4개 직렬</span></div>
  <div><b>4<small>개</small></b><span>버전</span></div>
  <div><b>약 41<small>%</small></b><span>첫 버전 대비 부피</span></div>
- <div><b>약 <span class="mo">9</span><small>개월</small></b><span>45W 실제 사용 (추정)</span></div>
+ <div><b>약 <data class="mo">9</data><small>개월</small></b><span>45W 실제 사용 (추정)</span></div>
 </div>
 
 <section class="ch">
@@ -83,7 +83,7 @@
   </div>
   <div class="duo">
    <figure class="rv"><img src="a/pb_photo.webp" alt="조립 중인 Power Bank V3. 셀 옆에 밸런싱 보드, 충전 기판에 파란 써멀 패드" loading="lazy" width="900" height="1200"><figcaption>조립 중. 충전 기판의 파란 사각형이 써멀 패드</figcaption></figure>
-   <figure class="rv"><img src="a/pb_100w.webp" srcset="a/pb_100w-800.webp 800w, a/pb_100w.webp 1400w" sizes="(max-width: 820px) 50vw, 550px" alt="Power Bank V3 렌더" loading="lazy" width="1400" height="1050"><figcaption>Power Bank V3 설계</figcaption></figure>
+   <figure class="rv"><img class="ct" src="a/pb_100w.webp" srcset="a/pb_100w-800.webp 800w, a/pb_100w.webp 1400w" sizes="(max-width: 820px) 50vw, 550px" alt="Power Bank V3 렌더" loading="lazy" width="1400" height="1050"><figcaption>Power Bank V3 설계</figcaption></figure>
   </div>
  </section>
 </div>
@@ -93,7 +93,7 @@
  <h2 class="rv">단순하게 제작<br>작고 강해졌습니다</h2>
  <div class="body rv">
   <p class="step"><b>바꾼 것</b>Power Bank V3와 비슷한 설계에서 셀과 PCB를 붙잡는 구조를 단순화하고 크기를 키웠습니다.<span class="gap"></span>충방전 모듈도 오버스펙인 100W 대신 버튼이 달려 편한 45W로 변경했습니다.</p>
-  <p class="step"><b>결과</b>셀 고정 부품이 줄면서 폭이 약 8mm 줄었고, 망가질 곳이 줄고 충격을 받는 부분이 두꺼워져 훨씬 튼튼해졌습니다.<span class="gap"></span>조금 더 나은 방열을 위해 하우징을 PCB에 밀착시키고 열 받는 부분의 두께를 낮췄습니다.<span class="gap"></span>현재 약 <span class="mo">9</span>개월 동안 실제로 사용 중입니다.<span class="gap"></span>옆면의 핀은 방열을 기대하고 넣었지만 효과가 크지 않아, 지금은 디자인 요소에 가깝습니다.</p>
+  <p class="step"><b>결과</b>셀 고정 부품이 줄면서 폭이 약 8mm 줄었고, 망가질 곳이 줄고 충격을 받는 부분이 두꺼워져 훨씬 튼튼해졌습니다.<span class="gap"></span>조금 더 나은 방열을 위해 하우징을 PCB에 밀착시키고 열 받는 부분의 두께를 낮췄습니다.<span class="gap"></span>현재 약 <data class="mo">9</data>개월 동안 실제로 사용 중입니다.<span class="gap"></span>옆면의 핀은 방열을 기대하고 넣었지만 효과가 크지 않아, 지금은 디자인 요소에 가깝습니다.</p>
  </div>
 </section>
 
