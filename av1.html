@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="stylesheet" href="case.css?v=cb45bf15">
+<link rel="stylesheet" href="case.css?v=5c57ba12">
 <style>
 .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;max-width:1100px;margin:0 auto}
 .app img{width:100%;max-width:420px;margin:0 auto;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
@@ -100,7 +100,7 @@
  <section class="intro">
   <div class="eyebrow rv">AV1 Drop Encoder</div>
   <h1 class="rv">보내기 전에<br>원하는 용량으로</h1>
-  <p class="rv">메신저 용량 제한에 맞춰 영상을 원하는 크기로 압축하는 Windows 앱입니다. 창에 끌어다 놓으면 끝납니다.</p>
+  <p class="rv">메신저로 보내기 전에, 용량 제한에 맞게 영상을 줄여 주는 Windows 앱입니다.<span class="gap"></span>원하는 용량을 적고 영상을 창에 끌어다 놓으면 끝납니다.</p>
   <div class="steps rv"><span>용량 입력</span><i>→</i><span>영상 드롭</span><i>→</i><span>완성</span></div>
   <span class="badge rv">Claude Code로 개발</span>
  </section>
@@ -142,26 +142,24 @@
  <div class="no rv">01 · 문제</div>
  <h2 class="rv">메신저로 보내기엔<br>영상이 너무 큽니다</h2>
  <div class="body rv">
-  <p>메신저로 영상을 보내면 용량 제한에 자주 걸립니다. 줄이려면 인코딩 도구를 열고 비트레이트를 계산해야 합니다.</p>
-  <p><b>용량만 적고 영상을 끌어다 놓으면 끝나게 만들었습니다.</b> 비트레이트는 앱이 영상 길이로 계산합니다. 화질·비트레이트·자동 모드도 있습니다.</p>
+  <p>메신저로 영상을 보내다 보면 용량 제한에 자주 걸립니다.</p><p>영상을 줄이려면 인코딩 프로그램을 열고, 영상 길이에 맞춰 비트레이트(1초에 쓰는 데이터 양)를 직접 계산해야 합니다.</p><p>그래서 원하는 용량만 적으면 나머지는 앱이 알아서 하도록 만들었습니다. 비트레이트는 앱이 영상 길이로 계산하고, 압축에는 같은 화질을 더 작은 용량에 담는 AV1 코덱을 씁니다.</p><p>화질을 기준으로 하는 모드, 비트레이트를 직접 정하는 모드, 자동 모드도 함께 넣었습니다.</p>
  </div>
 </section>
 
 <section class="ch">
  <div class="no rv">02 · 쓰는 사람 기준</div>
  <h2 class="rv">친구에게 바로<br>보낼 수 있는 앱</h2>
- <div class="body rv"><p>친구들과 나눠 쓰는 앱이라, 받는 사람이 아무것도 설치하지 않아도 되게 하는 것이 먼저였습니다.</p></div>
+ <div class="body rv"><p>친구들과 나눠 쓰는 앱이라, 받는 사람이 따로 아무것도 설치하지 않아도 되는 것이 가장 중요했습니다.</p></div>
  <div class="rules dk">
-  <div class="rule rv"><i>1</i><h3>실행 파일 하나, 10MB 이하</h3><p>메신저로 바로 보낼 수 있게 실행 파일 하나를 10MB 밑으로 맞췄습니다.</p></div>
-  <div class="rule rv"><i>2</i><h3>ffmpeg 자동 설치</h3><p>인코딩 엔진(ffmpeg)이 없으면 물어본 뒤 내려받아 설치합니다. 관리자 권한은 필요 없습니다.</p></div>
+  <div class="rule rv"><i>1</i><h3>실행 파일 하나, 10MB 이하</h3><p>메신저로 바로 보낼 수 있도록 실행 파일 하나를 10MB 아래로 맞췄습니다.</p></div>
+  <div class="rule rv"><i>2</i><h3>ffmpeg 자동 설치</h3><p>영상을 변환하는 엔진(ffmpeg)이 없으면 설치할지 물어본 뒤 알아서 내려받습니다. 관리자 권한은 필요 없습니다.</p></div>
  </div>
  <div class="bars rv num">
   <div class="bar"><div class="lbl"><span>UI 개선 후 (Pillow 추가)</span><span>13.9MB</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
   <div class="bar"><div class="lbl"><span>안 쓰는 이미지 모듈 제외</span><span>10.61MB</span></div><div class="trk"><div class="fill" style="--w:76.3%"></div></div></div>
   <div class="bar me"><div class="lbl"><b>일본어·중국어 인코딩 표 제외</b><span>9.9MB</span></div><div class="trk"><div class="fill" style="--w:71.2%"></div></div></div>
  </div>
- <p class="pull rv">실행 속도보다<br>파일 하나가<br>더 중요했습니다.</p>
- <div class="body rv gap"><p>폴더로 배포하면 실행이 1.7초에서 0.76초로 빨라졌지만, 받는 사람이 압축을 풀어야 합니다. 속도 대신 단순함을 택했습니다.</p></div>
+ <div class="body rv gap"><p>폴더 형태로 배포하면 실행 시간이 1.7초에서 0.76초로 줄었습니다.</p><p>하지만 그러면 받는 사람이 압축을 풀어야 합니다. 그래서 실행 속도보다 파일 하나로 끝나는 쪽을 골랐습니다.</p></div>
 </section>
 
 <div class="light">
@@ -169,10 +167,10 @@
   <div class="no rv">03 · 디테일</div>
   <h2 class="rv">작은 부분까지<br>손봤습니다</h2>
   <div class="rules">
-   <div class="rule rv"><i>1</i><h3>부드러운 곡선</h3><p>Tkinter는 곡선을 계단처럼 그립니다. 4배 크기로 그린 뒤 줄여 붙이는 방식으로 바꿨습니다.</p></div>
-   <div class="rule rv"><i>2</i><h3>AMD 그래픽카드 지원</h3><p>GPU 인코딩에 AMD를 추가하고, RX 9060 XT로 확인했습니다.</p></div>
-   <div class="rule rv"><i>3</i><h3>원인을 찾아 고친 버그</h3><p>작업표시줄 아이콘이 안 바뀌던 건 엉뚱한 창에 지정해서였습니다. 최상위 창을 찾아 고쳤습니다.</p></div>
-   <div class="rule rv"><i>4</i><h3>여러 파일 한 번에</h3><p>여러 영상을 한 번에 놓으면 순서대로 처리합니다. 처리 중 언제든 중단할 수 있습니다.</p></div>
+   <div class="rule rv"><i>1</i><h3>부드러운 곡선</h3><p>앱 화면을 그리는 Tkinter는 둥근 모서리를 계단처럼 거칠게 그립니다. 4배 크기로 그린 뒤 줄여서 붙이는 방식으로 바꿔 부드럽게 만들었습니다.</p></div>
+   <div class="rule rv"><i>2</i><h3>AMD 그래픽카드 지원</h3><p>그래픽카드로 인코딩하는 GPU 모드에 AMD를 추가하고, RX 9060 XT로 동작을 확인했습니다.</p></div>
+   <div class="rule rv"><i>3</i><h3>원인을 찾아 고친 버그</h3><p>작업 표시줄 아이콘이 바뀌지 않던 문제는 아이콘을 엉뚱한 창에 지정해서 생긴 것이었습니다. 최상위 창을 찾아 지정하도록 고쳤습니다.</p></div>
+   <div class="rule rv"><i>4</i><h3>여러 파일 한 번에</h3><p>영상 여러 개를 한 번에 끌어다 놓으면 순서대로 처리합니다. 처리 중에는 언제든 중단할 수 있습니다.</p></div>
   </div>
  </section>
 </div>
@@ -180,7 +178,7 @@
 <section class="next">
  <div class="eyebrow rv">04 · 만든 방식</div>
  <h2 class="rv">코드는 AI가 쓰고<br>결정은 제가 했습니다</h2>
- <p class="rv">Claude Code로 개발했습니다. 무엇을 넣고 뺄지, 잘 도는지는 제가 정하고 확인했습니다.</p>
+ <p class="rv">코드는 Claude Code로 작성했습니다.<span class="gap"></span>어떤 기능을 넣고 뺄지 정하고, 제대로 동작하는지 확인하는 일은 제가 했습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·검증)</dd></div><div><dt>도구</dt><dd>Claude Code (Python, Tkinter), ffmpeg</dd></div><div><dt>시기</dt><dd>2026년 8~9월</dd></div></dl>
  <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
 </section>
