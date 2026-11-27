@@ -11,6 +11,12 @@ const navUpd=()=>{
  nav.classList.toggle('l',lights.some(l=>{const r=l.getBoundingClientRect();return r.top<52&&r.bottom>52}));
 };
 addEventListener('scroll',navUpd,{passive:true});navUpd();
+// months since a date, kept current: <data data-since="2026-02">9</data> (the text is the fallback)
+document.querySelectorAll('[data-since]').forEach(e => {
+  const [y, m, d = 1] = e.dataset.since.split('-').map(Number), n = new Date();
+  const k = (n.getFullYear() - y) * 12 + n.getMonth() + 1 - m - (n.getDate() < d ? 1 : 0);
+  if (k > 0) e.textContent = k;
+});
 // "← 돌아가기": go back if we came from this site, otherwise follow the link (home)
 document.querySelectorAll('[data-back]').forEach(a => a.addEventListener('click', e => {
   if (document.referrer.includes(location.host) && history.length > 1) { e.preventDefault(); history.back(); }
