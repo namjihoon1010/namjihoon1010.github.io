@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>4S 보조배터리 — 남지훈</title>
-<meta name="description" content="취미로 계속 만들고 있는 4S1P 보조배터리. 실패할 때마다 무엇이 문제였는지 찾아 다음 버전에서 고쳤고, 네 번째 45W 버전은 약 6개월 동안 실제로 썼습니다.">
+<meta name="description" content="셀, BMS, PCB를 3D 프린팅 하우징에 어떻게 넣을지 취미로 계속 고쳐 온 4S1P 보조배터리. 네 번째 45W 버전은 약 6개월 동안 실제로 썼습니다.">
 <meta name="theme-color" content="#0a0a0b">
 <meta property="og:title" content="4S 보조배터리 — 남지훈">
-<meta property="og:description" content="실패할 때마다 고쳐 다시 만든 4S 보조배터리. 네 번째 45W 버전은 약 6개월 동안 실제로 썼습니다.">
+<meta property="og:description" content="실패할 때마다 원인을 찾아 다시 만든 4S 보조배터리. 부피는 처음의 절반 이하로 줄었고, 45W 버전은 약 6개월 동안 실제로 썼습니다.">
 <meta property="og:image" content="a/pb_45w.webp">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
@@ -23,7 +23,7 @@
 <section class="intro">
  <div class="eyebrow rv">4S Power Bank</div>
  <h1 class="rv">실패할 때마다 고쳐<br>다시 만든 보조배터리</h1>
- <p class="rv">취미로 계속 만들고 있는 4S1P 보조배터리입니다. 셀 4개를 직렬로 묶고, 하우징은 PLA로 출력해 나사로 조립합니다. 버전마다 무엇이 문제였는지 찾아 다음 버전에서 고쳤고, 네 번째 45W 버전은 약 6개월 동안 실제로 썼습니다.</p>
+ <p class="rv">보조배터리 안에는 리튬 셀, 셀을 지키는 보호 회로(BMS), 충전과 출력을 맡는 PCB가 들어갑니다. 이 셋을 3D 프린팅 하우징에 어떻게 넣을지를 취미로 계속 고쳐 왔습니다. 셀 4개를 직렬로 묶은 4S1P 구성으로 네 번 만들었고, 네 번째 45W 버전은 약 6개월 동안 실제로 썼습니다.</p>
  <div class="shot rv zoom" style="background:#e6e6e9"><img src="a/pb_45w.webp" srcset="a/pb_45w-800.webp 800w, a/pb_45w.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="45W 보조배터리 렌더" width="1400" height="1050"></div>
  <p class="cap rv">지금까지의 마지막 버전, 45W 보조배터리</p>
 </section>
@@ -31,33 +31,47 @@
 <div class="keys rv num">
  <div><b>4S1P</b><span>셀 4개 직렬</span></div>
  <div><b>4<small>개</small></b><span>버전</span></div>
+ <div><b>약 41<small>%</small></b><span>첫 버전 대비 부피</span></div>
  <div><b>약 6<small>개월</small></b><span>45W 실제 사용 (추정)</span></div>
- <div><b>진행 중</b><span>취미 프로젝트</span></div>
 </div>
 
 <section class="ch">
- <div class="no rv">01 · 유리판 버전</div>
- <h2 class="rv">투명하게 만들려다<br>쓸 수 없는 크기가 됐습니다</h2>
- <div class="body rv">
-  <p class="step"><b>만든 것</b>아크릴이나 PC로 하우징을 만드는 전자기기에서 영감을 받아, 2mm 투명판을 덮개로 쓰는 하우징을 만들었습니다. 안에는 드릴용 BMS와 100W PCB를 넣었습니다.</p>
-  <p class="step"><b>문제</b>크고 무거운 데다 내구성도 약해 사실상 쓸 수 없는 프로토타입이었습니다. 고등학생이던 저에게는 투명 소재 가공비도 부담스러웠습니다.</p>
-  <p class="step"><b>다음에 바꾼 것</b>투명 하우징은 접고, 같은 부품으로 크기와 무게를 줄이는 데 집중했습니다.</p>
+ <div class="no rv">크기</div>
+ <h2 class="rv">버전마다<br>작아졌습니다</h2>
+ <div class="body rv"><p>설계 모델의 바깥 크기로 잰 부피입니다. 무엇을 바꿔서 줄었는지는 아래 버전별로 적었습니다.</p></div>
+ <div class="bars rv num">
+  <div class="bar"><div class="lbl"><span>유리판 버전 · 139×79×35mm</span><span>약 386cm³</span></div><div class="trk"><div class="fill" style="--w:100%"></div></div></div>
+  <div class="bar"><div class="lbl"><span>보조배터리 3 · 76×72×44mm</span><span>약 241cm³</span></div><div class="trk"><div class="fill" style="--w:62%"></div></div></div>
+  <div class="bar"><div class="lbl"><span>보조배터리 5 · 75×67×38mm</span><span>약 191cm³</span></div><div class="trk"><div class="fill" style="--w:49%"></div></div></div>
+  <div class="bar me"><div class="lbl"><b>45W · 59×72×38mm</b><span>약 160cm³</span></div><div class="trk"><div class="fill" style="--w:41%"></div></div></div>
  </div>
- <div class="shot rv zoom" style="background:#e6e6e9"><img src="a/pb_glass.webp" srcset="a/pb_glass-800.webp 800w, a/pb_glass.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="투명판 덮개를 얹은 유리판 버전 렌더" loading="lazy" width="1400" height="1050"></div>
+</section>
+
+<section class="ch">
+ <div class="no rv">01 · 유리판 버전</div>
+ <h2 class="rv">안을 보여 주려다<br>너무 커졌습니다</h2>
+ <div class="body rv">
+  <p class="step"><b>만든 것</b>셀 팩을 눕혀 긴 상자에 넣고, 윗면 전체를 2mm 투명판으로 덮는 설계입니다. 안이 들여다보이는 투명 케이스 전자기기처럼 만들고 싶었습니다. 셀 보호는 전동 드릴 배터리용 BMS가, 충전과 출력은 100W PCB가 맡았습니다.</p>
+  <p class="step"><b>문제</b>들고 다니기에는 너무 크고 무거웠고, 하우징도 약했습니다. 투명판을 가공할 비용도 고등학생에게는 부담이었습니다. 결국 실제로 쓸 수 없는 프로토타입으로 끝났습니다.</p>
+  <p class="step"><b>다음에 바꾼 것</b>투명판을 빼고, 부품을 눕히는 대신 세워서 부피를 줄이기로 했습니다.</p>
+ </div>
+ <div class="shot rv zoom" style="background:#e6e6e9"><img src="a/pb_glass.webp" srcset="a/pb_glass-800.webp 800w, a/pb_glass.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="윗면을 투명판으로 덮은 유리판 버전 렌더" loading="lazy" width="1400" height="1050"></div>
  <p class="cap rv">유리판 버전 설계</p>
 </section>
 
 <section class="ch">
  <div class="no rv">02 · 보조배터리 3</div>
- <h2 class="rv">작아졌지만<br>열이 빠지지 않았습니다</h2>
+ <h2 class="rv">작아졌지만<br>열이 갇혔습니다</h2>
  <div class="body rv">
-  <p class="step"><b>만든 것</b>같은 드릴용 BMS와 100W PCB로 크기와 무게를 크게 줄였습니다. 뚜껑 부품에 PCB와 배터리를 달고(배터리와 BMS는 붙어 있는 설계), 본체를 그 위에 덮어 닫는 구조입니다.</p>
-  <p class="step"><b>문제</b>부품이 하우징의 넓은 면에 닿지 않고 안쪽 공기로만 식다 보니, 열이 빠지지 못해 내부 PLA가 녹거나 충전 속도가 제한됐습니다. 내구성도 여전히 아쉬웠습니다.</p>
-  <p class="step"><b>다음에 바꾼 것</b>열을 하우징의 넓은 면으로 보내는 구조와, 하중을 덜 받는 뚜껑 고정 방식이 필요했습니다.</p>
+  <p class="step"><b>만든 것</b>얇은 바닥판 위에 셀 4개를 엇갈리게 세우고, 한쪽에는 BMS, 반대쪽에는 PCB를 세웠습니다. 그 위로 통 모양 본체를 씌워 닫습니다. 부품을 세워 쌓으니 부피가 첫 버전의 약 62%로 줄었습니다.</p>
+  <p class="step"><b>문제</b>셀과 기판이 하우징 벽에서 떨어져 있어, 열이 빠져나갈 길이 안쪽 공기뿐이었습니다. PLA는 60℃ 안팎에서 물러지는 소재라 하우징 안쪽이 녹기도 했고, 뜨거워지면 충전 속도가 제한됐습니다. 내구성도 여전히 아쉬웠습니다.</p>
+  <p class="step"><b>다음에 바꾼 것</b>열을 하우징 벽으로 직접 보내는 구조와, 힘을 잘 버티는 뚜껑 고정 방식이 필요했습니다.</p>
  </div>
+ <div class="shot rv zoom" style="background:#e6e6e9"><img src="a/pb_3in.webp" srcset="a/pb_3in-800.webp 800w, a/pb_3in.webp 1400w" sizes="(max-width: 820px) 100vw, 1100px" alt="본체를 뺀 보조배터리 3 설계. 바닥판 위에 셀 4개와 양옆의 BMS, PCB" loading="lazy" width="1400" height="1050"></div>
+ <p class="cap rv">본체를 뺀 설계. 바닥판 위에 셀, BMS, PCB가 서 있습니다</p>
  <div class="duo">
   <figure class="rv"><img src="a/pb_v1p1.webp" alt="보조배터리 3 완성품. 흰색 출력 하우징에 케이블을 꽂은 모습" loading="lazy" width="750" height="1000"><figcaption>완성품</figcaption></figure>
-  <figure class="rv"><img src="a/pb_v1p3.webp" alt="보조배터리 3 내부. 뚜껑 부품 위에 셀 4개와 양옆의 BMS, PCB" loading="lazy" width="750" height="1000"><figcaption>뚜껑 부품에 셀, BMS, PCB를 단 내부</figcaption></figure>
+  <figure class="rv"><img src="a/pb_v1p3.webp" alt="본체를 벗긴 보조배터리 3 실물" loading="lazy" width="750" height="1000"><figcaption>본체를 벗긴 실물</figcaption></figure>
  </div>
 </section>
 
@@ -66,12 +80,12 @@
   <div class="no rv">03 · 보조배터리 5</div>
   <h2 class="rv">처음으로<br>실제로 쓸 수 있게 됐습니다</h2>
   <div class="body rv">
-   <p class="step"><b>열</b>기판에 써멀 패드를 붙여 하우징의 넓은 면으로 열을 보내고, 하우징 면에는 구리 테이프를 넓게 붙여 하우징 전체가 방열판 역할을 하게 했습니다. 따로 방열 구조를 두지 않았지만 과열 문제는 없었습니다.</p>
-   <p class="step"><b>크기</b>BMS를 빼고 셀 밸런싱만 넣어 크기를 많이 줄였습니다. 판매용이 아니어서 괜찮다고 판단했고, 셀 전압은 계속 확인하고 있습니다.</p>
-   <p class="step"><b>내구성</b>뚜껑처럼 닫은 뒤 옆면에서 볼트로 고정합니다. 볼트에 하중이 실리지 않아 이전보다 튼튼해졌습니다.</p>
+   <p class="step"><b>열</b>기판 위에 써멀 패드를 붙여 하우징 벽에 닿게 하고, 벽 안쪽에는 구리 테이프를 넓게 붙였습니다. 열이 한곳에 머물지 않고 하우징 전체로 퍼지게 한 것입니다. 따로 방열 구조를 두지 않았지만 과열 문제는 없었습니다.</p>
+   <p class="step"><b>크기</b>셀을 눕혀 두 줄로 넣고, BMS 대신 셀 전압만 맞춰 주는 밸런싱 보드를 넣어 공간을 줄였습니다. 보호 기능이 줄어드는 만큼 셀 전압을 직접 계속 확인하고 있습니다. 판매용이 아니기에 고를 수 있었던 방식입니다.</p>
+   <p class="step"><b>내구성</b>본체에 덮개를 씌운 뒤 양옆에서 볼트로 고정합니다. 볼트는 덮개가 빠지지 않게 잡아 주기만 하고 하중은 받지 않아, 이전보다 튼튼해졌습니다.</p>
   </div>
   <div class="duo">
-   <figure class="rv"><img src="a/pb_photo.webp" alt="조립 중인 보조배터리 5. 셀 옆에 밸런싱 보드, 충전 기판에 파란 써멀 패드" loading="lazy" width="900" height="1200"><figcaption>조립 중. 충전 기판의 파란 써멀 패드</figcaption></figure>
+   <figure class="rv"><img src="a/pb_photo.webp" alt="조립 중인 보조배터리 5. 셀 옆에 밸런싱 보드, 충전 기판에 파란 써멀 패드" loading="lazy" width="900" height="1200"><figcaption>조립 중. 충전 기판의 파란 사각형이 써멀 패드</figcaption></figure>
    <figure class="rv"><img src="a/pb_100w.webp" srcset="a/pb_100w-800.webp 800w, a/pb_100w.webp 1400w" sizes="(max-width: 820px) 50vw, 550px" alt="보조배터리 5 렌더" loading="lazy" width="1400" height="1050"><figcaption>보조배터리 5 설계</figcaption></figure>
   </div>
  </section>
@@ -79,19 +93,19 @@
 
 <section class="ch after">
  <div class="no rv">04 · 45W 보조배터리</div>
- <h2 class="rv">단순하게 바꾸자<br>작고 튼튼해졌습니다</h2>
+ <h2 class="rv">구조를 단순하게 하자<br>작고 튼튼해졌습니다</h2>
  <div class="body rv">
-  <p class="step"><b>바꾼 것</b>100W와 비슷한 설계에서 배터리와 PCB를 고정하는 방식을 단순하게 바꾸고, 45W로 충전과 방전이 되는 PCB로 교체했습니다. PCB의 버튼으로 보조배터리를 조작합니다.</p>
-  <p class="step"><b>결과</b>고정 방식이 단순해지자 길이와 크기가 줄고 내구성도 크게 좋아졌습니다. 출력한 뒤 입대 전까지 약 6개월 동안 실제로 썼습니다. 옆면의 핀은 방열 효과가 크지 않아 디자인 요소에 가깝습니다.</p>
+  <p class="step"><b>바꾼 것</b>보조배터리 5와 비슷한 설계에서 셀과 PCB를 붙잡는 구조를 단순하게 바꿨습니다. PCB는 45W로 충전과 출력이 모두 되는 보드로 바꿨고, 끝면 USB-C 옆의 버튼으로 조작합니다.</p>
+  <p class="step"><b>결과</b>고정 부품이 줄면서 폭이 약 8mm 줄었고, 망가질 곳이 줄어 훨씬 튼튼해졌습니다. 입대 전까지 약 6개월 동안 실제로 썼습니다. 옆면의 핀은 방열을 기대하고 넣었지만 효과가 크지 않아, 지금은 디자인 요소에 가깝습니다.</p>
  </div>
 </section>
 
 <section class="ch">
  <div class="no rv">다른 보조배터리 · 1S2P 15W</div>
- <h2 class="rv">C타입 단자를<br>그냥 이었다가 실패했습니다</h2>
+ <h2 class="rv">USB-C 단자를<br>그냥 이었다가 실패했습니다</h2>
  <div class="body rv">
-  <p class="step"><b>만든 것</b>셀 2개를 병렬로 묶고 5V 3A 충방전 모듈을 회색 출력 케이스에 넣었습니다. 5V 출력 단자에 C타입 단자를 그대로 이어 썼습니다.</p>
-  <p class="step"><b>문제</b>연결한 기기가 전원을 인식하지 못했습니다. C타입 출력 단자는 CC 핀에 풀업 저항(Rp, 10~56kΩ)이 있어야 기기가 전원을 알아보는데, 이 저항이 없어서였던 것으로 보고 있습니다.</p>
+  <p class="step"><b>만든 것</b>셀 2개를 병렬로 묶은 작은 보조배터리입니다. 5V 3A 충방전 모듈을 회색 출력 케이스에 넣고, 모듈의 5V 출력에 USB-C 단자를 직접 이었습니다.</p>
+  <p class="step"><b>문제</b>기기를 연결해도 충전이 시작되지 않았습니다. USB-C는 전원을 주는 쪽이 CC 핀에 풀업 저항(Rp, 10~56kΩ)을 달아 전원이 있다는 것을 알려야 상대 기기가 전기를 받습니다. 단자만 잇고 이 저항을 빠뜨린 것이 원인으로 보입니다.</p>
  </div>
  <div class="shot rv"><img src="a/pb_1s.webp" alt="회색 출력 케이스에 흰색 IN·OUT 단자 덮개를 나사로 고정한 1S2P 15W 보조배터리" loading="lazy" width="1200" height="900"></div>
  <p class="cap rv">1S2P 15W 보조배터리</p>
@@ -99,10 +113,10 @@
 
 <section class="ch">
  <div class="no rv">다른 보조배터리 · 18W</div>
- <h2 class="rv">기판 사양을<br>잘못 읽었습니다</h2>
+ <h2 class="rv">보드 사양을<br>잘못 읽었습니다</h2>
  <div class="body rv">
-  <p class="step"><b>만든 것</b>입출력이 모두 되는 보드인 줄 알고 하우징을 만들었습니다. 뚜껑 안쪽에는 구리 테이프를 붙였습니다.</p>
-  <p class="step"><b>문제</b>기판이 충전 입력만 되는 보드여서 보조배터리로 쓸 수 없었습니다.</p>
+  <p class="step"><b>만든 것</b>충전과 출력이 모두 되는 보드라고 생각하고 하우징을 만들었습니다. 뚜껑 안쪽에는 구리 테이프도 붙였습니다.</p>
+  <p class="step"><b>문제</b>실제로는 충전 입력만 되는 보드여서, 하우징까지 완성하고도 보조배터리로는 쓸 수 없었습니다.</p>
  </div>
  <div class="duo">
   <figure class="rv"><img src="a/pb_18w1.webp" alt="검정 출력 하우징 위에 기판을 얹은 18W 보조배터리" loading="lazy" width="750" height="1000"><figcaption>18W 하우징</figcaption></figure>
