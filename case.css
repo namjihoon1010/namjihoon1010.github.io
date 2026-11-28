@@ -5,6 +5,7 @@ body{margin:0;font-family:"Pretendard Variable",Pretendard,system-ui,-apple-syst
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%;height:auto}
 .num{font-variant-numeric:tabular-nums}
+h1,h2{text-wrap:balance}
 .eyebrow{font-size:14px;font-weight:600;color:var(--acc)}
 
 /* nav */

@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="stylesheet" href="case.css?v=4dbb24f4">
+<link rel="stylesheet" href="case.css?v=d24a6596">
 <style>
 .steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px;font-size:14px;color:#d2d2d7}
 .steps span{border:1px solid #3a3a3e;border-radius:99px;padding:8px 14px}
@@ -95,7 +95,7 @@
 <div class="app">
  <section class="intro">
   <div class="eyebrow rv">AV1 Drop Encoder</div>
-  <h1 class="rv">보내기 전에<br>원하는 용량으로</h1>
+  <h1 class="rv">보내기 전에 원하는 용량으로</h1>
   <p class="rv">메신저로 보내기 전에, 용량 제한에 맞게 영상을 줄여 주는 Windows 앱입니다.<span class="gap"></span>원하는 용량을 적고 영상을 창에 끌어다 놓으면 끝납니다.</p>
   <div class="steps rv"><span>용량 입력</span><i>→</i><span>영상 드롭</span><i>→</i><span>완성</span></div>
   <span class="badge rv">Claude Code로 개발</span>
@@ -136,7 +136,7 @@
 
 <section class="ch">
  <div class="no rv">01 · 문제</div>
- <h2 class="rv">메신저로 보내기엔<br>영상이 너무 큽니다</h2>
+ <h2 class="rv">메신저로 보내기엔 영상이 너무 큽니다</h2>
  <div class="body rv">
   <p>메신저로 영상을 보내다 보면 용량 제한에 자주 걸립니다.</p><p>영상을 줄이려면 인코딩 프로그램을 열고, 영상 길이에 맞춰 비트레이트(1초에 쓰는 데이터 양)를 직접 계산해야 합니다.</p><p>그래서 원하는 용량만 적으면 나머지는 앱이 알아서 하도록 만들었습니다. 비트레이트는 앱이 영상 길이로 계산하고, 압축에는 같은 화질을 더 작은 용량에 담는 AV1 코덱을 씁니다.</p><p>화질을 기준으로 하는 모드, 비트레이트를 직접 정하는 모드, 자동 모드도 함께 넣었습니다.</p>
  </div>
@@ -144,7 +144,7 @@
 
 <section class="ch">
  <div class="no rv">02 · 쓰는 사람 기준</div>
- <h2 class="rv">친구에게 바로<br>보낼 수 있는 앱</h2>
+ <h2 class="rv">친구에게 바로 보낼 수 있는 앱</h2>
  <div class="body rv"><p>친구들과 나눠 쓰는 앱이라, 받는 사람이 따로 아무것도 설치하지 않아도 되는 것이 가장 중요했습니다.</p></div>
  <div class="rules dk">
   <div class="rule rv"><i>1</i><h3>실행 파일 하나, 10MB 이하</h3><p>메신저로 바로 보낼 수 있도록 실행 파일 하나를 10MB 아래로 맞췄습니다.</p></div>
@@ -161,7 +161,7 @@
 <div class="light">
  <section class="ch">
   <div class="no rv">03 · 디테일</div>
-  <h2 class="rv">작은 부분까지<br>손봤습니다</h2>
+  <h2 class="rv">작은 부분까지 손봤습니다</h2>
   <div class="rules">
    <div class="rule rv"><i>1</i><h3>부드러운 곡선</h3><p>앱 화면을 그리는 Tkinter는 둥근 모서리를 계단처럼 거칠게 그립니다. 4배 크기로 그린 뒤 줄여서 붙이는 방식으로 바꿔 부드럽게 만들었습니다.</p></div>
    <div class="rule rv"><i>2</i><h3>AMD 그래픽카드 지원</h3><p>그래픽카드로 인코딩하는 GPU 모드에 AMD를 추가하고, RX 9060 XT로 동작을 확인했습니다.</p></div>
@@ -173,7 +173,7 @@
 
 <section class="next">
  <div class="eyebrow rv">04 · 만든 방식</div>
- <h2 class="rv">코드는 AI가 쓰고<br>결정은 제가 했습니다</h2>
+ <h2 class="rv">코드는 AI가 쓰고 결정은 제가 했습니다</h2>
  <p class="rv">코드는 Claude Code로 작성했습니다.<span class="gap"></span>어떤 기능을 넣고 뺄지 정하고, 제대로 동작하는지 확인하는 일은 제가 했습니다.</p>
  <dl class="cred rv"><div><dt>역할</dt><dd>남지훈 (기획·검증)</dd></div><div><dt>도구</dt><dd>Claude Code (Python, Tkinter), ffmpeg</dd></div><div><dt>시기</dt><dd>2026년 8~9월</dd></div></dl>
  <div class="links rv"><a class="btn p" href="./#work">다른 작업 보기</a><a class="btn o" href="./" data-back>← 돌아가기</a></div>
