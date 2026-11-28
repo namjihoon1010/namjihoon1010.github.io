@@ -226,10 +226,10 @@ const vo=new IntersectionObserver(es=>es.forEach(({target:v,isIntersecting:on})=
 document.querySelectorAll('video').forEach(v=>{v.muted=true;vo.observe(v)});
 // months since a date, kept current: <data data-since="2026-02">9</data>
 document.querySelectorAll('[data-since]').forEach(e=>{const [y,m,d=1]=e.dataset.since.split('-').map(Number),n=new Date(),k=(n.getFullYear()-y)*12+n.getMonth()+1-m-(n.getDate()<d?1:0);if(k>0)e.textContent=k});
-// nav: glass after hero, light over light area
-const nav=document.getElementById('nav'),hero=document.querySelector('.hero'),light=document.getElementById('more');
-const navUpd=()=>{const y=52,h=hero.getBoundingClientRect(),l=light.getBoundingClientRect();
- nav.classList.toggle('s',h.bottom<y);nav.classList.toggle('l',l.top<y&&l.bottom>y)};
+// nav: solid bar as soon as the page scrolls (hero text never runs under bare menu links), light over light area
+const nav=document.getElementById('nav'),light=document.getElementById('more');
+const navUpd=()=>{const y=52,l=light.getBoundingClientRect();
+ nav.classList.toggle('s',scrollY>20);nav.classList.toggle('l',l.top<y&&l.bottom>y)};
 addEventListener('scroll',navUpd,{passive:true});navUpd();
 </script>
 </body>
