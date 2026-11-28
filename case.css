@@ -88,6 +88,7 @@ span.gap{display:block;height:.7em}
 .duo.r45 :is(img,video){aspect-ratio:4/5;object-fit:cover}
 .duo img.ct{object-fit:contain;background:var(--bg,#e8e8ed)}
 .duo.bare{margin-top:clamp(48px,8vh,72px)}
+.duo.bare+.duo.bare{margin-top:20px}
 .duo.bare figure{background:none;border-radius:0;overflow:visible}
 .duo.bare :is(img,video){border-radius:8px;background:#e8e8ed}
 .duo.bare figcaption{margin-top:10px;padding:0}
